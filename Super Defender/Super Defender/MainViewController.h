@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Playfield.h"
 
 @interface MainViewController : UIViewController
+
+@property (atomic, retain) Playfield *playfield;
+@property (atomic, retain) UISlider *slider;
+@property (atomic, retain) NSTimer * timer;
+
+- (void)update;
 
 @end

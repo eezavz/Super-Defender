@@ -10,4 +10,10 @@
 
 @interface Cannon : NSObject
 
+@property (nonatomic, assign) int aimspeed;
+@property (nonatomic, assign) int rateOffFire;
+@property (nonatomic, retain) UIImage *image;
+
+-(void)update;
+
 @end

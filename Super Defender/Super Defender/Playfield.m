@@ -10,4 +10,21 @@
 
 @implementation Playfield
 
+@synthesize progress;
+@synthesize score;
+@synthesize health;
+@synthesize cannon;
+
+- (Playfield *)init
+{
+    self.cannon = [[Cannon alloc]init];
+    return [super init];
+}
+
+-(void)update:(float)angle;
+{
+    NSLog(@"Angle %f", angle);
+    [self.cannon update];
+}
+
 @end

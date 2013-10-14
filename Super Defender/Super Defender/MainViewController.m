@@ -7,12 +7,17 @@
 //
 
 #import "MainViewController.h"
+#import "MenuViewController.h"
 
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+
+@synthesize playfield;
+@synthesize slider;
+@synthesize timer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +32,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.playfield = [[Playfield alloc]init];
+    CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
+    slider = [[UISlider alloc]initWithFrame:frame];
+    [self.view addSubview:slider];
+    slider.minimumValue = 0;
+    slider.maximumValue = 180;
+    slider.value = 90;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1/30 target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
+
+- (void)update:(NSTimer *)timer
+{
+    [playfield update:slider.value];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

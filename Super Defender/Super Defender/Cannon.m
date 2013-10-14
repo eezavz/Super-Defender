@@ -10,4 +10,18 @@
 
 @implementation Cannon
 
+@synthesize aimspeed;
+@synthesize rateOffFire;
+@synthesize image;
+
+- (Cannon *)init
+{
+    return [super init];
+}
+
+-(void)update
+{
+    
+}
+
 @end
