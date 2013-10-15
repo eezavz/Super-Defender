@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8216DAAA180D6F9C003E8BFF /* barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 8216DAA9180D6F9C003E8BFF /* barrel.png */; };
+		821ADA48180D5452007870B7 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 821ADA46180D5452007870B7 /* base.png */; };
 		DC8DD040180C0A8200857A2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD03F180C0A8200857A2D /* UIKit.framework */; };
 		DC8DD042180C0A8200857A2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD041180C0A8200857A2D /* Foundation.framework */; };
 		DC8DD044180C0A8200857A2D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD043180C0A8200857A2D /* CoreGraphics.framework */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8216DAA9180D6F9C003E8BFF /* barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrel.png; sourceTree = "<group>"; };
+		821ADA46180D5452007870B7 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		DC8DD03C180C0A8200857A2D /* Super Defender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Defender.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8DD03F180C0A8200857A2D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC8DD041180C0A8200857A2D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -126,6 +130,8 @@
 				DC8DD04E180C0A8200857A2D /* AppDelegate.h */,
 				DC8DD04F180C0A8200857A2D /* AppDelegate.m */,
 				DC8DD046180C0A8200857A2D /* Supporting Files */,
+				8216DAA9180D6F9C003E8BFF /* barrel.png */,
+				821ADA46180D5452007870B7 /* base.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
 				DC8DD061180C0BC200857A2D /* MenuViewController.h */,
@@ -227,8 +233,10 @@
 			files = (
 				DC8DD04A180C0A8200857A2D /* InfoPlist.strings in Resources */,
 				DC8DD052180C0A8200857A2D /* Default.png in Resources */,
+				8216DAAA180D6F9C003E8BFF /* barrel.png in Resources */,
 				DC8DD054180C0A8200857A2D /* Default@2x.png in Resources */,
 				DC8DD056180C0A8200857A2D /* Default-568h@2x.png in Resources */,
+				821ADA48180D5452007870B7 /* base.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +376,7 @@
 				DC8DD05B180C0A8200857A2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

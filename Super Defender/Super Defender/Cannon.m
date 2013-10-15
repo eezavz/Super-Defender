@@ -11,7 +11,8 @@
 @implementation Cannon
 
 @synthesize aimspeed;
-@synthesize rateOffFire;
+@synthesize rateOfFire;
+@synthesize angle;
 @synthesize image;
 
 - (Cannon *)init
@@ -19,9 +20,9 @@
     return [super init];
 }
 
--(void)update
+-(void)update:(float) angle2
 {
-    
+    self.angle = angle2;
 }
 
 @end

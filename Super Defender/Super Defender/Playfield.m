@@ -24,7 +24,7 @@
 -(void)update:(float)angle;
 {
     NSLog(@"Angle %f", angle);
-    [self.cannon update];
+    [self.cannon update:angle];
 }
 
 @end
