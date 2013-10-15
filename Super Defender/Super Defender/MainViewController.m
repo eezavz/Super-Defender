@@ -21,6 +21,9 @@
 @synthesize cannonBody;
 @synthesize cannonBarrel;
 
+@synthesize enemeSpawnCountdown;
+@synthesize enemies;
+
 #define degrees(x) (M_PI * (x) / 180)
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +39,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    enemeSpawnCountdown = 100;
+    enemies = [[NSMutableArray alloc]init];
+    
     self.playfield = [[Playfield alloc]init];
     CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
     slider = [[UISlider alloc]initWithFrame:frame];
@@ -63,6 +70,39 @@
     float angle = playfield.cannon.angle;
     CGAffineTransform trans = CGAffineTransformMakeRotation(degrees(angle));
     cannonBarrel.transform = trans;
+    
+    [self enemySpawnHandler];
+}
+
+- (void)enemySpawnHandler
+{
+    enemeSpawnCountdown--;
+    if(enemeSpawnCountdown <0)
+    {
+        UIImageView *enemy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
+        enemy.frame = CGRectMake(random() % 300, -170, 300, 300);
+        [self.view addSubview:enemy];
+        [enemies addObject:enemy];
+        //[self.view insertSubview:slider aboveSubview:cannonBody]; Wordt gebruikt om achter button te zetten.
+        enemeSpawnCountdown = 100;
+    }
+    for(int i = 0; i<enemies.count; i++)
+    {
+        UIImageView *tempImage = [enemies objectAtIndex:i];
+        if(tempImage.frame.origin.y > 380)
+        {
+            [tempImage release];
+            [enemies removeObjectAtIndex:i];
+            i--;
+            NSLog(@"Deleted");
+        }else
+        {
+            CGRect tempFrame = tempImage.frame;
+            tempFrame.origin.y = tempImage.frame.origin.y+2;
+            tempImage.frame = tempFrame;
+        }
+        [tempImage release];
+    }
 }
 
 

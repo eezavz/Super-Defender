@@ -17,6 +17,10 @@
 @property (atomic, retain) UIImageView *cannonBody;
 @property (atomic, retain) UIImageView *cannonBarrel;
 
+@property (nonatomic, assign) int enemeSpawnCountdown;
+@property (atomic, retain) NSMutableArray *enemies;
+
 - (void)update:(NSTimer *)timer;
+- (void)enemySpawnHandler;
 
 @end

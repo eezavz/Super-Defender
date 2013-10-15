@@ -23,7 +23,7 @@
 
 -(void)update:(float)angle;
 {
-    NSLog(@"Angle %f", angle);
+    //NSLog(@"Angle %f", angle);
     [self.cannon update:angle];
 }
 
