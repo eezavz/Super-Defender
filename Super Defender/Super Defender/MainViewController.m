@@ -18,6 +18,10 @@
 @synthesize playfield;
 @synthesize slider;
 @synthesize timer;
+@synthesize cannonBody;
+@synthesize cannonBarrel;
+
+#define degrees(x) (100 * x / M_PI)
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +44,13 @@
     slider.maximumValue = 180;
     slider.value = 90;
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:1/30 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cannonBody"]];
+    cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cannonBarrel"]];
+    
+    [self.view addSubview:cannonBody];
+    [self.view addSubview:cannonBarrel];
+     
+    timer = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 - (void)update:(NSTimer *)timer

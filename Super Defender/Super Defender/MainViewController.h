@@ -14,6 +14,8 @@
 @property (atomic, retain) Playfield *playfield;
 @property (atomic, retain) UISlider *slider;
 @property (atomic, retain) NSTimer * timer;
+@property (atomic, retain) UIImageView *cannonBody;
+@property (atomic, retain) UIImageView *cannonBarrel;
 
 - (void)update;
 
