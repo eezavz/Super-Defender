@@ -18,6 +18,10 @@
 @synthesize playfield;
 @synthesize slider;
 @synthesize timer;
+@synthesize cannonBody;
+@synthesize cannonBarrel;
+
+#define degrees(x) (100 * x / M_PI)
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
