@@ -40,7 +40,7 @@
     slider.maximumValue = 180;
     slider.value = 90;
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:1/30 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f/30.0f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 - (void)update:(NSTimer *)timer

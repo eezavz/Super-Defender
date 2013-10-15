@@ -15,6 +15,6 @@
 @property (atomic, retain) UISlider *slider;
 @property (atomic, retain) NSTimer * timer;
 
-- (void)update;
+- (void)update:(NSTimer *)timer;
 
 @end
