@@ -18,5 +18,6 @@
 @property (atomic, retain) UIImageView *cannonBarrel;
 
 - (void)update:(NSTimer *)timer;
+- (void)render;
 
 @end

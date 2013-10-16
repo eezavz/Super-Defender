@@ -65,6 +65,11 @@
 - (void)update:(NSTimer *)timer
 {
     [playfield update:slider.value];
+    [self render];
+}
+
+- (void) render
+{
     float angle = playfield.cannon.angle;
     CGAffineTransform trans = CGAffineTransformMakeRotation(degrees(angle));
     cannonBarrel.transform = trans;
