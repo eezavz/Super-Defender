@@ -47,7 +47,7 @@
     slider.value = 90;
     
     cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
-    cannonBarrel.frame = CGRectMake(10, 330, 300, 300);
+    cannonBarrel.frame = CGRectMake(52, 372, 216, 216);
     cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base"]];
     cannonBody.frame = CGRectMake(110, 380, 100, 100);
     
