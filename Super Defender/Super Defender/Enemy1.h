@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Enemy.h"
 
-@interface Enemy1 : NSObject
+@interface Enemy1 : Enemy
 
 @end

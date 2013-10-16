@@ -7,6 +7,7 @@
 //
 
 #import "Playfield.h"
+#import "Enemy1.h"
 
 @implementation Playfield
 
@@ -15,10 +16,12 @@
 @synthesize health;
 @synthesize enemyCountdown;
 @synthesize cannon;
+@synthesize enemies;
 
 - (Playfield *)init
 {
     self.cannon = [[Cannon alloc]init];
+    enemies = [[NSMutableArray alloc] init];
     return [super init];
 }
 
@@ -26,11 +29,25 @@
 {
     //NSLog(@"Angle %f", angle);
     [self.cannon update:angle];
-    enemyCountdown--;
-    if(enemyCountdown <= 0) {
-        int random = arc4random() % 50;
+    
+    if(enemyCountdown == 0) {
+        int random = arc4random() % 100;
         NSLog(@"Random: %d", random);
-        enemyCountdown = 50 + random;
+        enemyCountdown = random;
+        Enemy1 *lwut = [[Enemy1 alloc] initWithX: arc4random() % 256 y:-34];
+        [self.enemies addObject:lwut];
+    } else {
+        enemyCountdown--;
+    }
+    for (int i = 0; i < enemies.count; i++) {
+        [[enemies objectAtIndex:i] AI];
+        if([[enemies objectAtIndex:i] mustDie])
+        {
+            Enemy *temp = [enemies objectAtIndex:i];
+            [enemies removeObject:temp];
+            [temp dealloc];
+            i--;
+        }
     }
 }
 

@@ -38,6 +38,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.enemyImage = [UIImage imageNamed:@"enemy"];
+    self.drawnEnemies = [[NSMutableArray alloc] init];
+    
     self.playfield = [[Playfield alloc]init];
     CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
     slider = [[UISlider alloc]initWithFrame:frame];
@@ -73,6 +76,32 @@
     float angle = playfield.cannon.angle;
     CGAffineTransform trans = CGAffineTransformMakeRotation(degrees(angle));
     cannonBarrel.transform = trans;
+    
+    if(self.drawnEnemies.count < playfield.enemies.count) {
+        int toAdd = playfield.enemies.count - self.drawnEnemies.count;
+        for (int i = 0; i < toAdd; i++) {
+            [self.drawnEnemies addObject:[[UIImageView alloc] initWithImage:self.enemyImage]];
+        }
+    }
+    if(self.drawnEnemies.count > playfield.enemies.count) {
+        int toDelete = self.drawnEnemies.count - playfield.enemies.count;
+        for (int i = 0; i < toDelete; i++) {
+            UIImageView *temp = [self.drawnEnemies objectAtIndex:0];
+            [temp removeFromSuperview];
+            [self.drawnEnemies removeObject:temp];
+            [temp dealloc];
+        }
+    }
+    
+    for (int i = 0; i < playfield.enemies.count; i++) {
+        UIImageView *temp = [self.drawnEnemies objectAtIndex:i];
+        CGRect frame = temp.frame;
+        frame.origin.x = [[playfield.enemies objectAtIndex:i] x];
+        frame.origin.y = [[playfield.enemies objectAtIndex:i] y];
+        temp.frame = frame;
+        [self.view addSubview:temp];
+        //[temp release];
+    }
 }
 
 

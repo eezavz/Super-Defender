@@ -10,4 +10,20 @@
 
 @implementation Enemy1
 
+- (void) dealloc
+{
+    NSLog(@"Enemy1 dealloc");
+    [super dealloc];
+}
+
+- (void) AI
+{
+    //NSLog(@"Enemy1 AI: %f,%f, %s", self.x, self.y, self.mustDie ? "true" : "false");
+    self.y++;
+    if(self.y > 480)
+    {
+        self.mustDie = YES;
+    }
+}
+
 @end

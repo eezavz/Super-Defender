@@ -16,6 +16,8 @@
 @property (atomic, retain) NSTimer * timer;
 @property (atomic, retain) UIImageView *cannonBody;
 @property (atomic, retain) UIImageView *cannonBarrel;
+@property (atomic, retain) UIImage *enemyImage;
+@property (atomic, retain) NSMutableArray *drawnEnemies;
 
 - (void)update:(NSTimer *)timer;
 - (void)render;

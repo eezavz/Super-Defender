@@ -8,6 +8,26 @@
 
 #import "Enemy.h"
 
-@implementation Enemy
+@implementation Enemy;
+
+- (Enemy *)init
+{
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"Use initWithX"]
+                                 userInfo:nil];
+}
+
+- (Enemy *)initWithX:(float)x y:(float) y {
+    self.x = x;
+    self.y = y;
+    return self;
+}
+
+- (void) AI
+{
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                 userInfo:nil];
+}
 
 @end

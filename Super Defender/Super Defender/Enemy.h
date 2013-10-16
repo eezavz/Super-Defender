@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Enemy : NSObject
+@interface Enemy : NSObject 
+@property (nonatomic, assign) float speed;
+@property (nonatomic, assign) int health;
+@property (nonatomic, assign) BOOL mustDie;
+@property (nonatomic) float x;
+@property (nonatomic) float y;
+
+- (Enemy *)init;
+- (Enemy *) initWithX:(float)x y:(float) y;
+- (void) AI;
 
 @end
