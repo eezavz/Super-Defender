@@ -13,6 +13,7 @@
 @synthesize progress;
 @synthesize score;
 @synthesize health;
+@synthesize enemyCountdown;
 @synthesize cannon;
 
 - (Playfield *)init
@@ -25,6 +26,12 @@
 {
     //NSLog(@"Angle %f", angle);
     [self.cannon update:angle];
+    enemyCountdown--;
+    if(enemyCountdown <= 0) {
+        int random = arc4random() % 50;
+        NSLog(@"Random: %d", random);
+        enemyCountdown = 50 + random;
+    }
 }
 
 @end

@@ -14,6 +14,7 @@
 @property (nonatomic, assign) int progress;
 @property (nonatomic, assign) int score;
 @property (nonatomic, assign) int health;
+@property (nonatomic, assign) int enemyCountdown;
 @property (nonatomic, retain) Cannon *cannon;
 
 -(void)update:(float)angle;
