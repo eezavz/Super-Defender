@@ -20,6 +20,12 @@
 - (Enemy *)initWithX:(float)x y:(float) y {
     self.x = x;
     self.y = y;
+    if(arc4random() % 2 == 0) {
+        self.rotatesLeft = YES;
+        self.angle = 20;
+    } else {
+        self.angle = -20;
+    }
     return self;
 }
 

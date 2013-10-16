@@ -10,7 +10,6 @@
 #import "MenuViewController.h"
 
 @interface MainViewController ()
-
 @end
 
 @implementation MainViewController
@@ -80,7 +79,9 @@
     if(self.drawnEnemies.count < playfield.enemies.count) {
         int toAdd = playfield.enemies.count - self.drawnEnemies.count;
         for (int i = 0; i < toAdd; i++) {
-            [self.drawnEnemies addObject:[[UIImageView alloc] initWithImage:self.enemyImage]];
+            UIImageView *temp = [[UIImageView alloc] initWithImage:self.enemyImage];
+            [self.drawnEnemies addObject:temp];
+            [self.view addSubview:temp];
         }
     }
     if(self.drawnEnemies.count > playfield.enemies.count) {
@@ -95,12 +96,10 @@
     
     for (int i = 0; i < playfield.enemies.count; i++) {
         UIImageView *temp = [self.drawnEnemies objectAtIndex:i];
-        CGRect frame = temp.frame;
-        frame.origin.x = [[playfield.enemies objectAtIndex:i] x];
-        frame.origin.y = [[playfield.enemies objectAtIndex:i] y];
-        temp.frame = frame;
-        [self.view addSubview:temp];
-        //[temp release];
+        temp.center = CGPointMake([[playfield.enemies objectAtIndex:i] x]+temp.frame.size.width/2, [[playfield.enemies objectAtIndex:i] y]+temp.frame.size.height/2);
+        float rotation = [[playfield.enemies objectAtIndex:i] angle];
+        CGAffineTransform rot = CGAffineTransformMakeRotation(degrees(rotation));
+        temp.transform = rot;
     }
 }
 

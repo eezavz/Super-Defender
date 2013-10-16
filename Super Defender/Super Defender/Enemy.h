@@ -12,8 +12,10 @@
 @property (nonatomic, assign) float speed;
 @property (nonatomic, assign) int health;
 @property (nonatomic, assign) BOOL mustDie;
-@property (nonatomic) float x;
-@property (nonatomic) float y;
+@property (nonatomic, assign) float x;
+@property (nonatomic, assign) float y;
+@property (nonatomic, assign) float angle;
+@property (nonatomic, assign) BOOL rotatesLeft;
 
 - (Enemy *)init;
 - (Enemy *) initWithX:(float)x y:(float) y;

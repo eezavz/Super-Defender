@@ -24,6 +24,20 @@
     {
         self.mustDie = YES;
     }
+    if(self.rotatesLeft) {
+        if(self.angle < -10) {
+            self.rotatesLeft = NO;
+        } else {
+            self.angle--;
+        }
+    } else {
+        if(self.angle > 10) {
+            self.rotatesLeft = YES;
+        } else {
+            self.angle++;
+        }
+    }
+    //NSLog(@"Angle: %f", self.angle);
 }
 
 @end
