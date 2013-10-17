@@ -26,6 +26,6 @@
 - (void)render;
 - (void)renderProjectiles;
 - (void) collisionDetect;
-- (int) distanceFromPoint:(int)p2x: (int)p2y: (int)p1x: (int)p1y;
+- (int) distanceFromPoint:(int)p2x : (int)p2y : (int)p1x : (int)p1y;
 
 @end

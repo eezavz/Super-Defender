@@ -112,7 +112,7 @@
     }
 }
 
-- (int) distanceFromPoint:(int)p2x: (int)p2y: (int)p1x: (int)p1y
+- (int) distanceFromPoint:(int)p2x : (int)p2y : (int)p1x : (int)p1y
 {
     int xDist = (p1x - p2x);
     int yDist = (p1y - p2y);
