@@ -17,6 +17,7 @@
 @property (nonatomic, assign) int enemyCountdown;
 @property (nonatomic, retain) Cannon *cannon;
 @property (nonatomic, retain) NSMutableArray *enemies;
+@property (nonatomic, retain) NSMutableArray *projectiles;
 
 -(void)update:(float)angle;
 

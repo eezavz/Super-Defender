@@ -19,6 +19,9 @@
 @synthesize timer;
 @synthesize cannonBody;
 @synthesize cannonBarrel;
+@synthesize projectileCountdown;
+@synthesize projectiles;
+@synthesize projectileImage;
 
 
 #define degrees(x) (M_PI * (x) / 180)
@@ -39,6 +42,10 @@
     
     self.enemyImage = [UIImage imageNamed:@"enemy"];
     self.drawnEnemies = [[NSMutableArray alloc] init];
+    
+    self.projectileImage = [UIImage imageNamed:@"projectile.png"];
+    projectileCountdown = 50;
+    projectiles = [[NSMutableArray alloc]init];
     
     self.playfield = [[Playfield alloc]init];
     CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
@@ -68,6 +75,8 @@
 {
     [playfield update:slider.value];
     [self render];
+    [self renderProjectiles];
+    [self collisionDetect];
 }
 
 - (void) render
@@ -96,10 +105,59 @@
     
     for (int i = 0; i < playfield.enemies.count; i++) {
         UIImageView *temp = [self.drawnEnemies objectAtIndex:i];
-        temp.center = CGPointMake([[playfield.enemies objectAtIndex:i] x]+temp.frame.size.width/2, [[playfield.enemies objectAtIndex:i] y]+temp.frame.size.height/2);
+        temp.center = CGPointMake([[playfield.enemies objectAtIndex:i] x], [[playfield.enemies objectAtIndex:i] y]);
         float rotation = [[playfield.enemies objectAtIndex:i] angle];
         CGAffineTransform rot = CGAffineTransformMakeRotation(degrees(rotation));
         temp.transform = rot;
+    }
+}
+
+- (int) distanceFromPoint:(int)p2x: (int)p2y: (int)p1x: (int)p1y
+{
+    int xDist = (p1x - p2x);
+    int yDist = (p1y - p2y);
+    return sqrt((xDist * xDist) + (yDist * yDist));
+}
+
+- (void) collisionDetect
+{
+    for(int i = 0; i<projectiles.count; i++)
+    {
+        UIImageView *tempImage = [projectiles objectAtIndex:i];
+        //NSLog(@"Enemies count: %i", playfield.enemies.count);
+        for(int b = 0; b<playfield.enemies.count; b++)
+        {
+            if([self distanceFromPoint:[[playfield.enemies objectAtIndex:b] x] :[[playfield.enemies objectAtIndex:b] y] :tempImage.frame.origin.x : tempImage.frame.origin.y] < 35)
+            {
+                [tempImage removeFromSuperview];
+                [tempImage release];
+                [projectiles removeObjectAtIndex:i];
+                [playfield.enemies removeObjectAtIndex:b];
+                b--;
+                i--;
+                break;
+            }
+        }
+    }
+}
+
+- (void) renderProjectiles
+{
+    int test = slider.value-90;
+    projectileCountdown--;
+    for(int i = 0; i<projectiles.count; i++)
+    {
+        UIImageView *tempImage = [projectiles objectAtIndex:i];
+        tempImage.center = CGPointMake(tempImage.frame.origin.x+tempImage.frame.size.width/2+test/3.6, tempImage.frame.origin.y+tempImage.frame.size.height/2-12);
+    }
+    
+    if(projectileCountdown < 0)
+    {
+        UIImageView *tempImage = [[UIImageView alloc] initWithImage:self.projectileImage];
+        [projectiles addObject:tempImage];
+        [self.view addSubview:tempImage];
+        tempImage.center = CGPointMake(cannonBody.frame.origin.x+cannonBody.frame.size.width/2, cannonBody.frame.origin.y+cannonBody.frame.size.height/2+38.5);
+        projectileCountdown = 50;
     }
 }
 

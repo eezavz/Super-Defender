@@ -17,9 +17,15 @@
 @property (atomic, retain) UIImageView *cannonBody;
 @property (atomic, retain) UIImageView *cannonBarrel;
 @property (atomic, retain) UIImage *enemyImage;
+@property (atomic, retain) UIImage *projectileImage;
 @property (atomic, retain) NSMutableArray *drawnEnemies;
+@property (atomic, assign) int projectileCountdown;
+@property (atomic, retain) NSMutableArray *projectiles;
 
 - (void)update:(NSTimer *)timer;
 - (void)render;
+- (void)renderProjectiles;
+- (void) collisionDetect;
+- (int) distanceFromPoint:(int)p2x: (int)p2y: (int)p1x: (int)p1y;
 
 @end

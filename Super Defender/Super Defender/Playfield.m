@@ -17,6 +17,7 @@
 @synthesize enemyCountdown;
 @synthesize cannon;
 @synthesize enemies;
+@synthesize projectiles;
 
 - (Playfield *)init
 {
@@ -32,9 +33,9 @@
     
     if(enemyCountdown == 0) {
         int random = arc4random() % 100;
-        NSLog(@"Random: %d", random);
+        //NSLog(@"Random: %d", random);
         enemyCountdown = random;
-        Enemy1 *lwut = [[Enemy1 alloc] initWithX: arc4random() % 256 y:-34];
+        Enemy1 *lwut = [[Enemy1 alloc] initWithX: arc4random() % (320-32) y:-17];
         [self.enemies addObject:lwut];
     } else {
         enemyCountdown--;

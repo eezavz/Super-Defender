@@ -22,7 +22,10 @@
 
 -(void)update:(float) angle2
 {
-    self.angle = angle2;
+    if(angle2 > 37 && angle2 < 143)
+    {
+        self.angle = angle2;
+    }
 }
 
 @end
