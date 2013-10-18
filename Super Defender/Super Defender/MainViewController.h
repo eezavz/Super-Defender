@@ -20,7 +20,7 @@
 @property (atomic, retain) UIImage *projectileImage;
 @property (atomic, retain) NSMutableArray *drawnEnemies;
 @property (atomic, assign) int projectileCountdown;
-@property (atomic, retain) NSMutableArray *projectiles;
+//@property (atomic, retain) NSMutableArray *projectiles;
 
 - (void)update:(NSTimer *)timer;
 - (void)render;
