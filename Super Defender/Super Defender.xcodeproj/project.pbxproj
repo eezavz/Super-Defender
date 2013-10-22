@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		821ADA48180D5452007870B7 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 821ADA46180D5452007870B7 /* base.png */; };
 		821C9C0B18106CCF00790468 /* projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 821C9C0A18106CCF00790468 /* projectile.png */; };
-		821C9C0E18106DB400790468 /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 821C9C0D18106DB400790468 /* Renderer.m */; };
+		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
 		82FB3A67180EA299005477C2 /* barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A66180EA299005477C2 /* barrel.png */; };
 		82FB3A69180EA3BE005477C2 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A68180EA3BE005477C2 /* enemy.png */; };
 		82FB3A6B180EA41D005477C2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A6A180EA41D005477C2 /* background.png */; };
@@ -42,8 +42,7 @@
 /* Begin PBXFileReference section */
 		821ADA46180D5452007870B7 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		821C9C0A18106CCF00790468 /* projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projectile.png; sourceTree = "<group>"; };
-		821C9C0C18106DB400790468 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = "Super Defender/Renderer.h"; sourceTree = "<group>"; };
-		821C9C0D18106DB400790468 /* Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Renderer.m; path = "Super Defender/Renderer.m"; sourceTree = "<group>"; };
+		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		82FB3A66180EA299005477C2 /* barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrel.png; sourceTree = "<group>"; };
 		82FB3A68180EA3BE005477C2 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		82FB3A6A180EA41D005477C2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */,
 				DC8DD040180C0A8200857A2D /* UIKit.framework in Frameworks */,
 				DC8DD042180C0A8200857A2D /* Foundation.framework in Frameworks */,
 				DC8DD044180C0A8200857A2D /* CoreGraphics.framework in Frameworks */,
@@ -109,8 +109,6 @@
 		DC8DD033180C0A8200857A2D = {
 			isa = PBXGroup;
 			children = (
-				821C9C0C18106DB400790468 /* Renderer.h */,
-				821C9C0D18106DB400790468 /* Renderer.m */,
 				DC8DD045180C0A8200857A2D /* Super Defender */,
 				DC8DD03E180C0A8200857A2D /* Frameworks */,
 				DC8DD03D180C0A8200857A2D /* Products */,
@@ -128,6 +126,7 @@
 		DC8DD03E180C0A8200857A2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				829EA93D18166847006341B8 /* CoreMotion.framework */,
 				DC8DD03F180C0A8200857A2D /* UIKit.framework */,
 				DC8DD041180C0A8200857A2D /* Foundation.framework */,
 				DC8DD043180C0A8200857A2D /* CoreGraphics.framework */,
@@ -266,7 +265,6 @@
 			files = (
 				DC8DD04C180C0A8200857A2D /* main.m in Sources */,
 				DC8DD050180C0A8200857A2D /* AppDelegate.m in Sources */,
-				821C9C0E18106DB400790468 /* Renderer.m in Sources */,
 				DC8DD05F180C0B2800857A2D /* MainViewController.m in Sources */,
 				DC8DD063180C0BC200857A2D /* MenuViewController.m in Sources */,
 				DC8DD066180C0D1500857A2D /* Playfield.m in Sources */,

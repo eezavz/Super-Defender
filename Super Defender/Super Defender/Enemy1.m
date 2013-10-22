@@ -16,13 +16,27 @@
     [super dealloc];
 }
 
+- (Enemy *) initWithX:(float)x Y:(float)y
+{
+    self.centerX = x;
+    self.centerY = y;
+    self.width = 64;
+    self.height = 34;
+    if(arc4random() % 2 == 0) {
+        self.rotatesLeft = YES;
+        self.angle = 10;
+    } else {
+        self.angle = -10;
+    }
+    return self;
+}
+
 - (void) AI
 {
-    //NSLog(@"Enemy1 AI: %f,%f, %s", self.x, self.y, self.mustDie ? "true" : "false");
-    self.y++;
-    if(self.y > 480)
+    self.centerY++;
+    if(self.centerY > 480 + self.height / 2)
     {
-        self.mustDie = YES;
+        self.shouldDie = YES;
     }
     if(self.rotatesLeft) {
         if(self.angle < -10) {
@@ -37,7 +51,6 @@
             self.angle++;
         }
     }
-    //NSLog(@"Angle: %f", self.angle);
 }
 
 @end

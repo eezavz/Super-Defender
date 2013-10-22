@@ -10,5 +10,5 @@
 #import "Enemy.h"
 
 @interface Enemy1 : Enemy
-
+@property (nonatomic, assign) BOOL rotatesLeft;
 @end

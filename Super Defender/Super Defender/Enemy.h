@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Enemy : NSObject 
+@interface Enemy : NSObject
 @property (nonatomic, assign) float speed;
 @property (nonatomic, assign) int health;
-@property (nonatomic, assign) BOOL mustDie;
-@property (nonatomic, assign) float x;
-@property (nonatomic, assign) float y;
+@property (nonatomic, assign) BOOL shouldDie;
+@property (nonatomic, assign) float centerX;
+@property (nonatomic, assign) float centerY;
 @property (nonatomic, assign) float angle;
-@property (nonatomic, assign) BOOL rotatesLeft;
+@property (nonatomic, assign) int width;
+@property (nonatomic, assign) int height;
 
-- (Enemy *)init;
-- (Enemy *) initWithX:(float)x y:(float) y;
+- (Enemy *) initWithX:(float)x Y:(float) y;
 - (void) AI;
 
 @end

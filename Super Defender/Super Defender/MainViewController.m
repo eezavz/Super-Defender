@@ -8,8 +8,12 @@
 
 #import "MainViewController.h"
 #import "MenuViewController.h"
+#import "Projectile.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface MainViewController ()
+@property (strong, nonatomic) CMMotionManager *motionManager;
+@property (nonatomic, assign) BOOL accelerometer;
 @end
 
 @implementation MainViewController
@@ -19,9 +23,8 @@
 @synthesize timer;
 @synthesize cannonBody;
 @synthesize cannonBarrel;
-@synthesize projectileCountdown;
-//@synthesize projectiles;
 @synthesize projectileImage;
+@synthesize renderedObjects;
 
 
 #define degrees(x) (M_PI * (x) / 180)
@@ -39,21 +42,41 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.motionManager = [[CMMotionManager alloc] init];
+    if (self.motionManager.accelerometerAvailable) {
+        [self.motionManager stopAccelerometerUpdates];
+        self.motionManager.accelerometerUpdateInterval = 1.0 / 60.0;
+        [self.motionManager startAccelerometerUpdates];
+        self.accelerometer = YES;
+    } else {
+        NSLog(@"Ik heb geen accelerometer!");
+        self.accelerometer = NO;
+    }
+    /*if (self.motionManager.gyroAvailable) {
+     [self.motionManager stopGyroUpdates];
+     self.motionManager.gyroUpdateInterval = 1.0 / 60.0;
+     [self.motionManager startGyroUpdates];
+     } else {
+     NSLog(@"Ik heb geen gyroscoop!");
+     }*/
+    
+    self.renderedObjects = [[NSMutableArray alloc] init];
     
     self.enemyImage = [UIImage imageNamed:@"enemy"];
-    self.drawnEnemies = [[NSMutableArray alloc] init];
+    //self.drawnEnemies = [[NSMutableArray alloc] init];
     
     self.projectileImage = [UIImage imageNamed:@"projectile.png"];
-    projectileCountdown = 50;
+    //projectileCountdown = 50;
     //projectiles = [[NSMutableArray alloc]init];
     
     self.playfield = [[Playfield alloc]init];
     CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
-    slider = [[UISlider alloc]initWithFrame:frame];
-    //[self.view addSubview:slider];
-    slider.minimumValue = 0;
-    slider.maximumValue = 180;
-    slider.value = 90;
+    if(!self.accelerometer) {
+        slider = [[UISlider alloc]initWithFrame:frame];
+        slider.minimumValue = 0;
+        slider.maximumValue = 180;
+        slider.value = 90;
+    }
     
     cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
     cannonBarrel.frame = CGRectMake(52, 372, 216, 216);
@@ -66,16 +89,26 @@
     
     [self.view addSubview:cannonBarrel];
     [self.view addSubview:cannonBody];
-    [self.view insertSubview:slider aboveSubview:cannonBody];
+    if(!self.accelerometer) {
+        [self.view insertSubview:slider aboveSubview:cannonBody];
+    }
     
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f/60.0f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 - (void)update:(NSTimer *)timer
 {
-    [playfield update:slider.value];
+    if(!self.accelerometer) {
+        [playfield update:slider.value];
+    } else {
+        float x = self.motionManager.accelerometerData.acceleration.x;
+        x = roundf(x*100)/100;
+        float bla = 0.5 + x/3;
+        [playfield update:bla*180];
+    }
     [self render];
-    [self renderProjectiles];
+    //[self renderProjectiles];
+    //[self collisionDetect];
 }
 
 - (void) render
@@ -84,49 +117,50 @@
     CGAffineTransform trans = CGAffineTransformMakeRotation(degrees(angle));
     cannonBarrel.transform = trans;
     
-    if(self.drawnEnemies.count < playfield.enemies.count) {
-        int toAdd = playfield.enemies.count - self.drawnEnemies.count;
-        for (int i = 0; i < toAdd; i++) {
-            UIImageView *temp = [[UIImageView alloc] initWithImage:self.enemyImage];
-            [self.drawnEnemies addObject:temp];
-            [self.view addSubview:temp];
+    int objects = playfield.enemies.count + playfield.cannon.shotProjectiles.count;
+    if(renderedObjects.count < objects) {
+        int difference = objects-renderedObjects.count;
+        for (int i = 0; i < difference; i++) {
+            UIImageView *new = [[UIImageView alloc] init];
+            
+            //[new setImage:self.enemyImage];
+            [renderedObjects addObject:new];
+            [self.view addSubview:new];
         }
     }
-    if(self.drawnEnemies.count > playfield.enemies.count) {
-        int toDelete = self.drawnEnemies.count - playfield.enemies.count;
-        for (int i = 0; i < toDelete; i++) {
-            UIImageView *temp = [self.drawnEnemies objectAtIndex:0];
-            [temp removeFromSuperview];
-            [self.drawnEnemies removeObject:temp];
-            [temp dealloc];
+    if(renderedObjects.count > objects) {
+        int difference = renderedObjects.count - objects;
+        for (int i = 0; i < difference; i++) {
+            UIImageView *old = [renderedObjects objectAtIndex:0];
+            [old removeFromSuperview];
+            [renderedObjects removeObject:old];
+            [old dealloc];
         }
     }
     
-    for (int i = 0; i < playfield.enemies.count; i++) {
-        UIImageView *temp = [self.drawnEnemies objectAtIndex:i];
-        temp.center = CGPointMake([[playfield.enemies objectAtIndex:i] x], [[playfield.enemies objectAtIndex:i] y]);
-        float rotation = [[playfield.enemies objectAtIndex:i] angle];
+    int currentAmount = 0;
+    int toLimit = playfield.enemies.count;
+    for (int i = currentAmount; i < toLimit; i++) {
+        UIImageView *current = [renderedObjects objectAtIndex:i];
+        [current setImage:self.enemyImage];
+        [current sizeToFit];
+        current.center = CGPointMake([[playfield.enemies objectAtIndex:i-currentAmount] centerX], [[playfield.enemies objectAtIndex:i-currentAmount] centerY]);
+        float rotation = [[playfield.enemies objectAtIndex:i-currentAmount] angle];
         CGAffineTransform rot = CGAffineTransformMakeRotation(degrees(rotation));
-        temp.transform = rot;
+        current.transform = rot;
     }
-}
-
-
-- (void) renderProjectiles
-{
-    //int sliderValue = slider.value-90;
-    projectileCountdown--;
+    currentAmount += playfield.enemies.count;
     
-    if(projectileCountdown < 0)
-    {
-        UIImageView *tempImage = [[UIImageView alloc] initWithImage:self.projectileImage];
-        [playfield.projectiles addObject:tempImage];
-        [self.view addSubview:tempImage];
-        tempImage.center = CGPointMake(cannonBody.frame.origin.x+cannonBody.frame.size.width/2, cannonBody.frame.origin.y+cannonBody.frame.size.height/2+38.5);
-        projectileCountdown = 50;
+    toLimit+=playfield.cannon.shotProjectiles.count;
+    for (int i = currentAmount; i < toLimit; i++) {
+        UIImageView *current = [renderedObjects objectAtIndex:i];
+        [current setImage:self.projectileImage];
+        [current sizeToFit];
+        Projectile *meh = [playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount];
+        current.center = CGPointMake(meh.centerX, meh.centerY);
     }
+    currentAmount += playfield.cannon.shotProjectiles.count;
 }
-
 
 - (void)didReceiveMemoryWarning
 {

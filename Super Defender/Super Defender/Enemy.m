@@ -17,16 +17,10 @@
                                  userInfo:nil];
 }
 
-- (Enemy *)initWithX:(float)x y:(float) y {
-    self.x = x;
-    self.y = y;
-    if(arc4random() % 2 == 0) {
-        self.rotatesLeft = YES;
-        self.angle = 20;
-    } else {
-        self.angle = -20;
-    }
-    return self;
+- (Enemy *)initWithX:(float)x Y:(float) y {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                 userInfo:nil];
 }
 
 - (void) AI

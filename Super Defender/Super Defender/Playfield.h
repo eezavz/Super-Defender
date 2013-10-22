@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Cannon.h"
+#import "Enemy.h"
+#import "Projectile.h"
 
 @interface Playfield : NSObject
 
@@ -18,12 +20,8 @@
 @property (nonatomic, retain) Cannon *cannon;
 @property (nonatomic, retain) NSMutableArray *enemies;
 @property (nonatomic, retain) NSMutableArray *projectiles;
-@property (atomic, assign) int projectileCountdown;
-@property (atomic, retain) UIImage *projectileImage;
 
 -(void)update:(float)angle;
-- (int) distanceFromPoint:(int)p2x : (int)p2y : (int)p1x : (int)p1y;
-- (void) collisionDetect;
-- (void) updateProjectiles : (float)angle;
+-(BOOL)checkHitEnemy: (Enemy *) enemy Projectile:(Projectile *) projectile;
 
 @end

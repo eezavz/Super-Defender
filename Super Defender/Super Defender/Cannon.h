@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <math.h>
 
 @interface Cannon : NSObject
 
@@ -14,6 +15,7 @@
 @property (nonatomic, assign) int rateOfFire;
 @property (nonatomic, assign) float angle;
 @property (nonatomic, retain) UIImage *image;
+@property (nonatomic, strong) NSMutableArray *shotProjectiles;
 
 -(void)update:(float) angle2;
 
