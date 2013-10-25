@@ -11,4 +11,7 @@
 
 @interface Enemy1 : Enemy
 @property (nonatomic, assign) BOOL rotatesLeft;
+@property (nonatomic, assign) int countdown;
+@property (nonatomic, assign) int randomHeight;
+@property (nonatomic, assign) BOOL movesLeft;
 @end

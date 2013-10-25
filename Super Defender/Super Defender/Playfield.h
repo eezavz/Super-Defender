@@ -19,7 +19,7 @@
 @property (nonatomic, assign) int enemyCountdown;
 @property (nonatomic, retain) Cannon *cannon;
 @property (nonatomic, retain) NSMutableArray *enemies;
-@property (nonatomic, retain) NSMutableArray *projectiles;
+@property (nonatomic, retain) NSMutableArray *enemyProjectiles;
 
 -(void)update:(float)angle;
 -(BOOL)checkHitEnemy: (Enemy *) enemy Projectile:(Projectile *) projectile;

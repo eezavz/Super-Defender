@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Projectile.h"
 
-@interface Projectile1 : NSObject
+@interface Projectile1 : Projectile
 
 @end

@@ -8,6 +8,7 @@
 
 #import "Playfield.h"
 #import "Enemy1.h"
+#import "Enemy2.h"
 #define degrees(x) (M_PI * (x) / 180)
 
 @implementation Playfield
@@ -18,12 +19,17 @@
 @synthesize enemyCountdown;
 @synthesize cannon;
 @synthesize enemies;
-@synthesize projectiles;
 
 - (Playfield *)init
 {
     self.cannon = [[Cannon alloc]init];
+    cannon.posX = 160;
+    cannon.posY = 405;
+    cannon.width = 100;
+    cannon.height = 50;
     enemies = [[NSMutableArray alloc] init];
+    self.score = 0;
+    self.enemyProjectiles = [[NSMutableArray alloc] init];
     return [super init];
 }
 
@@ -32,15 +38,25 @@
     [self.cannon update:angle];
     
     if(enemyCountdown == 0) {
-        int random = arc4random() % 100;
+        int random = 15 + arc4random() % 75;
+        int rare = arc4random() % 20;
         enemyCountdown = random;
-        Enemy1 *lwut = [[Enemy1 alloc] initWithX: arc4random() % (320-64)+32 Y:-17];
-        [self.enemies addObject:lwut];
+        if (rare==5) {
+            Enemy2 *boss = [[Enemy2 alloc] initWithX: arc4random() % (320-128)+64 Y:-34];
+            [self.enemies addObject:boss];
+        } else {
+            Enemy1 *noob = [[Enemy1 alloc] initWithX: arc4random() % (320-64)+32 Y:-17];
+            [self.enemies addObject:noob];
+        }
     } else {
         enemyCountdown--;
     }
     for (int i = 0; i < enemies.count; i++) {
         [[enemies objectAtIndex:i] AI];
+        if ([[enemies objectAtIndex:i] myProjectile]) {
+            [self.enemyProjectiles addObject:[[enemies objectAtIndex:i] myProjectile]];
+            [[enemies objectAtIndex:i] setMyProjectile:nil];
+        }
         if([[enemies objectAtIndex:i] shouldDie])
         {
             Enemy *temp = [enemies objectAtIndex:i];
@@ -49,18 +65,53 @@
             i--;
         }
     }
-    for (int i = 0; i < enemies.count; i++) {
-        for (int j = 0; j < cannon.shotProjectiles.count; j++) {
-            if([self checkHitEnemy:[enemies objectAtIndex:i] Projectile:[self.cannon.shotProjectiles objectAtIndex:j]]) {
-                Enemy *eHit = [enemies objectAtIndex:i];
-                [enemies removeObject:eHit];
-                [eHit dealloc];
-                Projectile *pHit = [self.cannon.shotProjectiles objectAtIndex:j];
-                [self.cannon.shotProjectiles removeObject:pHit];
-                [pHit dealloc];
-                i--;
-                break;//een enemy kan niet door 2 verschillende projectielen geraakt worden.
+    for (int i = 0; i < cannon.shotProjectiles.count; i++) {
+        for (int j = 0; j < enemies.count; j++) {
+            if([[enemies objectAtIndex:j] collides]){
+                if([self checkHitEnemy:[enemies objectAtIndex:j] Projectile:[self.cannon.shotProjectiles objectAtIndex:i]]) {
+                    Projectile *pHit = [self.cannon.shotProjectiles objectAtIndex:i];
+                    Enemy *eHit = [enemies objectAtIndex:j];
+                    [eHit damageAmount:pHit.power];
+                    if(eHit.health == 0) {
+                        self.score+=eHit.score;
+                    }
+                    [self.cannon.shotProjectiles removeObject:pHit];
+                    [pHit dealloc];
+                    i--;
+                    break;//een projectile kan maar 1 enemy raken voorlopig.
+                }
             }
+        }
+    }
+    
+    for (int i = 0; i < self.enemyProjectiles.count; i++) {
+        [[self.enemyProjectiles objectAtIndex:i] update];
+        CGRect cannonRect = CGRectMake(cannon.posX - cannon.width / 2, cannon.posY - cannon.height / 2, cannon.width, cannon.height);
+        //NSLog(@"WAAA %@", NSStringFromCGRect(cannonRect));
+        float x = [[self.enemyProjectiles objectAtIndex:i] centerX];
+        float y = [[self.enemyProjectiles objectAtIndex:i] centerY];
+        float width = [(EnemyProjectile *)[self.enemyProjectiles objectAtIndex:i] width];
+        float height = [(EnemyProjectile *)[self.enemyProjectiles objectAtIndex:i] height];
+        CGPoint projBotLeft = CGPointMake(x - width / 2, y + height / 2);
+        CGPoint projBotRight = CGPointMake(x + width / 2, y + height / 2);
+        CGPoint projTopLeft = CGPointMake(x - width / 2, y - height / 2);
+        CGPoint projTopRight = CGPointMake(x + width / 2, y - height / 2);
+        BOOL hit = NO;
+        if (CGRectContainsPoint(cannonRect, projBotLeft)) {
+            hit = YES;
+        } else if (CGRectContainsPoint(cannonRect, projBotRight)) {
+            hit = YES;
+        } else if (CGRectContainsPoint(cannonRect, projTopLeft)) {
+            hit = YES;
+        } else if (CGRectContainsPoint(cannonRect, projTopRight)) {
+            hit = YES;
+        }
+        if (hit) {
+            cannon.health -= [[self.enemyProjectiles objectAtIndex:i] power];
+            EnemyProjectile *hit = [self.enemyProjectiles objectAtIndex:i];
+            [self.enemyProjectiles removeObject:hit];
+            [hit dealloc];
+            i--;
         }
     }
 }
@@ -73,32 +124,64 @@
     CGPoint projBotLeft = CGPointMake(projectile.centerX - projectile.width / 2, projectile.centerY + projectile.height / 2);
     CGPoint projBotRight = CGPointMake(projectile.centerX + projectile.width / 2, projectile.centerY + projectile.height / 2);
     
-    float angle = enemy.angle;
-    float width = enemy.width;
-    float height = enemy.height;
-    float cosA = cos(degrees(angle));
-    float sinA = sin(degrees(angle));
-    float x = enemy.centerX;
-    float y = enemy.centerY;
-    
-    CGPoint enemTopLeft  =  CGPointMake(x + ( width / 2 ) * cosA - ( height / 2 ) * sinA ,  y + ( height / 2 ) * cosA  + ( width / 2 ) * sinA);
-    CGPoint enemTopRight  =  CGPointMake(x - ( width / 2 ) * cosA - ( height / 2 ) * sinA ,  y + ( height / 2 ) * cosA  - ( width / 2 ) * sinA);
-    CGPoint enemBotLeft =   CGPointMake(x + ( width / 2 ) * cosA + ( height / 2 ) * sinA ,  y - ( height / 2 ) * cosA  + ( width / 2 ) * sinA);
-    CGPoint enemBotRight  =  CGPointMake(x - ( width / 2 ) * cosA + ( height / 2 ) * sinA ,  y - ( height / 2 ) * cosA  - ( width / 2 ) * sinA);
-    
-    if([self lineCollision:enemBotLeft :enemBotRight :projTopRight :projBotLeft]) {
+    CGRect enemyRect = CGRectMake(enemy.centerX, enemy.centerY, enemy.width, enemy.height);
+    if ([self isPoint:projTopLeft inCenteredRect:enemyRect withRotation:enemy.angle]) {
         return YES;
-    } else if([self lineCollision:enemBotRight :enemBotLeft :projTopLeft :projBotRight]) {
+    } else if ([self isPoint:projTopRight inCenteredRect:enemyRect withRotation:enemy.angle]) {
         return YES;
-    } else if([self lineCollision:enemTopRight :enemBotLeft :projTopLeft :projTopRight]) {
+    } else if ([self isPoint:projBotLeft inCenteredRect:enemyRect withRotation:enemy.angle]) {
         return YES;
-    } else if([self lineCollision:enemTopLeft :enemBotRight :projTopLeft :projTopRight]) {
-        return YES;
-    } else if ([self lineCollision:enemBotRight :enemBotLeft :projTopLeft :projTopRight]) {
+    } else if ([self isPoint:projBotRight inCenteredRect:enemyRect withRotation:enemy.angle]) {
         return YES;
     }
+//    float angle = enemy.angle;
+//    float width = enemy.width;
+//    float height = enemy.height;
+//    float cosA = cos(degrees(angle));
+//    float sinA = sin(degrees(angle));
+//    float x = enemy.centerX;
+//    float y = enemy.centerY;
+//    
+//    CGPoint enemTopLeft  =  CGPointMake(x + ( width / 2 ) * cosA - ( height / 2 ) * sinA ,  y + ( height / 2 ) * cosA  + ( width / 2 ) * sinA);
+//    CGPoint enemTopRight  =  CGPointMake(x - ( width / 2 ) * cosA - ( height / 2 ) * sinA ,  y + ( height / 2 ) * cosA  - ( width / 2 ) * sinA);
+//    CGPoint enemBotLeft =   CGPointMake(x + ( width / 2 ) * cosA + ( height / 2 ) * sinA ,  y - ( height / 2 ) * cosA  + ( width / 2 ) * sinA);
+//    CGPoint enemBotRight  =  CGPointMake(x - ( width / 2 ) * cosA + ( height / 2 ) * sinA ,  y - ( height / 2 ) * cosA  - ( width / 2 ) * sinA);
+//    
+////    if([self lineCollision:enemBotLeft :enemBotRight :projTopRight :projBotLeft]) {
+////        return YES;
+////    } else if([self lineCollision:enemBotRight :enemBotLeft :projTopLeft :projBotRight]) {
+////        return YES;
+////    } else if([self lineCollision:enemTopRight :enemBotLeft :projTopLeft :projTopRight]) {
+////        return YES;
+////    } else if([self lineCollision:enemTopLeft :enemBotRight :projTopLeft :projTopRight]) {
+////        return YES;
+////    } else if ([self lineCollision:enemBotRight :enemBotLeft :projTopLeft :projTopRight]) {
+////        return YES;
+////    }
+//    
+//    if ([self lineCollision:enemTopLeft :enemTopRight :projTopLeft :projTopRight]) {
+//        return YES;
+//    } else if ([self lineCollision:enemTopLeft :enemTopRight :projTopLeft :projBotLeft]) {
+//        return YES;
+//    } else if ([self lineCollision:enemTopLeft :enemTopRight :projTopRight :projBotRight]) {
+//        return YES;
+//    }
     
     return NO;
+}
+
+-(BOOL) isPoint:(CGPoint)point inCenteredRect:(CGRect)obj withRotation:(float)angle {
+    double c = cos(-degrees(angle));
+    double s = sin(-degrees(angle));
+    float rotatedX = obj.origin.x + c * (point.x - obj.origin.x) - s * (point.y - obj.origin.y);
+    float rotatedY = obj.origin.y + s * (point.x - obj.origin.x) + c * (point.y - obj.origin.y);
+    
+    float leftX = obj.origin.x - obj.size.width/2;
+    float rightX = obj.origin.x + obj.size.width /2;
+    float topY = obj.origin.y  - obj.size.height /2;
+    float bottomY = obj.origin.y + obj.size.height /2;
+    
+    return (leftX <= rotatedX && rotatedX <= rightX && topY <= rotatedY && rotatedY <= bottomY);
 }
 
 - (BOOL) lineCollision: (CGPoint) a : (CGPoint) b : (CGPoint) c : (CGPoint) d

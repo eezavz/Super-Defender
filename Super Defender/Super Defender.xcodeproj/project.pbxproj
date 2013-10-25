@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		821ADA48180D5452007870B7 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 821ADA46180D5452007870B7 /* base.png */; };
 		821C9C0B18106CCF00790468 /* projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 821C9C0A18106CCF00790468 /* projectile.png */; };
+		82518416181A5C7A00B0020C /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840B181A5C7A00B0020C /* 0.png */; };
+		82518417181A5C7A00B0020C /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840C181A5C7A00B0020C /* 10.png */; };
+		82518418181A5C7A00B0020C /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840D181A5C7A00B0020C /* 20.png */; };
+		82518419181A5C7A00B0020C /* 30.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840E181A5C7A00B0020C /* 30.png */; };
+		8251841A181A5C7A00B0020C /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840F181A5C7A00B0020C /* 40.png */; };
+		8251841B181A5C7A00B0020C /* 50.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518410181A5C7A00B0020C /* 50.png */; };
+		8251841C181A5C7A00B0020C /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518411181A5C7A00B0020C /* 60.png */; };
+		8251841D181A5C7A00B0020C /* 70.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518412181A5C7A00B0020C /* 70.png */; };
+		8251841E181A5C7A00B0020C /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518413181A5C7A00B0020C /* 80.png */; };
+		8251841F181A5C7A00B0020C /* 90.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518414181A5C7A00B0020C /* 90.png */; };
+		82518420181A5C7A00B0020C /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518415181A5C7A00B0020C /* 100.png */; };
+		82518422181A61B400B0020C /* Explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518421181A61B400B0020C /* Explosion.png */; };
+		82518424181A67BC00B0020C /* enemyboss.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518423181A67BC00B0020C /* enemyboss.png */; };
+		82865A12181B030000F93143 /* enemyprojectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 82865A11181B030000F93143 /* enemyprojectile.png */; };
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
 		82FB3A67180EA299005477C2 /* barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A66180EA299005477C2 /* barrel.png */; };
 		82FB3A69180EA3BE005477C2 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A68180EA3BE005477C2 /* enemy.png */; };
@@ -34,7 +48,7 @@
 		DC8DD07B180C0DE700857A2D /* Cannon.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD07A180C0DE700857A2D /* Cannon.m */; };
 		DC8DD07E180C0E0500857A2D /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD07D180C0E0500857A2D /* Projectile.m */; };
 		DC8DD081180C0E1A00857A2D /* Projectile1.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD080180C0E1A00857A2D /* Projectile1.m */; };
-		DC8DD084180C0E2A00857A2D /* Projectile2.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD083180C0E2900857A2D /* Projectile2.m */; };
+		DC8DD084180C0E2A00857A2D /* EnemyProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD083180C0E2900857A2D /* EnemyProjectile.m */; };
 		DC8DD087180C0E3800857A2D /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD086180C0E3700857A2D /* Object.m */; };
 		DC8DD08A180C0E4600857A2D /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD089180C0E4600857A2D /* Star.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +56,20 @@
 /* Begin PBXFileReference section */
 		821ADA46180D5452007870B7 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		821C9C0A18106CCF00790468 /* projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projectile.png; sourceTree = "<group>"; };
+		8251840B181A5C7A00B0020C /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		8251840C181A5C7A00B0020C /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		8251840D181A5C7A00B0020C /* 20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20.png; sourceTree = "<group>"; };
+		8251840E181A5C7A00B0020C /* 30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30.png; sourceTree = "<group>"; };
+		8251840F181A5C7A00B0020C /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
+		82518410181A5C7A00B0020C /* 50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 50.png; sourceTree = "<group>"; };
+		82518411181A5C7A00B0020C /* 60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60.png; sourceTree = "<group>"; };
+		82518412181A5C7A00B0020C /* 70.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 70.png; sourceTree = "<group>"; };
+		82518413181A5C7A00B0020C /* 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80.png; sourceTree = "<group>"; };
+		82518414181A5C7A00B0020C /* 90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 90.png; sourceTree = "<group>"; };
+		82518415181A5C7A00B0020C /* 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100.png; sourceTree = "<group>"; };
+		82518421181A61B400B0020C /* Explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion.png; sourceTree = "<group>"; };
+		82518423181A67BC00B0020C /* enemyboss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyboss.png; sourceTree = "<group>"; };
+		82865A11181B030000F93143 /* enemyprojectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyprojectile.png; sourceTree = "<group>"; };
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		82FB3A66180EA299005477C2 /* barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrel.png; sourceTree = "<group>"; };
 		82FB3A68180EA3BE005477C2 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
@@ -83,8 +111,8 @@
 		DC8DD07D180C0E0500857A2D /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
 		DC8DD07F180C0E1A00857A2D /* Projectile1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile1.h; sourceTree = "<group>"; };
 		DC8DD080180C0E1A00857A2D /* Projectile1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile1.m; sourceTree = "<group>"; };
-		DC8DD082180C0E2900857A2D /* Projectile2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile2.h; sourceTree = "<group>"; };
-		DC8DD083180C0E2900857A2D /* Projectile2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile2.m; sourceTree = "<group>"; };
+		DC8DD082180C0E2900857A2D /* EnemyProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyProjectile.h; sourceTree = "<group>"; };
+		DC8DD083180C0E2900857A2D /* EnemyProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyProjectile.m; sourceTree = "<group>"; };
 		DC8DD085180C0E3700857A2D /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		DC8DD086180C0E3700857A2D /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		DC8DD088180C0E4600857A2D /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
@@ -145,6 +173,20 @@
 				82FB3A6A180EA41D005477C2 /* background.png */,
 				82FB3A66180EA299005477C2 /* barrel.png */,
 				82FB3A68180EA3BE005477C2 /* enemy.png */,
+				8251840B181A5C7A00B0020C /* 0.png */,
+				8251840C181A5C7A00B0020C /* 10.png */,
+				8251840D181A5C7A00B0020C /* 20.png */,
+				8251840E181A5C7A00B0020C /* 30.png */,
+				8251840F181A5C7A00B0020C /* 40.png */,
+				82518410181A5C7A00B0020C /* 50.png */,
+				82518411181A5C7A00B0020C /* 60.png */,
+				82518412181A5C7A00B0020C /* 70.png */,
+				82518413181A5C7A00B0020C /* 80.png */,
+				82518414181A5C7A00B0020C /* 90.png */,
+				82518415181A5C7A00B0020C /* 100.png */,
+				82518421181A61B400B0020C /* Explosion.png */,
+				82518423181A67BC00B0020C /* enemyboss.png */,
+				82865A11181B030000F93143 /* enemyprojectile.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
 				DC8DD061180C0BC200857A2D /* MenuViewController.h */,
@@ -169,8 +211,8 @@
 				DC8DD07D180C0E0500857A2D /* Projectile.m */,
 				DC8DD07F180C0E1A00857A2D /* Projectile1.h */,
 				DC8DD080180C0E1A00857A2D /* Projectile1.m */,
-				DC8DD082180C0E2900857A2D /* Projectile2.h */,
-				DC8DD083180C0E2900857A2D /* Projectile2.m */,
+				DC8DD082180C0E2900857A2D /* EnemyProjectile.h */,
+				DC8DD083180C0E2900857A2D /* EnemyProjectile.m */,
 				DC8DD085180C0E3700857A2D /* Object.h */,
 				DC8DD086180C0E3700857A2D /* Object.m */,
 				DC8DD088180C0E4600857A2D /* Star.h */,
@@ -244,15 +286,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8251841F181A5C7A00B0020C /* 90.png in Resources */,
+				8251841B181A5C7A00B0020C /* 50.png in Resources */,
+				82518419181A5C7A00B0020C /* 30.png in Resources */,
 				DC8DD04A180C0A8200857A2D /* InfoPlist.strings in Resources */,
 				82FB3A6B180EA41D005477C2 /* background.png in Resources */,
 				DC8DD052180C0A8200857A2D /* Default.png in Resources */,
+				82865A12181B030000F93143 /* enemyprojectile.png in Resources */,
+				82518418181A5C7A00B0020C /* 20.png in Resources */,
+				8251841D181A5C7A00B0020C /* 70.png in Resources */,
+				8251841A181A5C7A00B0020C /* 40.png in Resources */,
+				82518417181A5C7A00B0020C /* 10.png in Resources */,
 				82FB3A69180EA3BE005477C2 /* enemy.png in Resources */,
+				82518420181A5C7A00B0020C /* 100.png in Resources */,
 				821C9C0B18106CCF00790468 /* projectile.png in Resources */,
+				82518424181A67BC00B0020C /* enemyboss.png in Resources */,
 				82FB3A67180EA299005477C2 /* barrel.png in Resources */,
+				82518416181A5C7A00B0020C /* 0.png in Resources */,
 				DC8DD054180C0A8200857A2D /* Default@2x.png in Resources */,
 				DC8DD056180C0A8200857A2D /* Default-568h@2x.png in Resources */,
+				8251841E181A5C7A00B0020C /* 80.png in Resources */,
 				821ADA48180D5452007870B7 /* base.png in Resources */,
+				8251841C181A5C7A00B0020C /* 60.png in Resources */,
+				82518422181A61B400B0020C /* Explosion.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +333,7 @@
 				DC8DD07B180C0DE700857A2D /* Cannon.m in Sources */,
 				DC8DD07E180C0E0500857A2D /* Projectile.m in Sources */,
 				DC8DD081180C0E1A00857A2D /* Projectile1.m in Sources */,
-				DC8DD084180C0E2A00857A2D /* Projectile2.m in Sources */,
+				DC8DD084180C0E2A00857A2D /* EnemyProjectile.m in Sources */,
 				DC8DD087180C0E3800857A2D /* Object.m in Sources */,
 				DC8DD08A180C0E4600857A2D /* Star.m in Sources */,
 			);

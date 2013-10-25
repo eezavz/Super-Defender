@@ -30,4 +30,9 @@
                                  userInfo:nil];
 }
 
+- (void)damageAmount:(int)damage
+{
+    self.health -= damage;
+}
+
 @end

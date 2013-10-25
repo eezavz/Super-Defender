@@ -8,6 +8,7 @@
 
 #import "Cannon.h"
 #import "Projectile.h"
+#import "Projectile1.h"
 #define degrees(x) (M_PI * (x) / 180)
 @implementation Cannon
 
@@ -16,16 +17,20 @@
 @synthesize angle;
 @synthesize image;
 @synthesize shotProjectiles;
+@synthesize health;
+@synthesize maxHealth;
 
 - (Cannon *)init
 {
+    maxHealth = 100;
+    health = maxHealth;
     shotProjectiles = [[NSMutableArray alloc] init];
     return [super init];
 }
 
 -(void)update:(float) angle2
 {
-    static int countdown = 30;
+    static int countdown = 15;
     if (angle2 > 45 && angle2 < 135) {
         angle = angle2;
     } else {
@@ -38,11 +43,9 @@
     if(countdown <= 0) {
         int spawnX = -cos(degrees(angle)) * 108;
         int spawnY = -sin(degrees(angle)) * 108;
-        Projectile *new = [[Projectile alloc] initWithX:160+spawnX Y:480+spawnY Width:20 Height:17];
-        new.velX = -cos(degrees(angle))*2;
-        new.velY = -sin(degrees(angle))*2;
+        Projectile1 *new = [[Projectile1 alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
         [shotProjectiles addObject:new];
-        countdown = 30;
+        countdown = 15;
     } else {
         countdown--;
     }

@@ -18,7 +18,13 @@
 @property (atomic, retain) UIImageView *cannonBarrel;
 @property (atomic, retain) UIImage *enemyImage;
 @property (atomic, retain) UIImage *projectileImage;
+@property (atomic, retain) UIImage *enemyProjectileImage;
 @property (nonatomic, strong) NSMutableArray *renderedObjects;
+@property (nonatomic, strong) UILabel *scoreLabel;
+@property (nonatomic, strong) NSMutableArray *damageImages;
+@property (nonatomic, strong) UIImage *explosion;
+@property (nonatomic, strong) UIImage *bossImage;
+@property (nonatomic, strong) UIImageView *cannonHealth;
 
 - (void)update:(NSTimer *)timer;
 - (void)render;

@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.knop = [[UIButton alloc] init];
+    [self.knop setTitle:@"YOLO" forState:UIControlStateNormal];
+    self.knop.frame = CGRectMake(0, 0, 320, 480);
+    [self.view addSubview:self.knop];
 }
 
 - (void)didReceiveMemoryWarning
