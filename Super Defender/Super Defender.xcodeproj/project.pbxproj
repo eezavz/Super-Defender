@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		821ADA48180D5452007870B7 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 821ADA46180D5452007870B7 /* base.png */; };
 		821C9C0B18106CCF00790468 /* projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 821C9C0A18106CCF00790468 /* projectile.png */; };
+		8227D29A181C2E6D005C9AC5 /* BigExplosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 8227D299181C2E6D005C9AC5 /* BigExplosion.png */; };
+		8227D29C181C323C005C9AC5 /* menubackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 8227D29B181C323C005C9AC5 /* menubackground.png */; };
 		82518416181A5C7A00B0020C /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840B181A5C7A00B0020C /* 0.png */; };
 		82518417181A5C7A00B0020C /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840C181A5C7A00B0020C /* 10.png */; };
 		82518418181A5C7A00B0020C /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = 8251840D181A5C7A00B0020C /* 20.png */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		821ADA46180D5452007870B7 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		821C9C0A18106CCF00790468 /* projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projectile.png; sourceTree = "<group>"; };
+		8227D299181C2E6D005C9AC5 /* BigExplosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BigExplosion.png; sourceTree = "<group>"; };
+		8227D29B181C323C005C9AC5 /* menubackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubackground.png; sourceTree = "<group>"; };
 		8251840B181A5C7A00B0020C /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		8251840C181A5C7A00B0020C /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		8251840D181A5C7A00B0020C /* 20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20.png; sourceTree = "<group>"; };
@@ -187,8 +191,10 @@
 				82518414181A5C7A00B0020C /* 90.png */,
 				82518415181A5C7A00B0020C /* 100.png */,
 				82518421181A61B400B0020C /* Explosion.png */,
+				8227D299181C2E6D005C9AC5 /* BigExplosion.png */,
 				82518423181A67BC00B0020C /* enemyboss.png */,
 				82865A11181B030000F93143 /* enemyprojectile.png */,
+				8227D29B181C323C005C9AC5 /* menubackground.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
 				DC8DD061180C0BC200857A2D /* MenuViewController.h */,
@@ -301,6 +307,7 @@
 				8251841D181A5C7A00B0020C /* 70.png in Resources */,
 				8251841A181A5C7A00B0020C /* 40.png in Resources */,
 				82518417181A5C7A00B0020C /* 10.png in Resources */,
+				8227D29C181C323C005C9AC5 /* menubackground.png in Resources */,
 				82FB3A69180EA3BE005477C2 /* enemy.png in Resources */,
 				82518420181A5C7A00B0020C /* 100.png in Resources */,
 				821C9C0B18106CCF00790468 /* projectile.png in Resources */,
@@ -310,6 +317,7 @@
 				DC8DD054180C0A8200857A2D /* Default@2x.png in Resources */,
 				DC8DD056180C0A8200857A2D /* Default-568h@2x.png in Resources */,
 				8251841E181A5C7A00B0020C /* 80.png in Resources */,
+				8227D29A181C2E6D005C9AC5 /* BigExplosion.png in Resources */,
 				821ADA48180D5452007870B7 /* base.png in Resources */,
 				8251841C181A5C7A00B0020C /* 60.png in Resources */,
 				82518422181A61B400B0020C /* Explosion.png in Resources */,

@@ -52,6 +52,7 @@
         self.cannonHealth = [[UIImageView alloc] initWithImage:[damageImages objectAtIndex:10]];
         self.cannonHealth.frame = CGRectMake(0, 430, 320, 50);
         self.explosion = [UIImage imageNamed:@"Explosion"];
+        self.bigExplosion = [UIImage imageNamed:@"BigExplosion"];
         
         self.motionManager = [[CMMotionManager alloc] init];
         if (self.motionManager.accelerometerAvailable) {
@@ -199,12 +200,18 @@
     int toLimit = playfield.enemies.count * 2;
     for (int i = currentAmount; i < toLimit-1; i += 2) {
         UIImageView *current = [renderedObjects objectAtIndex:i];
-        if ([[playfield.enemies objectAtIndex:i/2] health]==0) {
-            [current setImage:self.explosion];
-        } else if ([[playfield.enemies objectAtIndex:i/2] isMemberOfClass:[Enemy2 class]]) {
-            [current setImage:self.bossImage];
+        if ([[playfield.enemies objectAtIndex:i/2] isMemberOfClass:[Enemy2 class]]) {
+            if ([[playfield.enemies objectAtIndex:i/2] health] == 0) {
+                [current setImage:self.bigExplosion];
+            } else {
+                [current setImage:self.bossImage];
+            }
         } else {
-            [current setImage:self.enemyImage];
+            if ([[playfield.enemies objectAtIndex:i/2] health] == 0) {
+                [current setImage:self.explosion];
+            } else {
+                [current setImage:self.enemyImage];
+            }
         }
         [current sizeToFit];
         current.center = CGPointMake([[playfield.enemies objectAtIndex:i/2] centerX], [[playfield.enemies objectAtIndex:i/2] centerY]);

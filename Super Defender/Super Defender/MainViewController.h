@@ -24,6 +24,7 @@
 @property (nonatomic, strong) UILabel *scoreLabel;
 @property (nonatomic, strong) NSMutableArray *damageImages;
 @property (nonatomic, strong) UIImage *explosion;
+@property (nonatomic, strong) UIImage *bigExplosion;
 @property (nonatomic, strong) UIImage *bossImage;
 @property (nonatomic, strong) UIImageView *cannonHealth;
 @property (nonatomic, strong) UIButton *pauseButton;
