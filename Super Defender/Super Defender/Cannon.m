@@ -15,7 +15,6 @@
 @synthesize aimspeed;
 @synthesize rateOfFire;
 @synthesize angle;
-@synthesize image;
 @synthesize shotProjectiles;
 @synthesize health;
 @synthesize maxHealth;
@@ -58,6 +57,13 @@
             i--;
         }
     }
+}
+
+- (void) dealloc
+{
+    NSLog(@"Cannon dealloc");
+    [self.shotProjectiles dealloc];
+    [super dealloc];
 }
 
 @end

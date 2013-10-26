@@ -27,7 +27,7 @@
     self.centerX += self.velX;
     self.centerY += self.velY;
     
-    if (self.centerX < 0 - self.width / 2 || self.centerY - self.height / 2 < 0 || self.centerX > 320 + self.width / 2 || self.centerY + self.height / 2 > 430) {
+    if (self.centerX < 0 - self.width / 2 || self.centerY - self.height / 2 < 0 || self.centerX > 320 + self.width / 2 || self.centerY - self.height / 2 > 430) {
         self.shouldDie = YES;
     }
 }

@@ -12,6 +12,8 @@
 
 - (void)dealloc
 {
+    NSLog(@"AppDelegate dealloc");
+    [self.mainView dealloc];
     [_window release];
     [super dealloc];
 }
@@ -21,9 +23,9 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     [application setStatusBarHidden:YES];
-    UIViewController *mainView = [[MainViewController alloc]init];
-    [self.window setRootViewController:mainView];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.mainView = [[MainViewController alloc]init];
+    [self.window setRootViewController:self.mainView];
+    [self.mainView startTimer];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -14,7 +14,6 @@
 @property (nonatomic, assign) int aimspeed;
 @property (nonatomic, assign) int rateOfFire;
 @property (nonatomic, assign) float angle;
-@property (nonatomic, retain) UIImage *image;
 @property (nonatomic, strong) NSMutableArray *shotProjectiles;
 @property (nonatomic, assign) int maxHealth;
 @property (nonatomic, assign) int health;

@@ -196,4 +196,13 @@
     return (r >= 0 && r <= 1) && (s >= 0 && s <= 1);
 }
 
+- (void) dealloc
+{
+    NSLog(@"Playfield dealloc");
+    [self.cannon dealloc];
+    [self.enemies dealloc];
+    [self.enemyProjectiles dealloc];
+    [super dealloc];
+}
+
 @end

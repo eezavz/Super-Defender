@@ -35,4 +35,12 @@
     self.health -= damage;
 }
 
+- (void) dealloc
+{
+    if(self.myProjectile) {
+        [self.myProjectile dealloc];
+    }
+    [super dealloc];
+}
+
 @end

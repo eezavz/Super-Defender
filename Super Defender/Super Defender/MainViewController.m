@@ -31,91 +31,125 @@
 @synthesize renderedObjects;
 @synthesize scoreLabel;
 @synthesize damageImages;
+@synthesize pauseButton;
 
-
+- (void) menuClosed
+{
+    NSLog(@"YESSSSSS");
+    [self startTimer];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSLog(@"Loadyload!");
+        damageImages = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 110; i += 10) {
+            [damageImages addObject:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"%d", i]]];
+        }
+        self.cannonHealth = [[UIImageView alloc] initWithImage:[damageImages objectAtIndex:10]];
+        self.cannonHealth.frame = CGRectMake(0, 430, 320, 50);
+        self.explosion = [UIImage imageNamed:@"Explosion"];
+        
+        self.motionManager = [[CMMotionManager alloc] init];
+        if (self.motionManager.accelerometerAvailable) {
+            [self.motionManager stopAccelerometerUpdates];
+            self.motionManager.accelerometerUpdateInterval = 1.0 / 60.0;
+            [self.motionManager startAccelerometerUpdates];
+            self.accelerometer = YES;
+        } else {
+            NSLog(@"Ik heb geen accelerometer!");
+            self.accelerometer = NO;
+        }
+        /*if (self.motionManager.gyroAvailable) {
+         [self.motionManager stopGyroUpdates];
+         self.motionManager.gyroUpdateInterval = 1.0 / 60.0;
+         [self.motionManager startGyroUpdates];
+         } else {
+         NSLog(@"Ik heb geen gyroscoop!");
+         }*/
+        
+        self.renderedObjects = [[NSMutableArray alloc] init];
+        
+        self.enemyImage = [UIImage imageNamed:@"enemy"];
+        self.bossImage = [UIImage imageNamed:@"enemyboss"];
+        //self.drawnEnemies = [[NSMutableArray alloc] init];
+        
+        self.projectileImage = [UIImage imageNamed:@"projectile.png"];
+        self.enemyProjectileImage = [UIImage imageNamed:@"enemyprojectile.png"];
+        //projectileCountdown = 50;
+        //projectiles = [[NSMutableArray alloc]init];
+        
+        self.playfield = [[Playfield alloc]init];
+        cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
+        cannonBarrel.frame = CGRectMake(52, 322, 216, 216);
+        cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base"]];
+        cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
+        if(!self.accelerometer) {
+            CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
+            slider = [[UISlider alloc]initWithFrame:frame];
+            slider.minimumValue = 0;
+            slider.maximumValue = 180;
+            slider.value = 90;
+        }
+        
+        UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+        background.frame = CGRectMake(0, 0, 320, 480);
+        [self.view insertSubview:background atIndex:0];
+        
+        [self.view addSubview:cannonBarrel];
+        [self.view addSubview:cannonBody];
+        if(!self.accelerometer) {
+            [self.view insertSubview:slider aboveSubview:cannonBody];
+        }
+        
+        scoreLabel = [[UILabel alloc] init];
+        scoreLabel.textColor = [UIColor yellowColor];
+        scoreLabel.backgroundColor = [UIColor clearColor];
+        scoreLabel.text = @"Score: 0";
+        scoreLabel.frame = CGRectMake(0, 0, 320, 20);
+        scoreLabel.textAlignment = NSTextAlignmentRight;
+        pauseButton = [[UIButton alloc] init];
+        [pauseButton setTitle:@"II" forState:UIControlStateNormal];
+        pauseButton.backgroundColor = [UIColor redColor];
+        pauseButton.frame = CGRectMake(0, 0, 20, 20);
+        [pauseButton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view insertSubview:scoreLabel aboveSubview:cannonBody];
+        [self.view insertSubview:pauseButton belowSubview:scoreLabel];
+        [self.view insertSubview:self.cannonHealth aboveSubview:scoreLabel];
     }
     return self;
+}
+
+- (void) buttonTap:(id) sender {
+    NSLog(@"Asdjke");
+    [self stopTimer];
+    MenuViewController *mvc = [[MenuViewController alloc] init];
+    mvc.delegate = self;
+    [self.view addSubview:mvc.view];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    damageImages = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 110; i += 10) {
-        [damageImages addObject:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"%d", i]]];
+}
+
+- (void)startTimer
+{
+    if (!timer) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0f/60.0f target:self selector:@selector(update:) userInfo:nil repeats:YES];
     }
-    self.cannonHealth = [[UIImageView alloc] initWithImage:[damageImages objectAtIndex:10]];
-    self.cannonHealth.frame = CGRectMake(0, 430, 320, 50);
-    self.explosion = [UIImage imageNamed:@"Explosion"];
-    
-    self.motionManager = [[CMMotionManager alloc] init];
-    if (self.motionManager.accelerometerAvailable) {
-        [self.motionManager stopAccelerometerUpdates];
-        self.motionManager.accelerometerUpdateInterval = 1.0 / 60.0;
-        [self.motionManager startAccelerometerUpdates];
-        self.accelerometer = YES;
-    } else {
-        NSLog(@"Ik heb geen accelerometer!");
-        self.accelerometer = NO;
+}
+
+- (void)stopTimer
+{
+    if (timer) {
+        [timer invalidate];
+        timer = nil;
     }
-    /*if (self.motionManager.gyroAvailable) {
-     [self.motionManager stopGyroUpdates];
-     self.motionManager.gyroUpdateInterval = 1.0 / 60.0;
-     [self.motionManager startGyroUpdates];
-     } else {
-     NSLog(@"Ik heb geen gyroscoop!");
-     }*/
-    
-    self.renderedObjects = [[NSMutableArray alloc] init];
-    
-    self.enemyImage = [UIImage imageNamed:@"enemy"];
-    self.bossImage = [UIImage imageNamed:@"enemyboss"];
-    //self.drawnEnemies = [[NSMutableArray alloc] init];
-    
-    self.projectileImage = [UIImage imageNamed:@"projectile.png"];
-    self.enemyProjectileImage = [UIImage imageNamed:@"enemyprojectile.png"];
-    //projectileCountdown = 50;
-    //projectiles = [[NSMutableArray alloc]init];
-    
-    self.playfield = [[Playfield alloc]init];
-    cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
-    cannonBarrel.frame = CGRectMake(52, 322, 216, 216);
-    cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base"]];
-    cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
-    if(!self.accelerometer) {
-        CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
-        slider = [[UISlider alloc]initWithFrame:frame];
-        slider.minimumValue = 0;
-        slider.maximumValue = 180;
-        slider.value = 90;
-    }
-    
-    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
-    background.frame = CGRectMake(0, 0, 320, 480);
-    [self.view insertSubview:background atIndex:0];
-    
-    [self.view addSubview:cannonBarrel];
-    [self.view addSubview:cannonBody];
-    if(!self.accelerometer) {
-        [self.view insertSubview:slider aboveSubview:cannonBody];
-    }
-    
-    scoreLabel = [[UILabel alloc] init];
-    scoreLabel.textColor = [UIColor yellowColor];
-    scoreLabel.backgroundColor = [UIColor clearColor];
-    scoreLabel.text = @"Score: 0";
-    scoreLabel.frame = CGRectMake(0, 0, 320, 20);
-    [self.view insertSubview:scoreLabel aboveSubview:cannonBody];
-    [self.view insertSubview:self.cannonHealth aboveSubview:scoreLabel];
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f/60.0f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 - (void)update:(NSTimer *)timer
@@ -129,9 +163,7 @@
         [playfield update:bla*180];
     }
     if (playfield.cannon.health == 0) {
-        [self.timer invalidate];
-        MenuViewController *mvc = [MenuViewController alloc];
-        [self.view addSubview:mvc.view];
+        [self stopTimer];
     }
     [self render];
 }
@@ -219,6 +251,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) dealloc
+{
+    NSLog(@"MainViewController dealloc");
+    [self.playfield dealloc];
+    [self.slider dealloc];
+    if (self.timer) {
+        [self.timer dealloc];
+    }
+    [self.cannonBody dealloc];
+    [self.cannonBarrel dealloc];
+    [self.enemyImage dealloc];
+    [self.projectileImage dealloc];
+    [self.enemyProjectileImage dealloc];
+    [self.renderedObjects dealloc];
+    [self.scoreLabel dealloc];
+    [self.damageImages dealloc];
+    [self.explosion dealloc];
+    [self.bossImage dealloc];
+    [self.cannonHealth dealloc];
+    [self.pauseButton dealloc];
+    [super dealloc];
 }
 
 @end

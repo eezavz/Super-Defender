@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MenuViewControllerDelegate <NSObject>
+- (void)menuClosed;
+@end
+
 @interface MenuViewController : UIViewController
-@property (strong, nonatomic) UIButton *knop;
+@property (strong, nonatomic) IBOutlet UIButton *knop;
+@property (assign) id <MenuViewControllerDelegate> delegate;
+
+- (IBAction)tap:(id)sender;
 @end

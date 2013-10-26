@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Playfield.h"
+#import "MenuViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <MenuViewControllerDelegate>
 
 @property (atomic, retain) Playfield *playfield;
 @property (atomic, retain) UISlider *slider;
@@ -25,8 +26,11 @@
 @property (nonatomic, strong) UIImage *explosion;
 @property (nonatomic, strong) UIImage *bossImage;
 @property (nonatomic, strong) UIImageView *cannonHealth;
+@property (nonatomic, strong) UIButton *pauseButton;
 
 - (void)update:(NSTimer *)timer;
 - (void)render;
+- (void) startTimer;
+- (void) stopTimer;
 
 @end
