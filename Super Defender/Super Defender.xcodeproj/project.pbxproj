@@ -24,7 +24,6 @@
 		82518420181A5C7A00B0020C /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518415181A5C7A00B0020C /* 100.png */; };
 		82518422181A61B400B0020C /* Explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518421181A61B400B0020C /* Explosion.png */; };
 		82518424181A67BC00B0020C /* enemyboss.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518423181A67BC00B0020C /* enemyboss.png */; };
-		826CCAF2181BD0D20051DD82 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 826CCAF1181BD0D20051DD82 /* MenuView.xib */; };
 		82865A12181B030000F93143 /* enemyprojectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 82865A11181B030000F93143 /* enemyprojectile.png */; };
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
 		82FB3A67180EA299005477C2 /* barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A66180EA299005477C2 /* barrel.png */; };
@@ -54,6 +53,7 @@
 		DC8DD084180C0E2A00857A2D /* EnemyProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD083180C0E2900857A2D /* EnemyProjectile.m */; };
 		DC8DD087180C0E3800857A2D /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD086180C0E3700857A2D /* Object.m */; };
 		DC8DD08A180C0E4600857A2D /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD089180C0E4600857A2D /* Star.m */; };
+		DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCDF4B9E181E8213008ED39F /* MenuView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +74,6 @@
 		82518415181A5C7A00B0020C /* 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100.png; sourceTree = "<group>"; };
 		82518421181A61B400B0020C /* Explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion.png; sourceTree = "<group>"; };
 		82518423181A67BC00B0020C /* enemyboss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyboss.png; sourceTree = "<group>"; };
-		826CCAF1181BD0D20051DD82 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		82865A11181B030000F93143 /* enemyprojectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyprojectile.png; sourceTree = "<group>"; };
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		82FB3A66180EA299005477C2 /* barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrel.png; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		DC8DD086180C0E3700857A2D /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		DC8DD088180C0E4600857A2D /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		DC8DD089180C0E4600857A2D /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
+		DCDF4B9E181E8213008ED39F /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +199,7 @@
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
 				DC8DD061180C0BC200857A2D /* MenuViewController.h */,
 				DC8DD062180C0BC200857A2D /* MenuViewController.m */,
-				826CCAF1181BD0D20051DD82 /* MenuView.xib */,
+				DCDF4B9E181E8213008ED39F /* MenuView.xib */,
 				DC8DD067180C0D3700857A2D /* Item.h */,
 				DC8DD068180C0D3700857A2D /* Item.m */,
 				DC8DD06A180C0D6C00857A2D /* Upgrade.h */,
@@ -299,7 +299,6 @@
 				8251841B181A5C7A00B0020C /* 50.png in Resources */,
 				82518419181A5C7A00B0020C /* 30.png in Resources */,
 				DC8DD04A180C0A8200857A2D /* InfoPlist.strings in Resources */,
-				826CCAF2181BD0D20051DD82 /* MenuView.xib in Resources */,
 				82FB3A6B180EA41D005477C2 /* background.png in Resources */,
 				DC8DD052180C0A8200857A2D /* Default.png in Resources */,
 				82865A12181B030000F93143 /* enemyprojectile.png in Resources */,
@@ -321,6 +320,7 @@
 				821ADA48180D5452007870B7 /* base.png in Resources */,
 				8251841C181A5C7A00B0020C /* 60.png in Resources */,
 				82518422181A61B400B0020C /* Explosion.png in Resources */,
+				DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
