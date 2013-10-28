@@ -28,10 +28,12 @@
 @property (nonatomic, strong) UIImage *bossImage;
 @property (nonatomic, strong) UIImageView *cannonHealth;
 @property (nonatomic, strong) UIButton *pauseButton;
+@property (nonatomic, strong) UIImage *heartImage;
+@property (nonatomic, strong) NSMutableArray *objectButtons;
 
 - (void)update:(NSTimer *)timer;
 - (void)render;
 - (void) startTimer;
 - (void) stopTimer;
-
+- (IBAction) objectPressed:(id)sender;
 @end

@@ -1,17 +1,14 @@
 //
-//  Object.m
+//  Heart.m
 //  Super Defender
 //
-//  Created by Furkan on 10/14/13.
+//  Created by Furkan on 10/28/13.
 //  Copyright (c) 2013 RoFuPaNi. All rights reserved.
 //
 
-#import "Object.h"
+#import "Heart.h"
 
-@implementation Object
-
-@synthesize centerX;
-@synthesize centerY;
+@implementation Heart
 
 -(Object *)init: (float)x Y:(float)y;
 {
@@ -22,7 +19,7 @@
 
 -(void)update
 {
-    
+    self.centerY++;
 }
 
 @end

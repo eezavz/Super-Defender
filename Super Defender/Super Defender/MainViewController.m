@@ -13,6 +13,7 @@
 #import "Enemy2.h"
 #import <CoreMotion/CoreMotion.h>
 #import "MenuViewController.h"
+#import "Heart.h"
 #define degrees(x) (M_PI * (x) / 180)
 
 @interface MainViewController ()
@@ -32,6 +33,8 @@
 @synthesize scoreLabel;
 @synthesize damageImages;
 @synthesize pauseButton;
+@synthesize heartImage;
+@synthesize objectButtons;
 
 - (void) menuClosed
 {
@@ -45,6 +48,7 @@
     if (self) {
         // Custom initialization
         NSLog(@"Loadyload!");
+        heartImage = [UIImage imageNamed:@"Heart"];
         damageImages = [[NSMutableArray alloc] init];
         for (int i = 0; i < 110; i += 10) {
             [damageImages addObject:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"%d", i]]];
@@ -73,6 +77,7 @@
          }*/
         
         self.renderedObjects = [[NSMutableArray alloc] init];
+        self.objectButtons = [[NSMutableArray alloc]init];
         
         self.enemyImage = [UIImage imageNamed:@"enemy"];
         self.bossImage = [UIImage imageNamed:@"enemyboss"];
@@ -252,6 +257,49 @@
     scoreLabel.text = [[NSString alloc] initWithFormat:@"Score: %d", playfield.score];
     float percentage = (float)playfield.cannon.health / (float)playfield.cannon.maxHealth * 100;
     self.cannonHealth.image = [damageImages objectAtIndex:percentage/10];
+    
+    if(playfield.objects.count > self.objectButtons.count)
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake([[playfield.objects objectAtIndex:playfield.objects.count-1]centerX]-20, [[playfield.objects objectAtIndex:playfield.objects.count-1]centerY]-20, 40, 40);
+        [button addTarget:self action:@selector(objectPressed:) forControlEvents:UIControlEventTouchDown];
+        [button setImage:heartImage forState:UIControlStateNormal];
+        [self.objectButtons addObject:button];
+        [self.view addSubview:button];
+    }
+    
+    for(int i = 0; i<self.objectButtons.count; i++)
+    {
+        UIButton *tempBtn = [self.objectButtons objectAtIndex:i];
+        if([[playfield.objects objectAtIndex:i] centerY] <450)
+        {
+            tempBtn.center = CGPointMake([[playfield.objects objectAtIndex:i] centerX], [[playfield.objects objectAtIndex:i] centerY]);
+        }
+//        CGRect btnFrame = tempBtn.frame;
+//        if(btnFrame.origin.y <400)
+//        {
+//            btnFrame.origin.y = tempBtn.frame.origin.y+2;
+//        }
+//        tempBtn.frame = btnFrame;
+    }
+}
+
+- (IBAction) objectPressed:(id)sender
+{
+    for(int i = 0; i<playfield.objects.count; i++)
+    {
+        if(sender == [objectButtons objectAtIndex:i])
+        {
+            UIButton *tempBtn = [objectButtons objectAtIndex:i];
+            [objectButtons removeObject:tempBtn];
+            [tempBtn removeFromSuperview];
+            [tempBtn release];
+            Heart *tempObject = [playfield.objects objectAtIndex:i];
+            [playfield.objects removeObject:tempObject];
+            [tempObject dealloc];
+            i--;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -280,6 +328,7 @@
     [self.bossImage dealloc];
     [self.cannonHealth dealloc];
     [self.pauseButton dealloc];
+    [self.heartImage dealloc];
     [super dealloc];
 }
 

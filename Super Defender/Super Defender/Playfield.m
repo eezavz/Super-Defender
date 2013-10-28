@@ -9,6 +9,8 @@
 #import "Playfield.h"
 #import "Enemy1.h"
 #import "Enemy2.h"
+#import "Object.h"
+#import "Heart.h"
 #define degrees(x) (M_PI * (x) / 180)
 
 @implementation Playfield
@@ -19,6 +21,7 @@
 @synthesize enemyCountdown;
 @synthesize cannon;
 @synthesize enemies;
+@synthesize objects;
 
 - (Playfield *)init
 {
@@ -30,6 +33,7 @@
     enemies = [[NSMutableArray alloc] init];
     self.score = 0;
     self.enemyProjectiles = [[NSMutableArray alloc] init];
+    objects = [[NSMutableArray alloc]init];
     return [super init];
 }
 
@@ -60,6 +64,8 @@
         if([[enemies objectAtIndex:i] shouldDie])
         {
             Enemy *temp = [enemies objectAtIndex:i];
+            Heart *heart = [[Heart alloc]init:[temp centerX] Y: [temp centerY]];
+            [self.objects addObject:heart];
             [enemies removeObject:temp];
             [temp dealloc];
             i--;
@@ -82,7 +88,12 @@
                 }
             }
         }
+        
+    for(int i =0; i<objects.count; i++)
+    {
+        [[objects objectAtIndex:i]update];
     }
+}
     
     for (int i = 0; i < self.enemyProjectiles.count; i++) {
         [[self.enemyProjectiles objectAtIndex:i] update];
@@ -202,6 +213,7 @@
     [self.cannon dealloc];
     [self.enemies dealloc];
     [self.enemyProjectiles dealloc];
+    [self.objects dealloc];
     [super dealloc];
 }
 
