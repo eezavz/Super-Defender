@@ -10,4 +10,10 @@
 
 @interface Object : NSObject
 
+@property (nonatomic, assign) float centerX;
+@property (nonatomic, assign) float centerY;
+
+-(Object *)init: (float)x Y:(float)y;
+-(void)update;
+
 @end
