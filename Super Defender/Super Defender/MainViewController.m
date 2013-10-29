@@ -161,6 +161,20 @@
     return self;
 }
 
+- (void)saveGame
+{
+    [gameData writeToFile:[self givePath] atomically:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSString *)givePath
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+    return path;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

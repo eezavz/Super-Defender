@@ -29,6 +29,8 @@
 @property (nonatomic, strong) UIImageView *cannonHealth;
 @property (nonatomic, strong) UIButton *pauseButton;
 @property (nonatomic, strong) UIImage *heartImage;
+@property (nonatomic, strong) NSMutableArray *objectButtons;
+@property (nonatomic, strong) NSMutableDictionary *gameData;
 @property (nonatomic, retain) NSMutableArray *objectButtons;
 @property (nonatomic, strong) MenuViewController *mvc;
 
