@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Upgrade1</key>
+	<integer>2</integer>
+	<key>Upgrade2</key>
+	<integer>0</integer>
+	<key>Upgrade3</key>
+	<integer>0</integer>
+	<key>Upgrade4</key>
+	<integer>0</integer>
+	<key>Upgrade5</key>
+	<integer>0</integer>
+	<key>Score</key>
+	<integer>3000</integer>
+	<key>Scrap</key>
+	<integer>0</integer>
+</dict>
+</plist>

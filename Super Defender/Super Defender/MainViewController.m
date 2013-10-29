@@ -35,6 +35,7 @@
 @synthesize pauseButton;
 @synthesize heartImage;
 @synthesize objectButtons;
+@synthesize gameData;
 
 - (void) menuClosed
 {
@@ -48,6 +49,23 @@
     if (self) {
         // Custom initialization
         NSLog(@"Loadyload!");
+        
+        NSFileManager *filemanager = [NSFileManager defaultManager];
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+        path = [path stringByAppendingPathComponent:@"GameData.plist"];
+        
+        if([filemanager fileExistsAtPath:path])
+        {
+            gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+            NSLog(@"%@", [gameData objectForKey:@"Score"]);
+        }else{
+            NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
+            gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
+            NSLog(@"%@", gameData);
+            [self saveGame];
+        }
+
+        
         heartImage = [UIImage imageNamed:@"Heart"];
         damageImages = [[NSMutableArray alloc] init];
         for (int i = 0; i < 110; i += 10) {
@@ -88,7 +106,7 @@
         //projectileCountdown = 50;
         //projectiles = [[NSMutableArray alloc]init];
         
-        self.playfield = [[Playfield alloc]init];
+        self.playfield = [[Playfield alloc]init :(NSMutableDictionary *) gameData];
         cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
         cannonBarrel.frame = CGRectMake(52, 322, 216, 216);
         cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base"]];
@@ -128,6 +146,19 @@
         [self.view insertSubview:self.cannonHealth aboveSubview:scoreLabel];
     }
     return self;
+}
+
+- (void)saveGame
+{
+    [gameData writeToFile:[self givePath] atomically:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSString *)givePath
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+    return path;
 }
 
 - (void) buttonTap:(id) sender {
@@ -170,6 +201,8 @@
     }
     if (playfield.cannon.health == 0) {
         [self stopTimer];
+        [gameData setValue:[NSNumber numberWithInt:playfield.score] forKey:@"Score"];
+        [self saveGame];
     }
     [self render];
 }

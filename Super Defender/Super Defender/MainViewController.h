@@ -30,10 +30,12 @@
 @property (nonatomic, strong) UIButton *pauseButton;
 @property (nonatomic, strong) UIImage *heartImage;
 @property (nonatomic, strong) NSMutableArray *objectButtons;
+@property (nonatomic, strong) NSMutableDictionary *gameData;
 
 - (void)update:(NSTimer *)timer;
 - (void)render;
 - (void) startTimer;
 - (void) stopTimer;
 - (IBAction) objectPressed:(id)sender;
+- (void)saveGame;
 @end
