@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSMutableArray *enemies;
 @property (nonatomic, retain) NSMutableArray *enemyProjectiles;
 @property (nonatomic, retain) NSMutableArray *objects;
+//@property (nonatomic, retain) NSMutableDictionary *gameData;
 
 -(void)update:(float)angle;
 -(BOOL)checkHitEnemy: (Enemy *) enemy Projectile:(Projectile *) projectile;

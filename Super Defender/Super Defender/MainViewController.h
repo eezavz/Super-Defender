@@ -37,4 +37,5 @@
 - (void) startTimer;
 - (void) stopTimer;
 - (IBAction) objectPressed:(id)sender;
+- (void)saveGame;
 @end
