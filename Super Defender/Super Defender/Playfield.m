@@ -26,8 +26,8 @@
 
 - (Playfield *)init : (NSMutableDictionary *)par_gameData
 {
-    self.gameData = par_gameData;
-    NSLog(@"%@", gameData);
+    //self.gameData = par_gameData;
+    //NSLog(@"%@", gameData);
     self.cannon = [[Cannon alloc]init];
     cannon.posX = 160;
     cannon.posY = 405;
