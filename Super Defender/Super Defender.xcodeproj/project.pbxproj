@@ -24,6 +24,7 @@
 		82518420181A5C7A00B0020C /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518415181A5C7A00B0020C /* 100.png */; };
 		82518422181A61B400B0020C /* Explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518421181A61B400B0020C /* Explosion.png */; };
 		82518424181A67BC00B0020C /* enemyboss.png in Resources */ = {isa = PBXBuildFile; fileRef = 82518423181A67BC00B0020C /* enemyboss.png */; };
+		8258DFE9181FE42E0009A638 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8258DFE8181FE42E0009A638 /* menu.png */; };
 		82865A12181B030000F93143 /* enemyprojectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 82865A11181B030000F93143 /* enemyprojectile.png */; };
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
 		82FB3A67180EA299005477C2 /* barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A66180EA299005477C2 /* barrel.png */; };
@@ -76,6 +77,7 @@
 		82518415181A5C7A00B0020C /* 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100.png; sourceTree = "<group>"; };
 		82518421181A61B400B0020C /* Explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion.png; sourceTree = "<group>"; };
 		82518423181A67BC00B0020C /* enemyboss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyboss.png; sourceTree = "<group>"; };
+		8258DFE8181FE42E0009A638 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		82865A11181B030000F93143 /* enemyprojectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyprojectile.png; sourceTree = "<group>"; };
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		82FB3A66180EA299005477C2 /* barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrel.png; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				82865A11181B030000F93143 /* enemyprojectile.png */,
 				8227D29B181C323C005C9AC5 /* menubackground.png */,
 				DCDF4BA3181E8D03008ED39F /* Heart.png */,
+				8258DFE8181FE42E0009A638 /* menu.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
 				DC8DD061180C0BC200857A2D /* MenuViewController.h */,
@@ -307,6 +310,7 @@
 				8251841B181A5C7A00B0020C /* 50.png in Resources */,
 				82518419181A5C7A00B0020C /* 30.png in Resources */,
 				DC8DD04A180C0A8200857A2D /* InfoPlist.strings in Resources */,
+				8258DFE9181FE42E0009A638 /* menu.png in Resources */,
 				82FB3A6B180EA41D005477C2 /* background.png in Resources */,
 				DC8DD052180C0A8200857A2D /* Default.png in Resources */,
 				82865A12181B030000F93143 /* enemyprojectile.png in Resources */,
