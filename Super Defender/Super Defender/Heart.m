@@ -10,10 +10,13 @@
 
 @implementation Heart
 
+@synthesize health;
+
 -(Object *)init: (float)x Y:(float)y;
 {
     self.centerX = x;
     self.centerY = y;
+    health = 3;
     return self;
 }
 

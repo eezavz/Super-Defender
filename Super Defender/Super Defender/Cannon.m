@@ -27,6 +27,14 @@
     return [super init];
 }
 
+-(void)gainHealth:(int) par_health
+{
+    if(health < 100)
+    {
+        health += par_health;
+    }
+}
+
 -(void)update:(float) angle2
 {
     static int countdown = 15;

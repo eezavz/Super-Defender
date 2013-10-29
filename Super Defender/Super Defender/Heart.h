@@ -11,4 +11,6 @@
 
 @interface Heart : Object
 
+@property (nonatomic, assign) int health;
+
 @end
