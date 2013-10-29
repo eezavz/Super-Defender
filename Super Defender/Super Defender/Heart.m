@@ -23,6 +23,9 @@
 -(void)update
 {
     self.centerY++;
+    if (self.centerY + 20 > 430) {
+        self.centerY--;
+    }
 }
 
 @end

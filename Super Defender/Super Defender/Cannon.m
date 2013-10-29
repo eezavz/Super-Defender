@@ -38,7 +38,7 @@
 -(void)update:(float) angle2
 {
     static int countdown = 15;
-    if (angle2 > 45 && angle2 < 135) {
+    if (angle2 >= 45 && angle2 <= 135) {
         angle = angle2;
     } else {
         if (angle2 < 45) {

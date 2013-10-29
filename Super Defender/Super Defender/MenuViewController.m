@@ -28,8 +28,8 @@
 - (void)tap:(id)sender
 {
     NSLog(@"Tappy");
-    [delegate menuClosed];
     [self.view removeFromSuperview];
+    [delegate menuClosed];
 }
 
 - (void)viewDidLoad

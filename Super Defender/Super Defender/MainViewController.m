@@ -36,9 +36,22 @@
 @synthesize heartImage;
 @synthesize objectButtons;
 
+- (void) buttonTap:(id) sender {
+    NSLog(@"Asdjke");
+    [self stopTimer];
+    self.mvc = [[MenuViewController alloc] init];
+    self.mvc.delegate = self;
+    pauseButton.hidden = YES;
+    scoreLabel.hidden = YES;
+    [self.view addSubview:self.mvc.view];
+}
+
 - (void) menuClosed
 {
     NSLog(@"YESSSSSS");
+    [self.mvc release];
+    pauseButton.hidden = NO;
+    scoreLabel.hidden = NO;
     [self startTimer];
 }
 
@@ -128,14 +141,6 @@
         [self.view insertSubview:self.cannonHealth aboveSubview:scoreLabel];
     }
     return self;
-}
-
-- (void) buttonTap:(id) sender {
-    NSLog(@"Asdjke");
-    [self stopTimer];
-    MenuViewController *mvc = [[MenuViewController alloc] init];
-    mvc.delegate = self;
-    [self.view addSubview:mvc.view];
 }
 
 - (void)viewDidLoad
@@ -254,7 +259,9 @@
         current.center = CGPointMake(centerX, centerY);
     }
     currentAmount += playfield.enemyProjectiles.count;
-    scoreLabel.text = [[NSString alloc] initWithFormat:@"Score: %d", playfield.score];
+//    NSString *score = [[NSString alloc] initWithFormat:@"Score: %d", playfield.score];
+//    scoreLabel.text = score;
+//    [score release];
     float percentage = (float)playfield.cannon.health / (float)playfield.cannon.maxHealth * 100;
     self.cannonHealth.image = [damageImages objectAtIndex:percentage/10];
     
@@ -270,17 +277,11 @@
     
     for(int i = 0; i<self.objectButtons.count; i++)
     {
-        UIButton *tempBtn = [self.objectButtons objectAtIndex:i];
+        ;
         if([[playfield.objects objectAtIndex:i] centerY] <450)
         {
-            tempBtn.center = CGPointMake([[playfield.objects objectAtIndex:i] centerX], [[playfield.objects objectAtIndex:i] centerY]);
+            [[self.objectButtons objectAtIndex:i] setCenter:CGPointMake([[playfield.objects objectAtIndex:i] centerX], [[playfield.objects objectAtIndex:i] centerY])];
         }
-//        CGRect btnFrame = tempBtn.frame;
-//        if(btnFrame.origin.y <400)
-//        {
-//            btnFrame.origin.y = tempBtn.frame.origin.y+2;
-//        }
-//        tempBtn.frame = btnFrame;
     }
 }
 
@@ -290,10 +291,9 @@
     {
         if(sender == [objectButtons objectAtIndex:i])
         {
-            UIButton *tempBtn = [objectButtons objectAtIndex:i];
-            [objectButtons removeObject:tempBtn];
-            [tempBtn removeFromSuperview];
-            [tempBtn release];
+            [objectButtons removeObject:sender];
+            [sender removeFromSuperview];
+            [sender release];
             Heart *tempObject = [playfield.objects objectAtIndex:i];
             [playfield.cannon gainHealth:tempObject.health];
             [playfield.objects removeObject:tempObject];
