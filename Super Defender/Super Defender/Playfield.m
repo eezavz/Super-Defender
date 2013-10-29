@@ -64,11 +64,14 @@
         if([[enemies objectAtIndex:i] shouldDie])
         {
             Enemy *temp = [enemies objectAtIndex:i];
-            Heart *heart = [[Heart alloc]init:[temp centerX] Y: [temp centerY]];
-            [self.objects addObject:heart];
             [enemies removeObject:temp];
-            [temp dealloc];
-            i--;
+            if(arc4random() % 10 == 1)
+            {
+                Heart *heart = [[Heart alloc]init:[temp centerX] Y: [temp centerY]];
+                [self.objects addObject:heart];
+            }
+        [temp dealloc];
+        i--;
         }
     }
     for (int i = 0; i < cannon.shotProjectiles.count; i++) {
@@ -88,12 +91,12 @@
                 }
             }
         }
-        
+    }
+    
     for(int i =0; i<objects.count; i++)
     {
         [[objects objectAtIndex:i]update];
     }
-}
     
     for (int i = 0; i < self.enemyProjectiles.count; i++) {
         [[self.enemyProjectiles objectAtIndex:i] update];

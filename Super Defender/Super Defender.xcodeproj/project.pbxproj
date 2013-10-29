@@ -56,7 +56,6 @@
 		DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCDF4B9E181E8213008ED39F /* MenuView.xib */; };
 		DCDF4BA2181E88FC008ED39F /* Heart.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDF4BA1181E88FB008ED39F /* Heart.m */; };
 		DCDF4BA4181E8D03008ED39F /* Heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDF4BA3181E8D03008ED39F /* Heart.png */; };
-		DCDF4BA7181E975A008ED39F /* HeartTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDF4BA6181E975A008ED39F /* HeartTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,8 +128,6 @@
 		DCDF4BA0181E88FB008ED39F /* Heart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heart.h; sourceTree = "<group>"; };
 		DCDF4BA1181E88FB008ED39F /* Heart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heart.m; sourceTree = "<group>"; };
 		DCDF4BA3181E8D03008ED39F /* Heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Heart.png; sourceTree = "<group>"; };
-		DCDF4BA5181E975A008ED39F /* HeartTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartTest.h; sourceTree = "<group>"; };
-		DCDF4BA6181E975A008ED39F /* HeartTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +148,6 @@
 		DC8DD033180C0A8200857A2D = {
 			isa = PBXGroup;
 			children = (
-				DCDF4BA5181E975A008ED39F /* HeartTest.h */,
-				DCDF4BA6181E975A008ED39F /* HeartTest.m */,
 				DC8DD045180C0A8200857A2D /* Super Defender */,
 				DC8DD03E180C0A8200857A2D /* Frameworks */,
 				DC8DD03D180C0A8200857A2D /* Products */,
@@ -363,7 +358,6 @@
 				DC8DD087180C0E3800857A2D /* Object.m in Sources */,
 				DC8DD08A180C0E4600857A2D /* Star.m in Sources */,
 				DCDF4BA2181E88FC008ED39F /* Heart.m in Sources */,
-				DCDF4BA7181E975A008ED39F /* HeartTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

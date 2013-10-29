@@ -24,5 +24,6 @@
 
 
 -(void)update:(float) angle2;
+-(void)gainHealth:(int) par_health;
 
 @end

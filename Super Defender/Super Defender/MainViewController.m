@@ -295,6 +295,7 @@
             [tempBtn removeFromSuperview];
             [tempBtn release];
             Heart *tempObject = [playfield.objects objectAtIndex:i];
+            [playfield.cannon gainHealth:tempObject.health];
             [playfield.objects removeObject:tempObject];
             [tempObject dealloc];
             i--;
