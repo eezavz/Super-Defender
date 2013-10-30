@@ -445,13 +445,14 @@
 		DC8DD05A180C0A8200857A2D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Robert van der Pijl (A4SM22EHZH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert van der Pijl (A4SM22EHZH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Super Defender/Super Defender-Prefix.pch";
 				INFOPLIST_FILE = "Super Defender/Super Defender-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FDB3A469-7293-40F1-9CA0-014106986EE0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FDB3A469-7293-40F1-9CA0-014106986EE0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -459,13 +460,14 @@
 		DC8DD05B180C0A8200857A2D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Robert van der Pijl (A4SM22EHZH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert van der Pijl (A4SM22EHZH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Super Defender/Super Defender-Prefix.pch";
 				INFOPLIST_FILE = "Super Defender/Super Defender-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FDB3A469-7293-40F1-9CA0-014106986EE0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FDB3A469-7293-40F1-9CA0-014106986EE0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
