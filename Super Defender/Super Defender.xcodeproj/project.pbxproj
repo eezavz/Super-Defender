@@ -286,6 +286,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = RoFuPaNi;
+				TargetAttributes = {
+					DC8DD03B180C0A8200857A2D = {
+						DevelopmentTeam = 9Z69644A6V;
+					};
+				};
 			};
 			buildConfigurationList = DC8DD037180C0A8200857A2D /* Build configuration list for PBXProject "Super Defender" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -440,10 +445,13 @@
 		DC8DD05A180C0A8200857A2D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Super Defender/Super Defender-Prefix.pch";
 				INFOPLIST_FILE = "Super Defender/Super Defender-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -451,10 +459,13 @@
 		DC8DD05B180C0A8200857A2D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Super Defender/Super Defender-Prefix.pch";
 				INFOPLIST_FILE = "Super Defender/Super Defender-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

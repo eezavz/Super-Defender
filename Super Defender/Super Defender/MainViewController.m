@@ -7,13 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "MenuViewController.h"
-#import "Projectile.h"
-#import "Enemy.h"
-#import "Enemy2.h"
-#import <CoreMotion/CoreMotion.h>
-#import "MenuViewController.h"
-#import "Heart.h"
 #define degrees(x) (M_PI * (x) / 180)
 
 @interface MainViewController ()
@@ -112,14 +105,11 @@
         
         self.enemyImage = [UIImage imageNamed:@"enemy"];
         self.bossImage = [UIImage imageNamed:@"enemyboss"];
-        //self.drawnEnemies = [[NSMutableArray alloc] init];
         
         self.projectileImage = [UIImage imageNamed:@"projectile.png"];
         self.enemyProjectileImage = [UIImage imageNamed:@"enemyprojectile.png"];
-        //projectileCountdown = 50;
-        //projectiles = [[NSMutableArray alloc]init];
         
-        self.playfield = [[Playfield alloc]init :(NSMutableDictionary *) gameData];
+        self.playfield = [[Playfield alloc] init:gameData];
         cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
         cannonBarrel.frame = CGRectMake(52, 322, 216, 216);
         cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base"]];
@@ -224,8 +214,6 @@
         int difference = objects-renderedObjects.count;
         for (int i = 0; i < difference; i++) {
             UIImageView *new = [[UIImageView alloc] init];
-            
-            //[new setImage:self.enemyImage];
             [renderedObjects addObject:new];
             [self.view insertSubview:new belowSubview:self.scoreLabel];
         }
@@ -293,9 +281,7 @@
         current.center = CGPointMake(centerX, centerY);
     }
     currentAmount += playfield.enemyProjectiles.count;
-//    NSString *score = [[NSString alloc] initWithFormat:@"Score: %d", playfield.score];
-//    scoreLabel.text = score;
-//    [score release];
+    [scoreLabel setText:[[NSString alloc] initWithFormat:@"Score: %d", playfield.score]];
     float percentage = (float)playfield.cannon.health / (float)playfield.cannon.maxHealth * 100;
     self.cannonHealth.image = [damageImages objectAtIndex:percentage/10];
     
@@ -311,7 +297,6 @@
     
     for(int i = 0; i<self.objectButtons.count; i++)
     {
-        ;
         if([[playfield.objects objectAtIndex:i] centerY] <450)
         {
             [[self.objectButtons objectAtIndex:i] setCenter:CGPointMake([[playfield.objects objectAtIndex:i] centerX], [[playfield.objects objectAtIndex:i] centerY])];
