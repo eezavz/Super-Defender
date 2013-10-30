@@ -271,6 +271,7 @@
     }
     currentAmount += playfield.cannon.shotProjectiles.count;
     
+    
     toLimit += playfield.enemyProjectiles.count;
     for (int i = currentAmount; i < toLimit; i++) {
         UIImageView *current = [renderedObjects objectAtIndex:i];
@@ -293,6 +294,16 @@
         [button setImage:heartImage forState:UIControlStateNormal];
         [self.objectButtons addObject:button];
         [self.view addSubview:button];
+    }
+    
+    if(playfield.objects.count < self.objectButtons.count) {
+        int diff = self.objectButtons.count - playfield.objects.count;
+        for (int i = 0; i < diff; i++) {
+            UIButton *delete = [self.objectButtons objectAtIndex:i];
+            [self.objectButtons delete:delete];
+            [delete removeFromSuperview];
+            [delete dealloc];
+        }
     }
     
     for(int i = 0; i<self.objectButtons.count; i++)
