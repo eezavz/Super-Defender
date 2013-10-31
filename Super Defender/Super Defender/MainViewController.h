@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Playfield.h"
 #import "MenuViewController.h"
+#import "Projectile.h"
+#import "Enemy.h"
+#import "Enemy2.h"
+#import <CoreMotion/CoreMotion.h>
+#import "MenuViewController.h"
+#import "Heart.h"
 
 @interface MainViewController : UIViewController <MenuViewControllerDelegate>
 
@@ -31,7 +37,6 @@
 @property (nonatomic, strong) UIImage *heartImage;
 @property (nonatomic, strong) NSMutableArray *objectButtons;
 @property (nonatomic, strong) NSMutableDictionary *gameData;
-@property (nonatomic, retain) NSMutableArray *objectButtons;
 @property (nonatomic, strong) MenuViewController *mvc;
 
 - (void)update:(NSTimer *)timer;

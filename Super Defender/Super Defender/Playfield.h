@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSMutableArray *objects;
 //@property (nonatomic, retain) NSMutableDictionary *gameData;
 
+- (Playfield *)init : (NSMutableDictionary *)par_gameData;
 -(void)update:(float)angle;
 -(BOOL)checkHitEnemy: (Enemy *) enemy Projectile:(Projectile *) projectile;
 

@@ -82,7 +82,11 @@
     }
     int random = arc4random() % 1200;
     if (random == 0) {
-        self.myProjectile = [[EnemyProjectile alloc] initWithX:self.centerX Y:self.centerY Angle:90];
+        if (self.myProjectile) {
+            [self.myProjectile dealloc];
+        } else {
+            self.myProjectile = [[EnemyProjectile alloc] initWithX:self.centerX Y:self.centerY Angle:90];
+        }
     }
 }
 

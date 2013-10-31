@@ -24,6 +24,9 @@
     maxHealth = 100;
     health = maxHealth;
     shotProjectiles = [[NSMutableArray alloc] init];
+    aimspeed = 1;
+    rateOfFire = 4;
+    angle = 90;
     return [super init];
 }
 
@@ -37,22 +40,35 @@
 
 -(void)update:(float) angle2
 {
-    static int countdown = 15;
-    if (angle2 >= 45 && angle2 <= 135) {
-        angle = angle2;
-    } else {
-        if (angle2 < 45) {
-            angle = 45;
+    static int countdown = 0;
+    if (angle2 > angle) {
+        if (angle + aimspeed > angle2) {
+            angle = angle2;
         } else {
-            angle = 135;
+            angle += aimspeed;
+        }
+    } else {
+        if (angle - aimspeed < angle2) {
+            angle = angle2;
+        } else {
+            angle -= aimspeed;
         }
     }
+    //    if (angle >= 45 && angle <= 135) {
+    //        //angle = angle2;
+    //    } else {
+    if (angle < 45) {
+        angle = 45;
+    } else if (angle > 135) {
+        angle = 135;
+    }
+    //    }
     if(countdown <= 0) {
         int spawnX = -cos(degrees(angle)) * 108;
         int spawnY = -sin(degrees(angle)) * 108;
         Projectile1 *new = [[Projectile1 alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
         [shotProjectiles addObject:new];
-        countdown = 15;
+        countdown = 60 / rateOfFire;
     } else {
         countdown--;
     }
