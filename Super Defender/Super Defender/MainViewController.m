@@ -72,7 +72,7 @@
         }
 
         
-        heartImage = [UIImage imageNamed:@"Heart"];
+        heartImage = [UIImage imageNamed:@"DefenderHeart"];
         damageImages = [[NSMutableArray alloc] init];
         for (int i = 0; i < 110; i += 10) {
             [damageImages addObject:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"%d", i]]];
@@ -106,8 +106,8 @@
         self.enemyImage = [UIImage imageNamed:@"enemy"];
         self.bossImage = [UIImage imageNamed:@"enemyboss"];
         
-        self.projectileImage = [UIImage imageNamed:@"projectile.png"];
-        self.enemyProjectileImage = [UIImage imageNamed:@"enemyprojectile.png"];
+        self.projectileImage = [UIImage imageNamed:@"NormalProjectile.png"];
+        self.enemyProjectileImage = [UIImage imageNamed:@"EnemyProjectile.png"];
         
         self.playfield = [[Playfield alloc] init:gameData];
         cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
