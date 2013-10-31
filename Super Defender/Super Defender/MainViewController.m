@@ -139,9 +139,10 @@
         scoreLabel.frame = CGRectMake(0, 0, 320, 20);
         scoreLabel.textAlignment = NSTextAlignmentRight;
         pauseButton = [[UIButton alloc] init];
-        [pauseButton setTitle:@"II" forState:UIControlStateNormal];
-        pauseButton.backgroundColor = [UIColor redColor];
-        pauseButton.frame = CGRectMake(0, 0, 20, 20);
+        //[pauseButton setTitle:@"II" forState:UIControlStateNormal];
+        //pauseButton.backgroundColor = [UIColor redColor];
+        [pauseButton setImage:[UIImage imageNamed:@"pauzebutton"] forState:UIControlStateNormal];
+        pauseButton.frame = CGRectMake(0, 0, 45, 45);
         [pauseButton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.view insertSubview:scoreLabel aboveSubview:cannonBody];
