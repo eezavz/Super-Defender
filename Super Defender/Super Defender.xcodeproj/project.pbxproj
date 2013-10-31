@@ -18,9 +18,6 @@
 		822DBBC21822A3E4004F24E6 /* enemyboss.png in Resources */ = {isa = PBXBuildFile; fileRef = 822DBBB81822A3E4004F24E6 /* enemyboss.png */; };
 		822DBBC31822A3E4004F24E6 /* Explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 822DBBB91822A3E4004F24E6 /* Explosion.png */; };
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
-		82FB3A67180EA299005477C2 /* barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A66180EA299005477C2 /* barrel.png */; };
-		82FB3A69180EA3BE005477C2 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A68180EA3BE005477C2 /* enemy.png */; };
-		82FB3A6B180EA41D005477C2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 82FB3A6A180EA41D005477C2 /* background.png */; };
 		DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */; };
 		DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */; };
 		DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8CCB46181FCD7F008C5DB3 /* GameData.plist */; };
@@ -66,9 +63,6 @@
 		822DBBB81822A3E4004F24E6 /* enemyboss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyboss.png; sourceTree = "<group>"; };
 		822DBBB91822A3E4004F24E6 /* Explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion.png; sourceTree = "<group>"; };
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		82FB3A66180EA299005477C2 /* barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrel.png; sourceTree = "<group>"; };
-		82FB3A68180EA3BE005477C2 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
-		82FB3A6A180EA41D005477C2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1.png; sourceTree = "<group>"; };
 		DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1.png; sourceTree = "<group>"; };
 		DC8CCB46181FCD7F008C5DB3 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
@@ -170,15 +164,6 @@
 		82E1A6E5182297AE00BF8EB8 /* projectiles */ = {
 			isa = PBXGroup;
 			children = (
-				82E1A6E6182297AE00BF8EB8 /* EnemyProjectile.png */,
-				82E1A6E7182297AE00BF8EB8 /* EnemyProjectile@2x.png */,
-				82E1A6E8182297AE00BF8EB8 /* NormalProjectile.png */,
-				82E1A6E9182297AE00BF8EB8 /* NormalProjectile@2x.png */,
-				82E1A6EA182297AE00BF8EB8 /* Untitled-2.png */,
-				82E1A6EB182297AE00BF8EB8 /* Untitled-3.png */,
-				82E1A6EC182297AE00BF8EB8 /* Untitled-4.png */,
-				82E1A6ED182297AE00BF8EB8 /* Untitled-5.png */,
-				82E1A6EE182297AE00BF8EB8 /* Untitled-6.png */,
 			);
 			path = projectiles;
 			sourceTree = "<group>";
@@ -186,17 +171,6 @@
 		82E1A6F818229C9400BF8EB8 /* healthbars */ = {
 			isa = PBXGroup;
 			children = (
-				82E1A6F918229C9400BF8EB8 /* 0.png */,
-				82E1A6FA18229C9400BF8EB8 /* 10.png */,
-				82E1A6FB18229C9400BF8EB8 /* 100.png */,
-				82E1A6FC18229C9400BF8EB8 /* 20.png */,
-				82E1A6FD18229C9400BF8EB8 /* 30.png */,
-				82E1A6FE18229C9400BF8EB8 /* 40.png */,
-				82E1A6FF18229C9400BF8EB8 /* 50.png */,
-				82E1A70018229C9400BF8EB8 /* 60.png */,
-				82E1A70118229C9400BF8EB8 /* 70.png */,
-				82E1A70218229C9400BF8EB8 /* 80.png */,
-				82E1A70318229C9400BF8EB8 /* 90.png */,
 			);
 			path = healthbars;
 			sourceTree = "<group>";
@@ -204,9 +178,6 @@
 		82E1A70F18229E8C00BF8EB8 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				82E1A71018229E8C00BF8EB8 /* menu.png */,
-				82E1A71118229E8C00BF8EB8 /* pauzebutton.png */,
-				82E1A71218229E8C00BF8EB8 /* pauzebutton@2x.png */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -247,29 +218,6 @@
 				DC8DD04E180C0A8200857A2D /* AppDelegate.h */,
 				DC8DD04F180C0A8200857A2D /* AppDelegate.m */,
 				DC8DD046180C0A8200857A2D /* Supporting Files */,
-				821ADA46180D5452007870B7 /* base.png */,
-				821C9C0A18106CCF00790468 /* projectile.png */,
-				82FB3A6A180EA41D005477C2 /* background.png */,
-				82FB3A66180EA299005477C2 /* barrel.png */,
-				82FB3A68180EA3BE005477C2 /* enemy.png */,
-				8251840B181A5C7A00B0020C /* 0.png */,
-				8251840C181A5C7A00B0020C /* 10.png */,
-				8251840D181A5C7A00B0020C /* 20.png */,
-				8251840E181A5C7A00B0020C /* 30.png */,
-				8251840F181A5C7A00B0020C /* 40.png */,
-				82518410181A5C7A00B0020C /* 50.png */,
-				82518411181A5C7A00B0020C /* 60.png */,
-				82518412181A5C7A00B0020C /* 70.png */,
-				82518413181A5C7A00B0020C /* 80.png */,
-				82518414181A5C7A00B0020C /* 90.png */,
-				82518415181A5C7A00B0020C /* 100.png */,
-				82518421181A61B400B0020C /* Explosion.png */,
-				8227D299181C2E6D005C9AC5 /* BigExplosion.png */,
-				82518423181A67BC00B0020C /* enemyboss.png */,
-				82865A11181B030000F93143 /* enemyprojectile.png */,
-				8227D29B181C323C005C9AC5 /* menubackground.png */,
-				DCDF4BA3181E8D03008ED39F /* Heart.png */,
-				8258DFEA181FE8370009A638 /* menu.png */,
 				DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */,
 				DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
@@ -382,43 +330,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E1A70E18229C9400BF8EB8 /* 90.png in Resources */,
 				822DBBBA1822A3E4004F24E6 /* background.png in Resources */,
-				82E1A6F2182297AE00BF8EB8 /* NormalProjectile@2x.png in Resources */,
 				DC8DD04A180C0A8200857A2D /* InfoPlist.strings in Resources */,
-				82E1A6F3182297AE00BF8EB8 /* Untitled-2.png in Resources */,
 				DC8DD052180C0A8200857A2D /* Default.png in Resources */,
-				82E1A6F0182297AE00BF8EB8 /* EnemyProjectile@2x.png in Resources */,
 				822DBBBF1822A3E4004F24E6 /* DefenderHeart.png in Resources */,
-				82E1A6F4182297AE00BF8EB8 /* Untitled-3.png in Resources */,
-				82E1A71518229E8C00BF8EB8 /* pauzebutton@2x.png in Resources */,
-				82E1A70B18229C9400BF8EB8 /* 60.png in Resources */,
 				822DBBBE1822A3E4004F24E6 /* BigExplosion.png in Resources */,
 				822DBBBD1822A3E4004F24E6 /* base@2x.png in Resources */,
-				82E1A70718229C9400BF8EB8 /* 20.png in Resources */,
-				82E1A70918229C9400BF8EB8 /* 40.png in Resources */,
-				82E1A6F1182297AE00BF8EB8 /* NormalProjectile.png in Resources */,
-				82E1A6F7182297AE00BF8EB8 /* Untitled-6.png in Resources */,
 				822DBBC31822A3E4004F24E6 /* Explosion.png in Resources */,
-				82E1A6F6182297AE00BF8EB8 /* Untitled-5.png in Resources */,
-				82E1A70D18229C9400BF8EB8 /* 80.png in Resources */,
-				82E1A70C18229C9400BF8EB8 /* 70.png in Resources */,
-				82E1A71318229E8C00BF8EB8 /* menu.png in Resources */,
-				82E1A70518229C9400BF8EB8 /* 10.png in Resources */,
-				82E1A6EF182297AE00BF8EB8 /* EnemyProjectile.png in Resources */,
 				822DBBC21822A3E4004F24E6 /* enemyboss.png in Resources */,
 				DC8DD054180C0A8200857A2D /* Default@2x.png in Resources */,
 				DC8DD056180C0A8200857A2D /* Default-568h@2x.png in Resources */,
 				822DBBBC1822A3E4004F24E6 /* base.png in Resources */,
-				82E1A71418229E8C00BF8EB8 /* pauzebutton.png in Resources */,
-				82E1A70618229C9400BF8EB8 /* 100.png in Resources */,
 				DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */,
-				82E1A70A18229C9400BF8EB8 /* 50.png in Resources */,
-				82E1A70418229C9400BF8EB8 /* 0.png in Resources */,
 				822DBBC11822A3E4004F24E6 /* enemy.png in Resources */,
-				82E1A70818229C9400BF8EB8 /* 30.png in Resources */,
 				822DBBBB1822A3E4004F24E6 /* barrel.png in Resources */,
-				82E1A6F5182297AE00BF8EB8 /* Untitled-4.png in Resources */,
 				822DBBC01822A3E4004F24E6 /* DefenderHeart@2x.png in Resources */,
 				DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */,
 				DCAAFB071822811500A925FF /* UpgradeViewController.xib in Resources */,
