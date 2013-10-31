@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "UpgradeViewController.h"
 
 @protocol MenuViewControllerDelegate <NSObject>
 - (void)menuClosed;
@@ -16,5 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *knop;
 @property (assign) id <MenuViewControllerDelegate> delegate;
 
+@property (atomic, retain) IBOutlet UIView *menuView;
+@property (atomic, retain) IBOutlet UIView *upgradeView;
+
 - (IBAction)tap:(id)sender;
+- (IBAction) upgradeButtonTapped:(id) sender;
 @end

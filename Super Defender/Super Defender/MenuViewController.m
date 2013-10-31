@@ -14,13 +14,18 @@
 
 @implementation MenuViewController
 @synthesize delegate;
+@synthesize menuView;
+@synthesize upgradeView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self.view addSubview:menuView];
         self.view.backgroundColor = [UIColor clearColor];
+        menuView.backgroundColor = [UIColor clearColor];
+        upgradeView.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -42,6 +47,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction) upgradeButtonTapped:(id) sender {
+    NSLog(@"Asdjke");
+    //UpgradeViewController *mvc = [[UpgradeViewController alloc] init];
+    //mvc.delegate = self;
+    //pauseButton.hidden = YES;
+    //scoreLabel.hidden = YES;
+    //[self.view addSubview:mvc.view];
+    //self.view = mvc.view;
+    //self.view.hidden = YES;
+    [self.view addSubview:upgradeView];
+    [menuView removeFromSuperview];
+    //self.view.frame = upgradeView.frame;
 }
 
 
