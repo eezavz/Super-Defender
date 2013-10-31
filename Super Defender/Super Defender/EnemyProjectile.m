@@ -15,7 +15,7 @@
     self.centerX = x;
     self.centerY = y;
     self.width = 20;
-    self.height = 17;
+    self.height = 20;
     self.angle = angle;
     self.velX = +cos(degrees(angle))*4;
     self.velY = +sin(degrees(angle))*4;

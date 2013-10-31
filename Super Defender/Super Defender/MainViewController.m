@@ -72,7 +72,7 @@
         }
 
         
-        heartImage = [UIImage imageNamed:@"Heart"];
+        heartImage = [UIImage imageNamed:@"DefenderHeart"];
         damageImages = [[NSMutableArray alloc] init];
         for (int i = 0; i < 110; i += 10) {
             [damageImages addObject:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"%d", i]]];
@@ -106,8 +106,8 @@
         self.enemyImage = [UIImage imageNamed:@"enemy"];
         self.bossImage = [UIImage imageNamed:@"enemyboss"];
         
-        self.projectileImage = [UIImage imageNamed:@"projectile.png"];
-        self.enemyProjectileImage = [UIImage imageNamed:@"enemyprojectile.png"];
+        self.projectileImage = [UIImage imageNamed:@"NormalProjectile.png"];
+        self.enemyProjectileImage = [UIImage imageNamed:@"EnemyProjectile.png"];
         
         self.playfield = [[Playfield alloc] init:gameData];
         cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
@@ -139,9 +139,10 @@
         scoreLabel.frame = CGRectMake(0, 0, 320, 20);
         scoreLabel.textAlignment = NSTextAlignmentRight;
         pauseButton = [[UIButton alloc] init];
-        [pauseButton setTitle:@"II" forState:UIControlStateNormal];
-        pauseButton.backgroundColor = [UIColor redColor];
-        pauseButton.frame = CGRectMake(0, 0, 20, 20);
+        //[pauseButton setTitle:@"II" forState:UIControlStateNormal];
+        //pauseButton.backgroundColor = [UIColor redColor];
+        [pauseButton setImage:[UIImage imageNamed:@"pauzebutton"] forState:UIControlStateNormal];
+        pauseButton.frame = CGRectMake(0, 0, 45, 45);
         [pauseButton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.view insertSubview:scoreLabel aboveSubview:cannonBody];
