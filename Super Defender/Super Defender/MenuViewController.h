@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *newgame;
 @property (assign) id <MenuViewControllerDelegate> delegate;
 @property (atomic, retain) IBOutlet UIView *menuView;
+@property (atomic, retain) IBOutlet UIView *projectileView;
 @property (atomic, retain) IBOutlet UIView *upgradeView;
 @property (nonatomic, strong) IBOutlet UIView *pickImageView;
 @property (nonatomic, strong) UIImagePickerController *picker;
@@ -32,6 +33,18 @@
 @property (nonatomic, strong) IBOutlet UILabel *selectedImageLabel;
 @property (nonatomic, assign) BOOL firstTime;
 
+
+@property (atomic, retain) IBOutlet UIButton *buttonUpgradeHealth;
+@property (atomic, retain) IBOutlet UIButton *buttonUpgradeFireRate;
+@property (atomic, retain) IBOutlet UIButton *buttonUpgradeMoveSpeed;
+@property (atomic, retain) IBOutlet UIButton *buttonUpgradePower;
+@property (atomic, retain) IBOutlet UIButton *buttonUpgradeRotSpeed;
+
+@property (atomic, retain) IBOutlet UIButton *buttonProjectilePower;
+@property (atomic, retain) IBOutlet UIButton *buttonProjectileFireRate;
+@property (atomic, retain) IBOutlet UIButton *buttonProjectileMoveSpeed;
+@property (atomic, retain) IBOutlet UIButton *buttonProjectileUnstopable;
+@property (atomic, retain) IBOutlet UIButton *buttonProjectileDarkMatter;
 
 - (IBAction)tap:(id)sender;
 - (IBAction) upgradeButtonTapped:(id) sender;

@@ -14,14 +14,30 @@
 
 @implementation MenuViewController
 @synthesize delegate;
+@synthesize curView;
+@synthesize emptyView;
 @synthesize menuView;
+@synthesize projectileView;
 @synthesize upgradeView;
+
+@synthesize buttonUpgradeHealth;
+@synthesize buttonUpgradeFireRate;
+@synthesize buttonUpgradeMoveSpeed;
+@synthesize buttonUpgradePower;
+@synthesize buttonUpgradeRotSpeed;
+
+@synthesize buttonProjectilePower;
+@synthesize buttonProjectileFireRate;
+@synthesize buttonProjectileMoveSpeed;
+@synthesize buttonProjectileUnstopable;
+@synthesize buttonProjectileDarkMatter;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        //curView = menuView;
         [self.view addSubview:menuView];
         self.view.backgroundColor = [UIColor clearColor];
         menuView.backgroundColor = [UIColor clearColor];
@@ -130,8 +146,10 @@
     //[self.view addSubview:mvc.view];
     //self.view = mvc.view;
     //self.view.hidden = YES;
+    //[self.view addSubview:emptyView];
     [self.view addSubview:upgradeView];
     [menuView removeFromSuperview];
+    //curView = upgradeView;
     //self.view.frame = upgradeView.frame;
 }
 

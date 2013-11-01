@@ -47,6 +47,18 @@
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
 		DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */; };
 		DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */; };
+		DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */; };
+		DC8A9FC01823F52B0081EFA1 /* health.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBB1823F52B0081EFA1 /* health.png */; };
+		DC8A9FC11823F52B0081EFA1 /* moveSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBC1823F52B0081EFA1 /* moveSpeed.png */; };
+		DC8A9FC21823F52B0081EFA1 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBD1823F52B0081EFA1 /* power.png */; };
+		DC8A9FC31823F52B0081EFA1 /* rateOfFire.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBE1823F52B0081EFA1 /* rateOfFire.png */; };
+		DC8A9FC41823F52B0081EFA1 /* rotSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBF1823F52B0081EFA1 /* rotSpeed.png */; };
+		DC8A9FCB1823FBA60081EFA1 /* PdarkMatter.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC61823FBA50081EFA1 /* PdarkMatter.png */; };
+		DC8A9FCC1823FBA60081EFA1 /* PmoveSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC71823FBA50081EFA1 /* PmoveSpeed.png */; };
+		DC8A9FCD1823FBA60081EFA1 /* Ppower.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC81823FBA50081EFA1 /* Ppower.png */; };
+		DC8A9FCE1823FBA60081EFA1 /* PrateOfFire.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC91823FBA50081EFA1 /* PrateOfFire.png */; };
+		DC8A9FCF1823FBA60081EFA1 /* Punstoppable.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FCA1823FBA50081EFA1 /* Punstoppable.png */; };
+		DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */; };
 		DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8CCB46181FCD7F008C5DB3 /* GameData.plist */; };
 		DC8DD040180C0A8200857A2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD03F180C0A8200857A2D /* UIKit.framework */; };
 		DC8DD042180C0A8200857A2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD041180C0A8200857A2D /* Foundation.framework */; };
@@ -119,6 +131,18 @@
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1.png; sourceTree = "<group>"; };
 		DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1.png; sourceTree = "<group>"; };
+		DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1_leeg.png; sourceTree = "<group>"; };
+		DC8A9FBB1823F52B0081EFA1 /* health.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health.png; sourceTree = "<group>"; };
+		DC8A9FBC1823F52B0081EFA1 /* moveSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveSpeed.png; sourceTree = "<group>"; };
+		DC8A9FBD1823F52B0081EFA1 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
+		DC8A9FBE1823F52B0081EFA1 /* rateOfFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rateOfFire.png; sourceTree = "<group>"; };
+		DC8A9FBF1823F52B0081EFA1 /* rotSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotSpeed.png; sourceTree = "<group>"; };
+		DC8A9FC61823FBA50081EFA1 /* PdarkMatter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PdarkMatter.png; sourceTree = "<group>"; };
+		DC8A9FC71823FBA50081EFA1 /* PmoveSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PmoveSpeed.png; sourceTree = "<group>"; };
+		DC8A9FC81823FBA50081EFA1 /* Ppower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ppower.png; sourceTree = "<group>"; };
+		DC8A9FC91823FBA50081EFA1 /* PrateOfFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PrateOfFire.png; sourceTree = "<group>"; };
+		DC8A9FCA1823FBA50081EFA1 /* Punstoppable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Punstoppable.png; sourceTree = "<group>"; };
+		DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1_leeg.png; sourceTree = "<group>"; };
 		DC8CCB46181FCD7F008C5DB3 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		DC8DD03C180C0A8200857A2D /* Super Defender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Defender.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8DD03F180C0A8200857A2D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -189,6 +213,8 @@
 		824D068C1822905C00D63F79 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DC8A9FC51823FB060081EFA1 /* projectileButtons */,
+				DC8A9FBA1823F5150081EFA1 /* upgradeButtons */,
 				827431531822AB3E004E6643 /* projectiles */,
 				827431201822AB27004E6643 /* healthbars */,
 				8274312C1822AB27004E6643 /* ingame */,
@@ -263,6 +289,30 @@
 			path = projectiles;
 			sourceTree = "<group>";
 		};
+		DC8A9FBA1823F5150081EFA1 /* upgradeButtons */ = {
+			isa = PBXGroup;
+			children = (
+				DC8A9FBB1823F52B0081EFA1 /* health.png */,
+				DC8A9FBC1823F52B0081EFA1 /* moveSpeed.png */,
+				DC8A9FBD1823F52B0081EFA1 /* power.png */,
+				DC8A9FBE1823F52B0081EFA1 /* rateOfFire.png */,
+				DC8A9FBF1823F52B0081EFA1 /* rotSpeed.png */,
+			);
+			name = upgradeButtons;
+			sourceTree = "<group>";
+		};
+		DC8A9FC51823FB060081EFA1 /* projectileButtons */ = {
+			isa = PBXGroup;
+			children = (
+				DC8A9FC61823FBA50081EFA1 /* PdarkMatter.png */,
+				DC8A9FC71823FBA50081EFA1 /* PmoveSpeed.png */,
+				DC8A9FC81823FBA50081EFA1 /* Ppower.png */,
+				DC8A9FC91823FBA50081EFA1 /* PrateOfFire.png */,
+				DC8A9FCA1823FBA50081EFA1 /* Punstoppable.png */,
+			);
+			name = projectileButtons;
+			sourceTree = "<group>";
+		};
 		DC8DD033180C0A8200857A2D = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +351,8 @@
 				DC8DD046180C0A8200857A2D /* Supporting Files */,
 				DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */,
 				DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */,
+				DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */,
+				DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
 				DCAAFB031822811500A925FF /* UpgradeViewController.h */,
@@ -457,6 +509,18 @@
 				822793D61823D32C00729F29 /* EasyEnemy@2x.png in Resources */,
 				DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */,
 				8274315E1822AB3E004E6643 /* EnemyProjectile@2x.png in Resources */,
+				DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */,
+				DC8A9FC01823F52B0081EFA1 /* health.png in Resources */,
+				DC8A9FC11823F52B0081EFA1 /* moveSpeed.png in Resources */,
+				DC8A9FC21823F52B0081EFA1 /* power.png in Resources */,
+				DC8A9FC31823F52B0081EFA1 /* rateOfFire.png in Resources */,
+				DC8A9FC41823F52B0081EFA1 /* rotSpeed.png in Resources */,
+				DC8A9FCB1823FBA60081EFA1 /* PdarkMatter.png in Resources */,
+				DC8A9FCC1823FBA60081EFA1 /* PmoveSpeed.png in Resources */,
+				DC8A9FCD1823FBA60081EFA1 /* Ppower.png in Resources */,
+				DC8A9FCE1823FBA60081EFA1 /* PrateOfFire.png in Resources */,
+				DC8A9FCF1823FBA60081EFA1 /* Punstoppable.png in Resources */,
+				DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
