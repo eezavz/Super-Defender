@@ -17,6 +17,12 @@
 @synthesize menuView;
 @synthesize upgradeView;
 
+@synthesize buttonHealth;
+@synthesize buttonFireRate;
+@synthesize buttonmoveSpeed;
+@synthesize buttonPower;
+@synthesize buttonRotSpeed;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,6 +32,12 @@
         self.view.backgroundColor = [UIColor clearColor];
         menuView.backgroundColor = [UIColor clearColor];
         upgradeView.backgroundColor = [UIColor clearColor];
+        
+        [buttonHealth setBackgroundImage:[UIImage imageNamed:@"health.png"] forState:UIControlStateNormal];
+        [buttonFireRate setBackgroundImage:[UIImage imageNamed:@"rateOfFire.png"] forState:UIControlStateNormal];
+        [buttonmoveSpeed setBackgroundImage:[UIImage imageNamed:@"moveSpeed.png"] forState:UIControlStateNormal];
+        [buttonPower setBackgroundImage:[UIImage imageNamed:@"power.png"] forState:UIControlStateNormal];
+        [buttonRotSpeed setBackgroundImage:[UIImage imageNamed:@"rotSpeed.png"] forState:UIControlStateNormal];
     }
     return self;
 }

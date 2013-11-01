@@ -20,6 +20,12 @@
 @property (atomic, retain) IBOutlet UIView *menuView;
 @property (atomic, retain) IBOutlet UIView *upgradeView;
 
+@property (atomic, retain) IBOutlet UIButton *buttonHealth;
+@property (atomic, retain) IBOutlet UIButton *buttonFireRate;
+@property (atomic, retain) IBOutlet UIButton *buttonmoveSpeed;
+@property (atomic, retain) IBOutlet UIButton *buttonPower;
+@property (atomic, retain) IBOutlet UIButton *buttonRotSpeed;
+
 - (IBAction)tap:(id)sender;
 - (IBAction) upgradeButtonTapped:(id) sender;
 @end
