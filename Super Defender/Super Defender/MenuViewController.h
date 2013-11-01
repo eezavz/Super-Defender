@@ -24,6 +24,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *doneSelecting;
 @property (strong, nonatomic) IBOutlet UIButton *newgame;
 @property (assign) id <MenuViewControllerDelegate> delegate;
+
+@property (atomic, retain) IBOutlet UIView *curView;
+@property (atomic, retain) IBOutlet UIView *emptyView;
 @property (atomic, retain) IBOutlet UIView *menuView;
 @property (atomic, retain) IBOutlet UIView *projectileView;
 @property (atomic, retain) IBOutlet UIView *upgradeView;
@@ -32,7 +35,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *selectedImage;
 @property (nonatomic, strong) IBOutlet UILabel *selectedImageLabel;
 @property (nonatomic, assign) BOOL firstTime;
-
 
 @property (atomic, retain) IBOutlet UIButton *buttonUpgradeHealth;
 @property (atomic, retain) IBOutlet UIButton *buttonUpgradeFireRate;

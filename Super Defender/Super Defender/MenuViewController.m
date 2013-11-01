@@ -55,6 +55,18 @@
             self.firstTime = YES;
             [self.view addSubview:self.pickImageView];
         }
+        
+        [buttonUpgradeHealth setBackgroundImage:[UIImage imageNamed:@"health.png"] forState:UIControlStateNormal];
+        [buttonUpgradeFireRate setBackgroundImage:[UIImage imageNamed:@"rateOfFire.png"] forState:UIControlStateNormal];
+        [buttonUpgradeMoveSpeed setBackgroundImage:[UIImage imageNamed:@"moveSpeed.png"] forState:UIControlStateNormal];
+        [buttonUpgradePower setBackgroundImage:[UIImage imageNamed:@"power.png"] forState:UIControlStateNormal];
+        [buttonUpgradeRotSpeed setBackgroundImage:[UIImage imageNamed:@"rotSpeed.png"] forState:UIControlStateNormal];
+        
+        [buttonProjectilePower setBackgroundImage:[UIImage imageNamed:@"Ppower.png"] forState:UIControlStateNormal];
+        [buttonProjectileFireRate setBackgroundImage:[UIImage imageNamed:@"PrateOfFire.png"] forState:UIControlStateNormal];
+        [buttonProjectileMoveSpeed setBackgroundImage:[UIImage imageNamed:@"PmoveSpeed.png"] forState:UIControlStateNormal];
+        [buttonProjectileUnstopable setBackgroundImage:[UIImage imageNamed:@"Punstoppable.png"] forState:UIControlStateNormal];
+        [buttonProjectileDarkMatter setBackgroundImage:[UIImage imageNamed:@"PdarkMatter.png"] forState:UIControlStateNormal];
     }
     return self;
 }
@@ -160,6 +172,13 @@
     } else {
         self.resumeKnop.hidden = YES;
     }
+}
+
+- (IBAction) projectileButtonTapped:(id) sender {
+    //[self.view addSubview:emptyView];
+    [self.view addSubview:projectileView];
+    [menuView removeFromSuperview];
+    //curView = projectileView;
 }
 
 
