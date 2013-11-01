@@ -38,9 +38,12 @@
 @property (nonatomic, strong) NSMutableArray *objectButtons;
 @property (nonatomic, strong) NSMutableDictionary *gameData;
 @property (nonatomic, strong) MenuViewController *mvc;
+@property (nonatomic, strong) UIImageView *beloved;
 
-- (void)update:(NSTimer *)timer;
-- (void)render;
+- (void) newGame:(UIImage *)beloved;
+- (BOOL) runningGame;
+- (void) update:(NSTimer *)timer;
+- (void) render;
 - (void) startTimer;
 - (void) stopTimer;
 - (IBAction) objectPressed:(id)sender;

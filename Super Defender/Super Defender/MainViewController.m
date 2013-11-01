@@ -33,17 +33,16 @@
 - (void) buttonTap:(id) sender {
     NSLog(@"Asdjke");
     [self stopTimer];
-    self.mvc = [[MenuViewController alloc] init];
-    self.mvc.delegate = self;
     pauseButton.hidden = YES;
     scoreLabel.hidden = YES;
     [self.view addSubview:self.mvc.view];
+    [self.mvc visible];
 }
 
 - (void) menuClosed
 {
     NSLog(@"YESSSSSS");
-    [self.mvc release];
+    //[self.mvc release];
     pauseButton.hidden = NO;
     scoreLabel.hidden = NO;
     [self startTimer];
@@ -55,22 +54,6 @@
     if (self) {
         // Custom initialization
         NSLog(@"Loadyload!");
-        
-        NSFileManager *filemanager = [NSFileManager defaultManager];
-        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-        path = [path stringByAppendingPathComponent:@"GameData.plist"];
-        
-        if([filemanager fileExistsAtPath:path])
-        {
-            gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-            NSLog(@"%@", [gameData objectForKey:@"Score"]);
-        }else{
-            NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
-            gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
-            NSLog(@"%@", gameData);
-            [self saveGame];
-        }
-
         
         heartImage = [UIImage imageNamed:@"DefenderHeart"];
         damageImages = [[NSMutableArray alloc] init];
@@ -101,19 +84,19 @@
          }*/
         
         self.renderedObjects = [[NSMutableArray alloc] init];
-        self.objectButtons = [[NSMutableArray alloc]init];
+        self.objectButtons = [[NSMutableArray alloc] init];
         
-        self.enemyImage = [UIImage imageNamed:@"enemy"];
-        self.bossImage = [UIImage imageNamed:@"enemyboss"];
+        self.enemyImage = [UIImage imageNamed:@"EasyEnemy"];
+        self.bossImage = [UIImage imageNamed:@"HardEnemy"];
         
         self.projectileImage = [UIImage imageNamed:@"NormalProjectile.png"];
         self.enemyProjectileImage = [UIImage imageNamed:@"EnemyProjectile.png"];
         
-        self.playfield = [[Playfield alloc] init:gameData];
+        
         cannonBarrel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"barrel"]];
         cannonBarrel.frame = CGRectMake(52, 322, 216, 216);
         cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base"]];
-        cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
+        
         if(!self.accelerometer) {
             CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
             slider = [[UISlider alloc]initWithFrame:frame];
@@ -145,11 +128,72 @@
         pauseButton.frame = CGRectMake(0, 0, 45, 45);
         [pauseButton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         
+        self.beloved = [[UIImageView alloc] initWithFrame:CGRectMake(140, 390, 40, 40)];
+        self.beloved.hidden = YES;
+        
         [self.view insertSubview:scoreLabel aboveSubview:cannonBody];
         [self.view insertSubview:pauseButton belowSubview:scoreLabel];
         [self.view insertSubview:self.cannonHealth aboveSubview:scoreLabel];
+        [self.view insertSubview:self.beloved aboveSubview:cannonBody];
+        
+        self.mvc = [[MenuViewController alloc] init];
+        self.mvc.delegate = self;
+        pauseButton.hidden = YES;
+        scoreLabel.hidden = YES;
+        cannonBarrel.hidden = YES;
+        cannonBody.hidden = YES;
+        self.cannonHealth.hidden = YES;
+        [self.view addSubview:self.mvc.view];
+        [self.mvc visible];
     }
     return self;
+}
+
+- (BOOL)runningGame
+{
+    if (playfield) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (void) newGame:(UIImage *)beloved
+{
+    if (self.playfield) {
+        [playfield release];
+    }
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+    if([filemanager fileExistsAtPath:path])
+    {
+        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+        NSLog(@"%@", [gameData objectForKey:@"Score"]);
+    }else{
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
+        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
+        NSLog(@"%@", gameData);
+        [self saveGame];
+    }
+    if (self.objectButtons) {
+        for (int i = 0; i < self.objectButtons.count; i++) {
+            UIButton *delete = [self.objectButtons objectAtIndex:i];
+            [delete removeFromSuperview];
+            [delete release];
+        }
+        [self.objectButtons removeAllObjects];
+    } else {
+        self.objectButtons = [[NSMutableArray alloc] init];
+    }
+    
+    self.playfield = [[Playfield alloc] init:gameData];
+    cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
+    self.beloved.image = beloved;
+    cannonBarrel.hidden = NO;
+    cannonBody.hidden = NO;
+    self.cannonHealth.hidden = NO;
+    self.beloved.hidden = NO;
 }
 
 - (void)saveGame
@@ -228,7 +272,6 @@
             [old dealloc];
         }
     }
-    
     int currentAmount = 0;
     int toLimit = playfield.enemies.count * 2;
     for (int i = currentAmount; i < toLimit-1; i += 2) {
@@ -260,7 +303,6 @@
 
     }
     currentAmount += playfield.enemies.count * 2;
-    
     toLimit += playfield.cannon.shotProjectiles.count;
     for (int i = currentAmount; i < toLimit; i++) {
         UIImageView *current = [renderedObjects objectAtIndex:i];
@@ -271,7 +313,6 @@
         current.center = CGPointMake(centerX, centerY);
     }
     currentAmount += playfield.cannon.shotProjectiles.count;
-    
     
     toLimit += playfield.enemyProjectiles.count;
     for (int i = currentAmount; i < toLimit; i++) {
@@ -296,7 +337,6 @@
         [self.objectButtons addObject:button];
         [self.view addSubview:button];
     }
-    
     if(playfield.objects.count < self.objectButtons.count) {
         int diff = self.objectButtons.count - playfield.objects.count;
         for (int i = 0; i < diff; i++) {
