@@ -14,30 +14,46 @@
 
 @implementation MenuViewController
 @synthesize delegate;
+@synthesize curView;
+@synthesize emptyView;
 @synthesize menuView;
+@synthesize projectileView;
 @synthesize upgradeView;
 
-@synthesize buttonHealth;
-@synthesize buttonFireRate;
-@synthesize buttonmoveSpeed;
-@synthesize buttonPower;
-@synthesize buttonRotSpeed;
+@synthesize buttonUpgradeHealth;
+@synthesize buttonUpgradeFireRate;
+@synthesize buttonUpgradeMoveSpeed;
+@synthesize buttonUpgradePower;
+@synthesize buttonUpgradeRotSpeed;
+
+@synthesize buttonProjectilePower;
+@synthesize buttonProjectileFireRate;
+@synthesize buttonProjectileMoveSpeed;
+@synthesize buttonProjectileUnstopable;
+@synthesize buttonProjectileDarkMatter;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        //curView = menuView;
         [self.view addSubview:menuView];
         self.view.backgroundColor = [UIColor clearColor];
         menuView.backgroundColor = [UIColor clearColor];
         upgradeView.backgroundColor = [UIColor clearColor];
         
-        [buttonHealth setBackgroundImage:[UIImage imageNamed:@"health.png"] forState:UIControlStateNormal];
-        [buttonFireRate setBackgroundImage:[UIImage imageNamed:@"rateOfFire.png"] forState:UIControlStateNormal];
-        [buttonmoveSpeed setBackgroundImage:[UIImage imageNamed:@"moveSpeed.png"] forState:UIControlStateNormal];
-        [buttonPower setBackgroundImage:[UIImage imageNamed:@"power.png"] forState:UIControlStateNormal];
-        [buttonRotSpeed setBackgroundImage:[UIImage imageNamed:@"rotSpeed.png"] forState:UIControlStateNormal];
+        [buttonUpgradeHealth setBackgroundImage:[UIImage imageNamed:@"health.png"] forState:UIControlStateNormal];
+        [buttonUpgradeFireRate setBackgroundImage:[UIImage imageNamed:@"rateOfFire.png"] forState:UIControlStateNormal];
+        [buttonUpgradeMoveSpeed setBackgroundImage:[UIImage imageNamed:@"moveSpeed.png"] forState:UIControlStateNormal];
+        [buttonUpgradePower setBackgroundImage:[UIImage imageNamed:@"power.png"] forState:UIControlStateNormal];
+        [buttonUpgradeRotSpeed setBackgroundImage:[UIImage imageNamed:@"rotSpeed.png"] forState:UIControlStateNormal];
+        
+        [buttonProjectilePower setBackgroundImage:[UIImage imageNamed:@"Ppower.png"] forState:UIControlStateNormal];
+        [buttonProjectileFireRate setBackgroundImage:[UIImage imageNamed:@"PrateOfFire.png"] forState:UIControlStateNormal];
+        [buttonProjectileMoveSpeed setBackgroundImage:[UIImage imageNamed:@"PmoveSpeed.png"] forState:UIControlStateNormal];
+        [buttonProjectileUnstopable setBackgroundImage:[UIImage imageNamed:@"Punstoppable.png"] forState:UIControlStateNormal];
+        [buttonProjectileDarkMatter setBackgroundImage:[UIImage imageNamed:@"PdarkMatter.png"] forState:UIControlStateNormal];
     }
     return self;
 }
@@ -70,9 +86,18 @@
     //[self.view addSubview:mvc.view];
     //self.view = mvc.view;
     //self.view.hidden = YES;
+    //[self.view addSubview:emptyView];
     [self.view addSubview:upgradeView];
     [menuView removeFromSuperview];
+    //curView = upgradeView;
     //self.view.frame = upgradeView.frame;
+}
+
+- (IBAction) projectileButtonTapped:(id) sender {
+    //[self.view addSubview:emptyView];
+    [self.view addSubview:projectileView];
+    [menuView removeFromSuperview];
+    //curView = projectileView;
 }
 
 
