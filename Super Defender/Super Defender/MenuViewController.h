@@ -48,6 +48,33 @@
 @property (atomic, retain) IBOutlet UIButton *buttonProjectileUnstopable;
 @property (atomic, retain) IBOutlet UIButton *buttonProjectileDarkMatter;
 
+@property (atomic, retain) IBOutlet UILabel *projectileScrapLabel;
+@property (atomic, retain) IBOutlet UILabel *upgradeScrapLabel;
+
+@property (atomic, retain) IBOutlet UILabel *projectilePowerCost;
+@property (atomic, retain) IBOutlet UILabel *projectileFirerateCost;
+@property (atomic, retain) IBOutlet UILabel *projectileMoveSpeedCost;
+@property (atomic, retain) IBOutlet UILabel *projectileUnstoppableCost;
+@property (atomic, retain) IBOutlet UILabel *projectileDarkmMatterCost;
+
+@property (atomic, retain) IBOutlet UILabel *upgradeHealthCost;
+@property (atomic, retain) IBOutlet UILabel *upgradeFirerateCost;
+@property (atomic, retain) IBOutlet UILabel *upgradeMoveSpeedCost;
+@property (atomic, retain) IBOutlet UILabel *upgradePowerCost;
+@property (atomic, retain) IBOutlet UILabel *upgradeRotSpeedCost;
+
+@property (atomic, retain) IBOutlet UILabel *projectilePowerAmount;
+@property (atomic, retain) IBOutlet UILabel *projectileFirerateAmount;
+@property (atomic, retain) IBOutlet UILabel *projectileMoveSpeedAmount;
+@property (atomic, retain) IBOutlet UILabel *projectileUnstoppableAmount;
+@property (atomic, retain) IBOutlet UILabel *projectileDarkmMatterAmount;
+
+@property (atomic, retain) IBOutlet UILabel *upgradeHealthAmount;
+@property (atomic, retain) IBOutlet UILabel *upgradeFirerateAmount;
+@property (atomic, retain) IBOutlet UILabel *upgradeMoveSpeedAmount;
+@property (atomic, retain) IBOutlet UILabel *upgradePowerAmount;
+@property (atomic, retain) IBOutlet UILabel *upgradeRotSpeedAmount;
+
 - (IBAction)tap:(id)sender;
 - (IBAction) upgradeButtonTapped:(id) sender;
 - (void) visible;

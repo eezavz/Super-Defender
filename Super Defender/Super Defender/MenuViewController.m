@@ -32,6 +32,30 @@
 @synthesize buttonProjectileUnstopable;
 @synthesize buttonProjectileDarkMatter;
 
+@synthesize projectilePowerCost;
+@synthesize projectileFirerateCost;
+@synthesize projectileMoveSpeedCost;
+@synthesize projectileUnstoppableCost;
+@synthesize projectileDarkmMatterCost;
+
+@synthesize upgradeHealthCost;
+@synthesize upgradeFirerateCost;
+@synthesize upgradeMoveSpeedCost;
+@synthesize upgradePowerCost;
+@synthesize upgradeRotSpeedCost;
+
+@synthesize projectilePowerAmount;
+@synthesize projectileFirerateAmount;
+@synthesize projectileMoveSpeedAmount;
+@synthesize projectileUnstoppableAmount;
+@synthesize projectileDarkmMatterAmount;
+
+@synthesize upgradeHealthAmount;
+@synthesize upgradeFirerateAmount;
+@synthesize upgradeMoveSpeedAmount;
+@synthesize upgradePowerAmount;
+@synthesize upgradeRotSpeedAmount;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
