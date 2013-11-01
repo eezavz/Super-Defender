@@ -45,6 +45,9 @@
 		827431641822AB3E004E6643 /* Untitled-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315B1822AB3E004E6643 /* Untitled-5.png */; };
 		827431651822AB3E004E6643 /* Untitled-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315C1822AB3E004E6643 /* Untitled-6.png */; };
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
+		CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB21824644800207570 /* iPhone Non-Retina.png */; };
+		CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */; };
+		CDD36AB71824644800207570 /* iPhone Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB41824644800207570 /* iPhone Retina.png */; };
 		DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */; };
 		DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */; };
 		DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */; };
@@ -129,6 +132,9 @@
 		8274315B1822AB3E004E6643 /* Untitled-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-5.png"; sourceTree = "<group>"; };
 		8274315C1822AB3E004E6643 /* Untitled-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-6.png"; sourceTree = "<group>"; };
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		CDD36AB21824644800207570 /* iPhone Non-Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Non-Retina.png"; sourceTree = "<group>"; };
+		CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina (iOS 6 and Prior).png"; sourceTree = "<group>"; };
+		CDD36AB41824644800207570 /* iPhone Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina.png"; sourceTree = "<group>"; };
 		DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1.png; sourceTree = "<group>"; };
 		DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1.png; sourceTree = "<group>"; };
 		DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1_leeg.png; sourceTree = "<group>"; };
@@ -289,6 +295,24 @@
 			path = projectiles;
 			sourceTree = "<group>";
 		};
+		CDD36AB01824643300207570 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				CDD36AB11824643900207570 /* App */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		CDD36AB11824643900207570 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CDD36AB21824644800207570 /* iPhone Non-Retina.png */,
+				CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */,
+				CDD36AB41824644800207570 /* iPhone Retina.png */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		DC8A9FBA1823F5150081EFA1 /* upgradeButtons */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +420,7 @@
 		DC8DD046180C0A8200857A2D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDD36AB01824643300207570 /* Icons */,
 				DC8DD047180C0A8200857A2D /* Super Defender-Info.plist */,
 				DC8DD048180C0A8200857A2D /* InfoPlist.strings */,
 				DC8DD04B180C0A8200857A2D /* main.m */,
@@ -488,13 +513,16 @@
 				DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */,
 				8274315D1822AB3E004E6643 /* EnemyProjectile.png in Resources */,
 				822793CC1823D22100729F29 /* barrel@2x.png in Resources */,
+				CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */,
 				827431621822AB3E004E6643 /* Untitled-3.png in Resources */,
 				DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */,
 				822793CB1823D22100729F29 /* barrel.png in Resources */,
+				CDD36AB71824644800207570 /* iPhone Retina.png in Resources */,
 				8274313B1822AB27004E6643 /* 0.png in Resources */,
 				8274315F1822AB3E004E6643 /* NormalProjectile.png in Resources */,
 				827431441822AB27004E6643 /* 80.png in Resources */,
 				DCAAFB071822811500A925FF /* UpgradeViewController.xib in Resources */,
+				CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */,
 				827431641822AB3E004E6643 /* Untitled-5.png in Resources */,
 				DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */,
 				827431611822AB3E004E6643 /* Untitled-2.png in Resources */,
