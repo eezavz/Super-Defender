@@ -75,7 +75,20 @@
 @property (atomic, retain) IBOutlet UILabel *upgradePowerAmount;
 @property (atomic, retain) IBOutlet UILabel *upgradeRotSpeedAmount;
 
+@property (atomic, retain) NSMutableArray *buttons;
+@property (atomic, retain) NSMutableArray *costLabels;
+@property (atomic, retain) NSMutableArray *upLabels;
+
+@property (atomic, retain) NSMutableDictionary *gameData;
+
+- (MenuViewController *)init : (NSMutableDictionary *)gameData;
 - (IBAction)tap:(id)sender;
-- (IBAction) upgradeButtonTapped:(id) sender;
+- (void)saveGame;
+- (void) loadData;
+- (NSString *)givePath;
+- (IBAction) projectileButtonTapped:(id)sender;
+- (IBAction) projectileViewButtonTapped:(id) sender;
+- (IBAction) upgradeViewButtonTapped:(id) sender;
+- (IBAction) upgradeButtonTapped:(id)sender;
 - (void) visible;
 @end

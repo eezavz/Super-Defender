@@ -56,6 +56,18 @@
 @synthesize upgradePowerAmount;
 @synthesize upgradeRotSpeedAmount;
 
+@synthesize buttons;
+@synthesize costLabels;
+@synthesize upLabels;
+
+@synthesize gameData;
+
+- (MenuViewController *)init : (NSMutableDictionary *)par_gameData
+{
+    gameData = par_gameData;
+    return [super init];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -65,6 +77,7 @@
         [self.view addSubview:menuView];
         self.view.backgroundColor = [UIColor clearColor];
         menuView.backgroundColor = [UIColor clearColor];
+        projectileView.backgroundColor = [UIColor clearColor];
         upgradeView.backgroundColor = [UIColor clearColor];
         NSString *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/beloved.png"];
         UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
@@ -77,20 +90,50 @@
         } else {
             NSLog(@"Boo!");
             self.firstTime = YES;
-            [self.view addSubview:self.pickImageView];
+            //[self.view addSubview:self.pickImageView];
         }
         
-        [buttonUpgradeHealth setBackgroundImage:[UIImage imageNamed:@"health.png"] forState:UIControlStateNormal];
-        [buttonUpgradeFireRate setBackgroundImage:[UIImage imageNamed:@"rateOfFire.png"] forState:UIControlStateNormal];
-        [buttonUpgradeMoveSpeed setBackgroundImage:[UIImage imageNamed:@"moveSpeed.png"] forState:UIControlStateNormal];
-        [buttonUpgradePower setBackgroundImage:[UIImage imageNamed:@"power.png"] forState:UIControlStateNormal];
-        [buttonUpgradeRotSpeed setBackgroundImage:[UIImage imageNamed:@"rotSpeed.png"] forState:UIControlStateNormal];
+//        [buttonUpgradeHealth setBackgroundImage:[UIImage imageNamed:@"health.png"] forState:UIControlStateNormal];
+//        [buttonUpgradeFireRate setBackgroundImage:[UIImage imageNamed:@"rateOfFire.png"] forState:UIControlStateNormal];
+//        [buttonUpgradeMoveSpeed setBackgroundImage:[UIImage imageNamed:@"moveSpeed.png"] forState:UIControlStateNormal];
+//        [buttonUpgradePower setBackgroundImage:[UIImage imageNamed:@"power.png"] forState:UIControlStateNormal];
+//        [buttonUpgradeRotSpeed setBackgroundImage:[UIImage imageNamed:@"rotSpeed.png"] forState:UIControlStateNormal];
         
-        [buttonProjectilePower setBackgroundImage:[UIImage imageNamed:@"Ppower.png"] forState:UIControlStateNormal];
-        [buttonProjectileFireRate setBackgroundImage:[UIImage imageNamed:@"PrateOfFire.png"] forState:UIControlStateNormal];
-        [buttonProjectileMoveSpeed setBackgroundImage:[UIImage imageNamed:@"PmoveSpeed.png"] forState:UIControlStateNormal];
-        [buttonProjectileUnstopable setBackgroundImage:[UIImage imageNamed:@"Punstoppable.png"] forState:UIControlStateNormal];
-        [buttonProjectileDarkMatter setBackgroundImage:[UIImage imageNamed:@"PdarkMatter.png"] forState:UIControlStateNormal];
+        //[buttonProjectilePower setBackgroundImage:[UIImage imageNamed:@"Ppower.png"] forState:UIControlStateNormal];
+//        [buttonProjectileFireRate setBackgroundImage:[UIImage imageNamed:@"PrateOfFire.png"] forState:UIControlStateNormal];
+//        [buttonProjectileMoveSpeed setBackgroundImage:[UIImage imageNamed:@"PmoveSpeed.png"] forState:UIControlStateNormal];
+//        [buttonProjectileUnstopable setBackgroundImage:[UIImage imageNamed:@"Punstoppable.png"] forState:UIControlStateNormal];
+//        [buttonProjectileDarkMatter setBackgroundImage:[UIImage imageNamed:@"PdarkMatter.png"] forState:UIControlStateNormal];
+        
+        buttons = [[NSMutableArray alloc]init];
+        [buttons addObject:buttonProjectilePower];
+        [buttons addObject:buttonProjectileFireRate];
+        [buttons addObject:buttonProjectileMoveSpeed];
+        [buttons addObject:buttonProjectileUnstopable];
+        [buttons addObject:buttonProjectileDarkMatter];
+        
+        costLabels = [[NSMutableArray alloc]init];
+        [costLabels addObject:projectilePowerCost];
+        [costLabels addObject:projectileFirerateCost];
+        [costLabels addObject:projectileMoveSpeedCost];
+        [costLabels addObject:projectileUnstoppableCost];
+        [costLabels addObject:projectileDarkmMatterCost];
+        
+        costLabels = [[NSMutableArray alloc]init];
+        [costLabels addObject:projectilePowerCost];
+        [costLabels addObject:projectileFirerateCost];
+        [costLabels addObject:projectileMoveSpeedCost];
+        [costLabels addObject:projectileUnstoppableCost];
+        [costLabels addObject:projectileDarkmMatterCost];
+        
+        upLabels = [[NSMutableArray alloc]init];
+        [upLabels addObject:projectilePowerAmount];
+        [upLabels addObject:projectileFirerateAmount];
+        [upLabels addObject:projectileMoveSpeedAmount];
+        [upLabels addObject:projectileUnstoppableAmount];
+        [upLabels addObject:projectileDarkmMatterAmount];
+        
+        [self loadData];
     }
     return self;
 }
@@ -173,7 +216,69 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction) upgradeButtonTapped:(id) sender {
+- (IBAction) upgradeButtonTapped:(id)sender
+{
+    NSString *tempId = [sender restorationIdentifier];
+    NSLog(@"ID: %@", tempId);
+}
+
+- (void) loadData
+{
+    for(int i = 0; i<buttons.count; i++)
+    {
+        UIButton *tempButton = [buttons objectAtIndex:i];
+        NSString *tempId = [tempButton restorationIdentifier];
+        
+        UILabel *tempLabelCost = [costLabels objectAtIndex:i];
+        tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", [[gameData objectForKey:tempId] objectForKey:@"cost"]];
+            
+        UILabel *tempLabelAmount = [upLabels objectAtIndex:i];
+        tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", [[gameData objectForKey:tempId] objectForKey:@"amount"]];
+        //[tempId release];
+    }
+}
+
+- (IBAction) projectileButtonTapped:(id)sender
+{
+    NSString *tempId = [sender restorationIdentifier];
+    for(int i = 0; i<buttons.count; i++)
+    {
+        if([buttons objectAtIndex:i] == sender)
+        {
+            NSNumber *cost = [[gameData objectForKey:tempId] objectForKey:@"cost"];
+            cost = [NSNumber numberWithInt:[cost intValue]+10];
+            
+            NSNumber *amount = [[gameData objectForKey:tempId] objectForKey:@"amount"];
+            amount = [NSNumber numberWithInt:[amount intValue]+1];
+            
+            [[gameData objectForKey:tempId] setObject:cost forKey:@"cost"];
+            [[gameData objectForKey:tempId] setObject:amount forKey:@"amount"];
+            
+            UILabel *tempLabelCost = [costLabels objectAtIndex:i];
+            tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", cost];
+            
+            UILabel *tempLabelAmount = [upLabels objectAtIndex:i];
+            tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", amount];
+        }
+    }
+    //[tempId release];
+    [self saveGame];
+}
+
+- (void)saveGame
+{
+    [gameData writeToFile:[self givePath] atomically:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSString *)givePath
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+    return path;
+}
+
+- (IBAction) upgradeViewButtonTapped:(id) sender {
     NSLog(@"Asdjke");
     //UpgradeViewController *mvc = [[UpgradeViewController alloc] init];
     //mvc.delegate = self;
@@ -198,7 +303,7 @@
     }
 }
 
-- (IBAction) projectileButtonTapped:(id) sender {
+- (IBAction) projectileViewButtonTapped:(id) sender {
     //[self.view addSubview:emptyView];
     [self.view addSubview:projectileView];
     [menuView removeFromSuperview];

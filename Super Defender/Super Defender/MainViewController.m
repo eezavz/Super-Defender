@@ -54,7 +54,7 @@
     if (self) {
         // Custom initialization
         NSLog(@"Loadyload!");
-        
+        [self loadGameData];
         heartImage = [UIImage imageNamed:@"DefenderHeart"];
         damageImages = [[NSMutableArray alloc] init];
         for (int i = 0; i < 110; i += 10) {
@@ -136,7 +136,8 @@
         [self.view insertSubview:self.cannonHealth aboveSubview:scoreLabel];
         [self.view insertSubview:self.beloved aboveSubview:cannonBody];
         
-        self.mvc = [[MenuViewController alloc] init];
+        self.mvc = [[MenuViewController alloc] init : (NSMutableDictionary *)gameData];
+        self.mvc.gameData = gameData;
         self.mvc.delegate = self;
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
@@ -163,19 +164,7 @@
     if (self.playfield) {
         [playfield release];
     }
-    NSFileManager *filemanager = [NSFileManager defaultManager];
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    path = [path stringByAppendingPathComponent:@"GameData.plist"];
-    if([filemanager fileExistsAtPath:path])
-    {
-        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-        NSLog(@"%@", [gameData objectForKey:@"Score"]);
-    }else{
-        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
-        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
-        NSLog(@"%@", gameData);
-        [self saveGame];
-    }
+    [self loadGameData];
     if (self.objectButtons) {
         for (int i = 0; i < self.objectButtons.count; i++) {
             UIButton *delete = [self.objectButtons objectAtIndex:i];
@@ -194,6 +183,24 @@
     cannonBody.hidden = NO;
     self.cannonHealth.hidden = NO;
     self.beloved.hidden = NO;
+}
+
+- (void) loadGameData
+{
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+    if([filemanager fileExistsAtPath:path])
+    {
+        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+        //NSLog(@"%@", [gameData objectForKey:@"Score"]);
+        NSLog(@"%@", gameData);
+    }else{
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
+        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
+        NSLog(@"%@", gameData);
+        [self saveGame];
+    }
 }
 
 - (void)saveGame
