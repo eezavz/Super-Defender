@@ -106,7 +106,7 @@
         self.motionManager = [[CMMotionManager alloc] init];
         if (self.motionManager.accelerometerAvailable) {
             [self.motionManager stopAccelerometerUpdates];
-            self.motionManager.accelerometerUpdateInterval = 1.0 / 60.0;
+            self.motionManager.accelerometerUpdateInterval = 1.0 / 30.0;
             [self.motionManager startAccelerometerUpdates];
             self.accelerometer = YES;
         } else {
