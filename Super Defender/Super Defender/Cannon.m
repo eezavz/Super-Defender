@@ -8,7 +8,12 @@
 
 #import "Cannon.h"
 #import "Projectile.h"
-#import "Projectile1.h"
+#import "DefaultProjectile.h"
+#import "PowerProjectile.h"
+#import "FrequentProjectile.h"
+#import "LightningProjectile.h"
+#import "UnstoppableProjectile.h"
+#import "DarkMatterProjectile.h"
 #define degrees(x) (M_PI * (x) / 180)
 @implementation Cannon
 
@@ -18,6 +23,8 @@
 @synthesize shotProjectiles;
 @synthesize health;
 @synthesize maxHealth;
+@synthesize specialProjectile;
+@synthesize specialAmount;
 
 - (Cannon *)init
 {
@@ -25,7 +32,7 @@
     health = maxHealth;
     shotProjectiles = [[NSMutableArray alloc] init];
     aimspeed = 2;
-    rateOfFire = 4;
+    rateOfFire = 2;
     angle = 90;
     return [super init];
 }
@@ -54,21 +61,67 @@
             angle -= aimspeed;
         }
     }
-    //    if (angle >= 45 && angle <= 135) {
-    //        //angle = angle2;
-    //    } else {
+    
     if (angle < 45) {
         angle = 45;
     } else if (angle > 135) {
         angle = 135;
     }
-    //    }
+    
     if(countdown <= 0) {
         int spawnX = -cos(degrees(angle)) * 108;
         int spawnY = -sin(degrees(angle)) * 108;
-        Projectile1 *new = [[Projectile1 alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
-        [shotProjectiles addObject:new];
-        countdown = 30 / rateOfFire;
+        switch (specialProjectile) {
+            case 1:
+            {
+                Projectile *new = [[PowerProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
+                [shotProjectiles addObject:new];
+                countdown = 30 / (rateOfFire / 2);
+            }
+                break;
+            case 2:
+            {
+                Projectile *new = [[FrequentProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
+                [shotProjectiles addObject:new];
+                countdown = 3;
+            }
+                break;
+            case 3:
+            {
+                Projectile *new = [[LightningProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
+                [shotProjectiles addObject:new];
+                countdown = 6;
+            }
+                break;
+            case 4:
+            {
+                Projectile *new = [[UnstoppableProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
+                [shotProjectiles addObject:new];
+                countdown = 30;
+            }
+                break;
+            case 5:
+            {
+                Projectile *new = [[DarkMatterProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
+                [shotProjectiles addObject:new];
+                countdown = 300;
+            }
+                break;
+                
+            default:
+            {
+                Projectile *new = [[DefaultProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
+                [shotProjectiles addObject:new];
+                countdown = 30 / rateOfFire;
+            }
+                break;
+        }
+        if (specialAmount > 0) {
+            specialAmount--;
+            if (specialAmount == 0) {
+                specialProjectile = 0;
+            }
+        }
     } else {
         countdown--;
     }

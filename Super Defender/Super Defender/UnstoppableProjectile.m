@@ -1,18 +1,17 @@
 //
-//  Projectile1.m
+//  UnstoppableProjectile.m
 //  Super Defender
 //
-//  Created by Furkan on 10/14/13.
+//  Created by ManIkWeet on 02-11-13.
 //  Copyright (c) 2013 RoFuPaNi. All rights reserved.
 //
 
-#import "Projectile1.h"
+#import "UnstoppableProjectile.h"
 
-@implementation Projectile1
-
+@implementation UnstoppableProjectile
 - (Projectile *) initWithX:(float) x Y:(float) y Angle:(float) angle
 {
-    self.power = 1;
+    self.power = 9001;
     self.centerX = x;
     self.centerY = y;
     self.width = 20;
@@ -22,15 +21,4 @@
     self.velY = -sin(degrees(angle))*8;
     return self;
 }
-
-- (void)update
-{
-    self.centerX += self.velX;
-    self.centerY += self.velY;
-    
-    if (self.centerX < 0 - self.width / 2 || self.centerY < - self.height / 2 || self.centerX > 320 + self.width / 2) {
-        self.shouldDie = YES;
-    }
-}
-
 @end

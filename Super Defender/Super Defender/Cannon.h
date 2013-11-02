@@ -21,6 +21,8 @@
 @property (nonatomic, assign) int posY;
 @property (nonatomic, assign) int width;
 @property (nonatomic, assign) int height;
+@property (nonatomic, assign) int specialProjectile;
+@property (nonatomic, assign) int specialAmount;
 
 
 -(void)update:(float) angle2;

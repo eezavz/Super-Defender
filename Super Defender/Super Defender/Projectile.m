@@ -11,9 +11,12 @@
 @implementation Projectile
 - (void) update
 {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
-                                 userInfo:nil];
+    self.centerX += self.velX;
+    self.centerY += self.velY;
+    
+    if (self.centerX + self.width / 2 < 0 || self.centerY + self.height / 2 < 0 || self.centerX - self.width / 2 > 320 || self.centerY - self.height / 2 > 430) {
+        self.shouldDie = YES;
+    }
 }
 
 - (Projectile *) init

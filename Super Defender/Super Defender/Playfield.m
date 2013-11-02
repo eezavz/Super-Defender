@@ -11,8 +11,12 @@
 #import "Enemy2.h"
 #import "Object.h"
 #import "Heart.h"
+#import "UnstoppableProjectile.h"
 #define degrees(x) (M_PI * (x) / 180)
 
+@interface Playfield ()
+@property (nonatomic, assign) int runTime;
+@end
 @implementation Playfield
 
 @synthesize progress;
@@ -37,26 +41,25 @@
     self.score = 0;
     self.enemyProjectiles = [[NSMutableArray alloc] init];
     objects = [[NSMutableArray alloc]init];
+    self.runTime = 0;
     return [super init];
 }
 
 -(void)update:(float)angle;
 {
     [self.cannon update:angle];
-    
-    if(enemyCountdown == 0) {
-        int random = 5 + arc4random() % 45;
-        int rare = arc4random() % 20;
-        enemyCountdown = random;
-        if (rare==5) {
-            Enemy2 *boss = [[Enemy2 alloc] initWithX: arc4random() % (320-128)+64 Y:-34];
-            [self.enemies addObject:boss];
-        } else {
-            Enemy1 *noob = [[Enemy1 alloc] initWithX: arc4random() % (320-64)+32 Y:-17];
-            [self.enemies addObject:noob];
-        }
-    } else {
-        enemyCountdown--;
+    self.runTime++;
+    int screenlimit = 1 + self.runTime / 240;
+    if (screenlimit > 30) {
+        screenlimit = 30;
+    }
+    int rare = arc4random() % 2000;
+    if (rare==5) {
+        Enemy2 *boss = [[Enemy2 alloc] initWithX: arc4random() % (320-128)+64 Y:-34];
+        [self.enemies addObject:boss];
+    } else if (self.enemies.count < screenlimit) {
+        Enemy1 *noob = [[Enemy1 alloc] initWithX: arc4random() % (320-64)+32 Y:-17];
+        [self.enemies addObject:noob];
     }
     for (int i = 0; i < enemies.count; i++) {
         [[enemies objectAtIndex:i] AI];
@@ -87,10 +90,12 @@
                     if(eHit.health == 0) {
                         self.score+=eHit.score;
                     }
-                    [self.cannon.shotProjectiles removeObject:pHit];
-                    [pHit dealloc];
-                    i--;
-                    break;//een projectile kan maar 1 enemy raken voorlopig.
+                    if (![pHit isMemberOfClass:[UnstoppableProjectile class]]) {
+                        [self.cannon.shotProjectiles removeObject:pHit];
+                        [pHit dealloc];
+                        i--;
+                        break;//een projectile kan maar 1 enemy raken voorlopig.
+                    }
                 }
             }
         }

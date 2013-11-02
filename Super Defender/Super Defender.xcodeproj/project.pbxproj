@@ -39,11 +39,11 @@
 		8274315E1822AB3E004E6643 /* EnemyProjectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431551822AB3E004E6643 /* EnemyProjectile@2x.png */; };
 		8274315F1822AB3E004E6643 /* NormalProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431561822AB3E004E6643 /* NormalProjectile.png */; };
 		827431601822AB3E004E6643 /* NormalProjectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431571822AB3E004E6643 /* NormalProjectile@2x.png */; };
-		827431611822AB3E004E6643 /* Untitled-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431581822AB3E004E6643 /* Untitled-2.png */; };
-		827431621822AB3E004E6643 /* Untitled-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431591822AB3E004E6643 /* Untitled-3.png */; };
-		827431631822AB3E004E6643 /* Untitled-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315A1822AB3E004E6643 /* Untitled-4.png */; };
-		827431641822AB3E004E6643 /* Untitled-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315B1822AB3E004E6643 /* Untitled-5.png */; };
-		827431651822AB3E004E6643 /* Untitled-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315C1822AB3E004E6643 /* Untitled-6.png */; };
+		827431611822AB3E004E6643 /* DarkMatterProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431581822AB3E004E6643 /* DarkMatterProjectile.png */; };
+		827431621822AB3E004E6643 /* UnstoppableProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431591822AB3E004E6643 /* UnstoppableProjectile.png */; };
+		827431631822AB3E004E6643 /* LightningProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315A1822AB3E004E6643 /* LightningProjectile.png */; };
+		827431641822AB3E004E6643 /* FrequentProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315B1822AB3E004E6643 /* FrequentProjectile.png */; };
+		827431651822AB3E004E6643 /* PowerProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315C1822AB3E004E6643 /* PowerProjectile.png */; };
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
 		82B9E0E21825702C00AB37C8 /* PdarkMatter.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0DD1825702C00AB37C8 /* PdarkMatter.png */; };
 		82B9E0E31825702C00AB37C8 /* PmoveSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0DE1825702C00AB37C8 /* PmoveSpeed.png */; };
@@ -55,6 +55,16 @@
 		82B9E0EF182570AB00AB37C8 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0EA182570AB00AB37C8 /* power.png */; };
 		82B9E0F0182570AB00AB37C8 /* rateOfFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0EB182570AB00AB37C8 /* rateOfFire.png */; };
 		82B9E0F1182570AB00AB37C8 /* rotSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0EC182570AB00AB37C8 /* rotSpeed.png */; };
+		82B9E0F4182580EF00AB37C8 /* PowerProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9E0F3182580EF00AB37C8 /* PowerProjectile.m */; };
+		82B9E0F71825824100AB37C8 /* FrequentProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9E0F61825824100AB37C8 /* FrequentProjectile.m */; };
+		82B9E0FA1825826F00AB37C8 /* LightningProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9E0F91825826F00AB37C8 /* LightningProjectile.m */; };
+		82B9E0FD182582BD00AB37C8 /* UnstoppableProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9E0FC182582BD00AB37C8 /* UnstoppableProjectile.m */; };
+		82B9E100182582D800AB37C8 /* DarkMatterProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9E0FF182582D800AB37C8 /* DarkMatterProjectile.m */; };
+		82D880021825A3CA00338BBB /* PowerProjectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82D87FFD1825A3CA00338BBB /* PowerProjectile@2x.png */; };
+		82D880031825A3CA00338BBB /* LightningProjectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82D87FFE1825A3CA00338BBB /* LightningProjectile@2x.png */; };
+		82D880041825A3CA00338BBB /* UnstoppableProjectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82D87FFF1825A3CA00338BBB /* UnstoppableProjectile@2x.png */; };
+		82D880051825A3CA00338BBB /* FrequentProjectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82D880001825A3CA00338BBB /* FrequentProjectile@2x.png */; };
+		82D880061825A3CA00338BBB /* DarkMatterProjectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82D880011825A3CA00338BBB /* DarkMatterProjectile@2x.png */; };
 		CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB21824644800207570 /* iPhone Non-Retina.png */; };
 		CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */; };
 		CDD36AB71824644800207570 /* iPhone Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB41824644800207570 /* iPhone Retina.png */; };
@@ -83,7 +93,7 @@
 		DC8DD078180C0DCA00857A2D /* Enemy2.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD077180C0DC900857A2D /* Enemy2.m */; };
 		DC8DD07B180C0DE700857A2D /* Cannon.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD07A180C0DE700857A2D /* Cannon.m */; };
 		DC8DD07E180C0E0500857A2D /* Projectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD07D180C0E0500857A2D /* Projectile.m */; };
-		DC8DD081180C0E1A00857A2D /* Projectile1.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD080180C0E1A00857A2D /* Projectile1.m */; };
+		DC8DD081180C0E1A00857A2D /* DefaultProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD080180C0E1A00857A2D /* DefaultProjectile.m */; };
 		DC8DD084180C0E2A00857A2D /* EnemyProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD083180C0E2900857A2D /* EnemyProjectile.m */; };
 		DC8DD087180C0E3800857A2D /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD086180C0E3700857A2D /* Object.m */; };
 		DC8DD08A180C0E4600857A2D /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD089180C0E4600857A2D /* Star.m */; };
@@ -126,11 +136,11 @@
 		827431551822AB3E004E6643 /* EnemyProjectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EnemyProjectile@2x.png"; sourceTree = "<group>"; };
 		827431561822AB3E004E6643 /* NormalProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NormalProjectile.png; sourceTree = "<group>"; };
 		827431571822AB3E004E6643 /* NormalProjectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NormalProjectile@2x.png"; sourceTree = "<group>"; };
-		827431581822AB3E004E6643 /* Untitled-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-2.png"; sourceTree = "<group>"; };
-		827431591822AB3E004E6643 /* Untitled-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-3.png"; sourceTree = "<group>"; };
-		8274315A1822AB3E004E6643 /* Untitled-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-4.png"; sourceTree = "<group>"; };
-		8274315B1822AB3E004E6643 /* Untitled-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-5.png"; sourceTree = "<group>"; };
-		8274315C1822AB3E004E6643 /* Untitled-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-6.png"; sourceTree = "<group>"; };
+		827431581822AB3E004E6643 /* DarkMatterProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkMatterProjectile.png; sourceTree = "<group>"; };
+		827431591822AB3E004E6643 /* UnstoppableProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnstoppableProjectile.png; sourceTree = "<group>"; };
+		8274315A1822AB3E004E6643 /* LightningProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightningProjectile.png; sourceTree = "<group>"; };
+		8274315B1822AB3E004E6643 /* FrequentProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FrequentProjectile.png; sourceTree = "<group>"; };
+		8274315C1822AB3E004E6643 /* PowerProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PowerProjectile.png; sourceTree = "<group>"; };
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		82B9E0DD1825702C00AB37C8 /* PdarkMatter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PdarkMatter.png; sourceTree = "<group>"; };
 		82B9E0DE1825702C00AB37C8 /* PmoveSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PmoveSpeed.png; sourceTree = "<group>"; };
@@ -142,6 +152,21 @@
 		82B9E0EA182570AB00AB37C8 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
 		82B9E0EB182570AB00AB37C8 /* rateOfFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rateOfFire.png; sourceTree = "<group>"; };
 		82B9E0EC182570AB00AB37C8 /* rotSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotSpeed.png; sourceTree = "<group>"; };
+		82B9E0F2182580EF00AB37C8 /* PowerProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PowerProjectile.h; path = ../PowerProjectile.h; sourceTree = "<group>"; };
+		82B9E0F3182580EF00AB37C8 /* PowerProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PowerProjectile.m; path = ../PowerProjectile.m; sourceTree = "<group>"; };
+		82B9E0F51825824100AB37C8 /* FrequentProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequentProjectile.h; sourceTree = "<group>"; };
+		82B9E0F61825824100AB37C8 /* FrequentProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequentProjectile.m; sourceTree = "<group>"; };
+		82B9E0F81825826F00AB37C8 /* LightningProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningProjectile.h; sourceTree = "<group>"; };
+		82B9E0F91825826F00AB37C8 /* LightningProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningProjectile.m; sourceTree = "<group>"; };
+		82B9E0FB182582BD00AB37C8 /* UnstoppableProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnstoppableProjectile.h; sourceTree = "<group>"; };
+		82B9E0FC182582BD00AB37C8 /* UnstoppableProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnstoppableProjectile.m; sourceTree = "<group>"; };
+		82B9E0FE182582D800AB37C8 /* DarkMatterProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarkMatterProjectile.h; sourceTree = "<group>"; };
+		82B9E0FF182582D800AB37C8 /* DarkMatterProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkMatterProjectile.m; sourceTree = "<group>"; };
+		82D87FFD1825A3CA00338BBB /* PowerProjectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PowerProjectile@2x.png"; sourceTree = "<group>"; };
+		82D87FFE1825A3CA00338BBB /* LightningProjectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LightningProjectile@2x.png"; sourceTree = "<group>"; };
+		82D87FFF1825A3CA00338BBB /* UnstoppableProjectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnstoppableProjectile@2x.png"; sourceTree = "<group>"; };
+		82D880001825A3CA00338BBB /* FrequentProjectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FrequentProjectile@2x.png"; sourceTree = "<group>"; };
+		82D880011825A3CA00338BBB /* DarkMatterProjectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkMatterProjectile@2x.png"; sourceTree = "<group>"; };
 		CDD36AB21824644800207570 /* iPhone Non-Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Non-Retina.png"; sourceTree = "<group>"; };
 		CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina (iOS 6 and Prior).png"; sourceTree = "<group>"; };
 		CDD36AB41824644800207570 /* iPhone Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina.png"; sourceTree = "<group>"; };
@@ -185,8 +210,8 @@
 		DC8DD07A180C0DE700857A2D /* Cannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cannon.m; sourceTree = "<group>"; };
 		DC8DD07C180C0E0500857A2D /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		DC8DD07D180C0E0500857A2D /* Projectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile.m; sourceTree = "<group>"; };
-		DC8DD07F180C0E1A00857A2D /* Projectile1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile1.h; sourceTree = "<group>"; };
-		DC8DD080180C0E1A00857A2D /* Projectile1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projectile1.m; sourceTree = "<group>"; };
+		DC8DD07F180C0E1A00857A2D /* DefaultProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultProjectile.h; sourceTree = "<group>"; };
+		DC8DD080180C0E1A00857A2D /* DefaultProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultProjectile.m; sourceTree = "<group>"; };
 		DC8DD082180C0E2900857A2D /* EnemyProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyProjectile.h; sourceTree = "<group>"; };
 		DC8DD083180C0E2900857A2D /* EnemyProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyProjectile.m; sourceTree = "<group>"; };
 		DC8DD085180C0E3700857A2D /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
@@ -286,11 +311,16 @@
 				827431551822AB3E004E6643 /* EnemyProjectile@2x.png */,
 				827431561822AB3E004E6643 /* NormalProjectile.png */,
 				827431571822AB3E004E6643 /* NormalProjectile@2x.png */,
-				827431581822AB3E004E6643 /* Untitled-2.png */,
-				827431591822AB3E004E6643 /* Untitled-3.png */,
-				8274315A1822AB3E004E6643 /* Untitled-4.png */,
-				8274315B1822AB3E004E6643 /* Untitled-5.png */,
-				8274315C1822AB3E004E6643 /* Untitled-6.png */,
+				827431581822AB3E004E6643 /* DarkMatterProjectile.png */,
+				827431591822AB3E004E6643 /* UnstoppableProjectile.png */,
+				8274315A1822AB3E004E6643 /* LightningProjectile.png */,
+				8274315B1822AB3E004E6643 /* FrequentProjectile.png */,
+				8274315C1822AB3E004E6643 /* PowerProjectile.png */,
+				82D87FFD1825A3CA00338BBB /* PowerProjectile@2x.png */,
+				82D87FFE1825A3CA00338BBB /* LightningProjectile@2x.png */,
+				82D87FFF1825A3CA00338BBB /* UnstoppableProjectile@2x.png */,
+				82D880001825A3CA00338BBB /* FrequentProjectile@2x.png */,
+				82D880011825A3CA00338BBB /* DarkMatterProjectile@2x.png */,
 			);
 			path = projectiles;
 			sourceTree = "<group>";
@@ -403,8 +433,18 @@
 				DC8DD07A180C0DE700857A2D /* Cannon.m */,
 				DC8DD07C180C0E0500857A2D /* Projectile.h */,
 				DC8DD07D180C0E0500857A2D /* Projectile.m */,
-				DC8DD07F180C0E1A00857A2D /* Projectile1.h */,
-				DC8DD080180C0E1A00857A2D /* Projectile1.m */,
+				DC8DD07F180C0E1A00857A2D /* DefaultProjectile.h */,
+				DC8DD080180C0E1A00857A2D /* DefaultProjectile.m */,
+				82B9E0F2182580EF00AB37C8 /* PowerProjectile.h */,
+				82B9E0F3182580EF00AB37C8 /* PowerProjectile.m */,
+				82B9E0F51825824100AB37C8 /* FrequentProjectile.h */,
+				82B9E0F61825824100AB37C8 /* FrequentProjectile.m */,
+				82B9E0F81825826F00AB37C8 /* LightningProjectile.h */,
+				82B9E0F91825826F00AB37C8 /* LightningProjectile.m */,
+				82B9E0FB182582BD00AB37C8 /* UnstoppableProjectile.h */,
+				82B9E0FC182582BD00AB37C8 /* UnstoppableProjectile.m */,
+				82B9E0FE182582D800AB37C8 /* DarkMatterProjectile.h */,
+				82B9E0FF182582D800AB37C8 /* DarkMatterProjectile.m */,
 				DC8DD082180C0E2900857A2D /* EnemyProjectile.h */,
 				DC8DD083180C0E2900857A2D /* EnemyProjectile.m */,
 				DC8DD085180C0E3700857A2D /* Object.h */,
@@ -499,19 +539,24 @@
 				DC8DD054180C0A8200857A2D /* Default@2x.png in Resources */,
 				82B9E0E31825702C00AB37C8 /* PmoveSpeed.png in Resources */,
 				8274313D1822AB27004E6643 /* 100.png in Resources */,
+				82D880051825A3CA00338BBB /* FrequentProjectile@2x.png in Resources */,
 				822793D01823D30A00729F29 /* background@2x.png in Resources */,
 				8274314C1822AB27004E6643 /* DefenderHeart@2x.png in Resources */,
-				827431631822AB3E004E6643 /* Untitled-4.png in Resources */,
+				82D880021825A3CA00338BBB /* PowerProjectile@2x.png in Resources */,
+				827431631822AB3E004E6643 /* LightningProjectile.png in Resources */,
 				827431401822AB27004E6643 /* 40.png in Resources */,
 				822793D71823D32C00729F29 /* HardEnemy.png in Resources */,
+				82D880031825A3CA00338BBB /* LightningProjectile@2x.png in Resources */,
 				8274313C1822AB27004E6643 /* 10.png in Resources */,
 				8274313F1822AB27004E6643 /* 30.png in Resources */,
 				822793D51823D32C00729F29 /* EasyEnemy.png in Resources */,
 				822793D81823D32C00729F29 /* HardEnemy@2x.png in Resources */,
 				82B9E0E41825702C00AB37C8 /* Ppower.png in Resources */,
+				82D880041825A3CA00338BBB /* UnstoppableProjectile@2x.png in Resources */,
 				827431451822AB27004E6643 /* 90.png in Resources */,
 				DC8DD056180C0A8200857A2D /* Default-568h@2x.png in Resources */,
 				827431601822AB3E004E6643 /* NormalProjectile@2x.png in Resources */,
+				82D880061825A3CA00338BBB /* DarkMatterProjectile@2x.png in Resources */,
 				DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */,
 				82B9E0E51825702C00AB37C8 /* PrateOfFire.png in Resources */,
 				82B9E0F1182570AB00AB37C8 /* rotSpeed.png in Resources */,
@@ -519,7 +564,7 @@
 				822793CC1823D22100729F29 /* barrel@2x.png in Resources */,
 				82B9E0EF182570AB00AB37C8 /* power.png in Resources */,
 				CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */,
-				827431621822AB3E004E6643 /* Untitled-3.png in Resources */,
+				827431621822AB3E004E6643 /* UnstoppableProjectile.png in Resources */,
 				DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */,
 				822793CB1823D22100729F29 /* barrel.png in Resources */,
 				CDD36AB71824644800207570 /* iPhone Retina.png in Resources */,
@@ -530,10 +575,10 @@
 				82B9E0EE182570AB00AB37C8 /* moveSpeed.png in Resources */,
 				DCAAFB071822811500A925FF /* UpgradeViewController.xib in Resources */,
 				CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */,
-				827431641822AB3E004E6643 /* Untitled-5.png in Resources */,
+				827431641822AB3E004E6643 /* FrequentProjectile.png in Resources */,
 				DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */,
-				827431611822AB3E004E6643 /* Untitled-2.png in Resources */,
-				827431651822AB3E004E6643 /* Untitled-6.png in Resources */,
+				827431611822AB3E004E6643 /* DarkMatterProjectile.png in Resources */,
+				827431651822AB3E004E6643 /* PowerProjectile.png in Resources */,
 				82B9E0E21825702C00AB37C8 /* PdarkMatter.png in Resources */,
 				827431491822AB27004E6643 /* base@2x.png in Resources */,
 				8274314F1822AB27004E6643 /* Explosion.png in Resources */,
@@ -568,12 +613,17 @@
 				DC8DD06C180C0D6C00857A2D /* Upgrade.m in Sources */,
 				DC8DD06F180C0D7A00857A2D /* Ammo.m in Sources */,
 				DC8DD072180C0D9C00857A2D /* Enemy.m in Sources */,
+				82B9E100182582D800AB37C8 /* DarkMatterProjectile.m in Sources */,
 				DC8DD075180C0DB800857A2D /* Enemy1.m in Sources */,
+				82B9E0F4182580EF00AB37C8 /* PowerProjectile.m in Sources */,
+				82B9E0FA1825826F00AB37C8 /* LightningProjectile.m in Sources */,
 				DC8DD078180C0DCA00857A2D /* Enemy2.m in Sources */,
 				DC8DD07B180C0DE700857A2D /* Cannon.m in Sources */,
 				DC8DD07E180C0E0500857A2D /* Projectile.m in Sources */,
-				DC8DD081180C0E1A00857A2D /* Projectile1.m in Sources */,
+				DC8DD081180C0E1A00857A2D /* DefaultProjectile.m in Sources */,
 				DC8DD084180C0E2A00857A2D /* EnemyProjectile.m in Sources */,
+				82B9E0FD182582BD00AB37C8 /* UnstoppableProjectile.m in Sources */,
+				82B9E0F71825824100AB37C8 /* FrequentProjectile.m in Sources */,
 				DC8DD087180C0E3800857A2D /* Object.m in Sources */,
 				DC8DD08A180C0E4600857A2D /* Star.m in Sources */,
 				DCDF4BA2181E88FC008ED39F /* Heart.m in Sources */,

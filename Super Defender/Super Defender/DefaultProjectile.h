@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Projectile.h"
 
-@interface Projectile1 : Projectile
+@interface DefaultProjectile : Projectile
 
 @end

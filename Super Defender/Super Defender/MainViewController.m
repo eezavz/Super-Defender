@@ -21,7 +21,7 @@
 @synthesize timer;
 @synthesize cannonBody;
 @synthesize cannonBarrel;
-@synthesize projectileImage;
+@synthesize defaultProjectileImage;
 @synthesize renderedObjects;
 @synthesize scoreLabel;
 @synthesize damageImages;
@@ -29,7 +29,6 @@
 @synthesize heartImage;
 @synthesize objectButtons;
 @synthesize gameData;
-
 @synthesize powerProjectileActivator;
 @synthesize frequentProjectileActivator;
 @synthesize lightningProjectileActivator;
@@ -38,11 +37,38 @@
 
 - (void) buttonTap:(id) sender {
     NSLog(@"Asdjke");
-    [self stopTimer];
-    pauseButton.hidden = YES;
-    scoreLabel.hidden = YES;
-    [self.view addSubview:self.mvc.view];
-    [self.mvc visible];
+    if (sender == self.pauseButton) {
+        [self stopTimer];
+        pauseButton.hidden = YES;
+        scoreLabel.hidden = YES;
+        [self.view addSubview:self.mvc.view];
+        [self.mvc visible];
+    } else if (sender == self.powerProjectileActivator) {
+        if (self.playfield.cannon.specialProjectile == 0) {
+            self.playfield.cannon.specialProjectile = 1;
+            self.playfield.cannon.specialAmount = 10;
+        }
+    } else if (sender == self.frequentProjectileActivator) {
+        if (self.playfield.cannon.specialProjectile == 0) {
+            self.playfield.cannon.specialProjectile = 2;
+            self.playfield.cannon.specialAmount = 50;
+        }
+    } else if (sender == self.lightningProjectileActivator) {
+        if (self.playfield.cannon.specialProjectile == 0) {
+            self.playfield.cannon.specialProjectile = 3;
+            self.playfield.cannon.specialAmount = 20;
+        }
+    } else if (sender == self.unstoppableProjectileActivator) {
+        if (self.playfield.cannon.specialProjectile == 0) {
+            self.playfield.cannon.specialProjectile = 4;
+            self.playfield.cannon.specialAmount = 1;
+        }
+    } else if (sender == self.darkmatterProjectileActivator) {
+        if (self.playfield.cannon.specialProjectile == 0) {
+            self.playfield.cannon.specialProjectile = 5;
+            self.playfield.cannon.specialAmount = 1;
+        }
+    }
 }
 
 - (void) menuClosed
@@ -101,7 +127,12 @@
         self.enemyImage = [UIImage imageNamed:@"EasyEnemy"];
         self.bossImage = [UIImage imageNamed:@"HardEnemy"];
         
-        self.projectileImage = [UIImage imageNamed:@"NormalProjectile.png"];
+        self.defaultProjectileImage = [UIImage imageNamed:@"NormalProjectile.png"];
+        self.powerProjectileImage = [UIImage imageNamed:@"PowerProjectile.png"];
+        self.frequentProjectileImage = [UIImage imageNamed:@"FrequentProjectile.png"];
+        self.lightningProjectileImage = [UIImage imageNamed:@"LightningProjectile.png"];
+        self.unstoppableProjectileImage = [UIImage imageNamed:@"UnstoppableProjectile.png"];
+        self.darkMatterProjectileImage = [UIImage imageNamed:@"DarkMatterProjectile.png"];
         self.enemyProjectileImage = [UIImage imageNamed:@"EnemyProjectile.png"];
         
         
@@ -137,7 +168,7 @@
         //[pauseButton setTitle:@"II" forState:UIControlStateNormal];
         //pauseButton.backgroundColor = [UIColor redColor];
         [pauseButton setImage:[UIImage imageNamed:@"pauzebutton"] forState:UIControlStateNormal];
-        pauseButton.frame = CGRectMake(0, 0, 45, 45);
+        pauseButton.frame = CGRectMake(0, 0, 40, 40);
         [pauseButton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         
         self.beloved = [[UIImageView alloc] initWithFrame:CGRectMake(140, 390, 40, 40)];
@@ -166,6 +197,12 @@
         [unstoppableProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
         [darkmatterProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
         
+        [powerProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [frequentProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [lightningProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [unstoppableProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [darkmatterProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+        
         
         [self.view addSubview:powerProjectileActivator];
         [self.view addSubview:frequentProjectileActivator];
@@ -181,11 +218,11 @@
         cannonBarrel.hidden = YES;
         cannonBody.hidden = YES;
         
-         powerProjectileActivator.hidden = YES;
-         frequentProjectileActivator.hidden = YES;
-         lightningProjectileActivator.hidden = YES;
-         unstoppableProjectileActivator.hidden = YES;
-         darkmatterProjectileActivator.hidden = YES;
+        powerProjectileActivator.hidden = YES;
+        frequentProjectileActivator.hidden = YES;
+        lightningProjectileActivator.hidden = YES;
+        unstoppableProjectileActivator.hidden = YES;
+        darkmatterProjectileActivator.hidden = YES;
         
         self.cannonHealth.hidden = YES;
         [self.view addSubview:self.mvc.view];
@@ -311,7 +348,7 @@
         for (int i = 0; i < difference; i++) {
             UIImageView *new = [[UIImageView alloc] init];
             [renderedObjects addObject:new];
-            [self.view insertSubview:new belowSubview:self.scoreLabel];
+            [self.view insertSubview:new belowSubview:self.pauseButton];
         }
     }
     if(renderedObjects.count > objects) {
@@ -351,13 +388,25 @@
         [health setImage:[self.damageImages objectAtIndex:round(percentage/10)]];
         [health sizeToFit];
         health.center = CGPointMake([[playfield.enemies objectAtIndex:i/2] centerX], [[playfield.enemies objectAtIndex:i/2] centerY] + [[playfield.enemies objectAtIndex:i/2] height]/2 + 10);
-
+        
     }
     currentAmount += playfield.enemies.count * 2;
     toLimit += playfield.cannon.shotProjectiles.count;
     for (int i = currentAmount; i < toLimit; i++) {
         UIImageView *current = [renderedObjects objectAtIndex:i];
-        [current setImage:self.projectileImage];
+        if ([[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] isMemberOfClass:[DefaultProjectile class]]) {
+            [current setImage:self.defaultProjectileImage];
+        } else if ([[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] isMemberOfClass:[PowerProjectile class]]) {
+            [current setImage:self.powerProjectileImage];
+        } else if ([[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] isMemberOfClass:[FrequentProjectile class]]) {
+            [current setImage:self.frequentProjectileImage];
+        } else if ([[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] isMemberOfClass:[LightningProjectile class]]) {
+            [current setImage:self.lightningProjectileImage];
+        } else if ([[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] isMemberOfClass:[UnstoppableProjectile class]]) {
+            [current setImage:self.unstoppableProjectileImage];
+        } else if ([[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] isMemberOfClass:[DarkMatterProjectile class]]) {
+            [current setImage:self.darkMatterProjectileImage];
+        }
         [current sizeToFit];
         float centerX = [[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] centerX];
         float centerY = [[playfield.cannon.shotProjectiles objectAtIndex:i-currentAmount] centerY];
@@ -442,7 +491,7 @@
     [self.cannonBody dealloc];
     [self.cannonBarrel dealloc];
     [self.enemyImage dealloc];
-    [self.projectileImage dealloc];
+    [self.defaultProjectileImage dealloc];
     [self.enemyProjectileImage dealloc];
     [self.renderedObjects dealloc];
     [self.scoreLabel dealloc];

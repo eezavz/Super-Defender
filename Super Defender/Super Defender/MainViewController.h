@@ -15,7 +15,12 @@
 #import <CoreMotion/CoreMotion.h>
 #import "MenuViewController.h"
 #import "Heart.h"
-
+#import "DefaultProjectile.h"
+#import "PowerProjectile.h"
+#import "FrequentProjectile.h"
+#import "LightningProjectile.h"
+#import "UnstoppableProjectile.h"
+#import "DarkMatterProjectile.h"
 @interface MainViewController : UIViewController <MenuViewControllerDelegate>
 
 @property (atomic, retain) Playfield *playfield;
@@ -24,10 +29,18 @@
 @property (atomic, retain) UIImageView *cannonBody;
 @property (atomic, retain) UIImageView *cannonBarrel;
 @property (atomic, retain) UIImage *enemyImage;
-@property (atomic, retain) UIImage *projectileImage;
+
+@property (atomic, retain) UIImage *defaultProjectileImage;
+@property (atomic, retain) UIImage *powerProjectileImage;
+@property (atomic, retain) UIImage *frequentProjectileImage;
+@property (atomic, retain) UIImage *lightningProjectileImage;
+@property (atomic, retain) UIImage *unstoppableProjectileImage;
+@property (atomic, retain) UIImage *darkMatterProjectileImage;
 @property (atomic, retain) UIImage *enemyProjectileImage;
+
 @property (nonatomic, strong) NSMutableArray *renderedObjects;
 @property (nonatomic, strong) UILabel *scoreLabel;
+
 @property (nonatomic, strong) NSMutableArray *damageImages;
 @property (nonatomic, strong) UIImage *explosion;
 @property (nonatomic, strong) UIImage *bigExplosion;
