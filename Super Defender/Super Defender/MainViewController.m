@@ -30,6 +30,12 @@
 @synthesize objectButtons;
 @synthesize gameData;
 
+@synthesize powerProjectileActivator;
+@synthesize frequentProjectileActivator;
+@synthesize lightningProjectileActivator;
+@synthesize unstoppableProjectileActivator;
+@synthesize darkmatterProjectileActivator;
+
 - (void) buttonTap:(id) sender {
     NSLog(@"Asdjke");
     [self stopTimer];
@@ -45,6 +51,12 @@
     //[self.mvc release];
     pauseButton.hidden = NO;
     scoreLabel.hidden = NO;
+    powerProjectileActivator.hidden = NO;
+    frequentProjectileActivator.hidden = NO;
+    lightningProjectileActivator.hidden = NO;
+    unstoppableProjectileActivator.hidden = NO;
+    darkmatterProjectileActivator.hidden = NO;
+    
     [self startTimer];
 }
 
@@ -61,7 +73,7 @@
             [damageImages addObject:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"%d", i]]];
         }
         self.cannonHealth = [[UIImageView alloc] initWithImage:[damageImages objectAtIndex:10]];
-        self.cannonHealth.frame = CGRectMake(0, 430, 320, 50);
+        self.cannonHealth.frame = CGRectMake(0, 430, 320, 10);
         self.explosion = [UIImage imageNamed:@"Explosion"];
         self.bigExplosion = [UIImage imageNamed:@"BigExplosion"];
         
@@ -136,6 +148,31 @@
         [self.view insertSubview:self.cannonHealth aboveSubview:scoreLabel];
         [self.view insertSubview:self.beloved aboveSubview:cannonBody];
         
+        powerProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(75, 445, 30, 30)];
+        frequentProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(110, 445, 30, 30)];
+        lightningProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(145, 445, 30, 30)];
+        unstoppableProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(180, 445, 30, 30)];
+        darkmatterProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(215, 445, 30, 30)];
+        
+        [powerProjectileActivator setBackgroundImage:[UIImage imageNamed:@"Ppower"] forState:UIControlStateNormal];
+        [frequentProjectileActivator setBackgroundImage:[UIImage imageNamed:@"PrateOfFire"] forState:UIControlStateNormal];
+        [lightningProjectileActivator setBackgroundImage:[UIImage imageNamed:@"PmoveSpeed"] forState:UIControlStateNormal];
+        [unstoppableProjectileActivator setBackgroundImage:[UIImage imageNamed:@"Punstoppable"] forState:UIControlStateNormal];
+        [darkmatterProjectileActivator setBackgroundImage:[UIImage imageNamed:@"PdarkMatter"] forState:UIControlStateNormal];
+        
+        [powerProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
+        [frequentProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
+        [lightningProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
+        [unstoppableProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
+        [darkmatterProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
+        
+        
+        [self.view addSubview:powerProjectileActivator];
+        [self.view addSubview:frequentProjectileActivator];
+        [self.view addSubview:lightningProjectileActivator];
+        [self.view addSubview:unstoppableProjectileActivator];
+        [self.view addSubview:darkmatterProjectileActivator];
+        
         self.mvc = [[MenuViewController alloc] init : (NSMutableDictionary *)gameData];
         self.mvc.gameData = gameData;
         self.mvc.delegate = self;
@@ -143,6 +180,13 @@
         scoreLabel.hidden = YES;
         cannonBarrel.hidden = YES;
         cannonBody.hidden = YES;
+        
+         powerProjectileActivator.hidden = YES;
+         frequentProjectileActivator.hidden = YES;
+         lightningProjectileActivator.hidden = YES;
+         unstoppableProjectileActivator.hidden = YES;
+         darkmatterProjectileActivator.hidden = YES;
+        
         self.cannonHealth.hidden = YES;
         [self.view addSubview:self.mvc.view];
         [self.mvc visible];
@@ -225,7 +269,7 @@
 - (void)startTimer
 {
     if (!timer) {
-        timer = [NSTimer scheduledTimerWithTimeInterval:1.0f/60.0f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0f/30.0f target:self selector:@selector(update:) userInfo:nil repeats:YES];
     }
 }
 

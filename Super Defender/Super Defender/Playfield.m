@@ -45,7 +45,7 @@
     [self.cannon update:angle];
     
     if(enemyCountdown == 0) {
-        int random = 15 + arc4random() % 75;
+        int random = 5 + arc4random() % 45;
         int rare = arc4random() % 20;
         enemyCountdown = random;
         if (rare==5) {
@@ -68,7 +68,7 @@
         {
             Enemy *temp = [enemies objectAtIndex:i];
             [enemies removeObject:temp];
-            if(arc4random() % 10 == 1)
+            if(arc4random() % 20 == 1)
             {
                 Heart *heart = [[Heart alloc]init:[temp centerX] Y: [temp centerY]];
                 [self.objects addObject:heart];
@@ -173,18 +173,6 @@
     float bottomY = obj.origin.y + obj.size.height /2;
     
     return (leftX <= rotatedX && rotatedX <= rightX && topY <= rotatedY && rotatedY <= bottomY);
-}
-
-- (BOOL) lineCollision: (CGPoint) a : (CGPoint) b : (CGPoint) c : (CGPoint) d
-{
-    float denominator = ((b.x - a.x) * (d.y - c.y)) - ((b.y - a.y) * (d.x - c.x));
-    float numerator1 = ((a.y - c.y) * (d.x - c.x)) - ((a.x - c.x) * (d.y - c.y));
-    float numerator2 = ((a.y - c.y) * (b.x - a.x)) - ((a.x - c.x) * (b.y - a.y));
-    
-    float r = numerator1 / denominator;
-    float s = numerator2 / denominator;
-    
-    return (r >= 0 && r <= 1) && (s >= 0 && s <= 1);
 }
 
 - (void) dealloc

@@ -40,6 +40,12 @@
 @property (nonatomic, strong) MenuViewController *mvc;
 @property (nonatomic, strong) UIImageView *beloved;
 
+@property (nonatomic, strong) UIButton *powerProjectileActivator;
+@property (nonatomic, strong) UIButton *frequentProjectileActivator;
+@property (nonatomic, strong) UIButton *lightningProjectileActivator;
+@property (nonatomic, strong) UIButton *unstoppableProjectileActivator;
+@property (nonatomic, strong) UIButton *darkmatterProjectileActivator;
+
 - (void) newGame:(UIImage *)beloved;
 - (BOOL) runningGame;
 - (void) update:(NSTimer *)timer;

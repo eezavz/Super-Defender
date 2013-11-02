@@ -36,7 +36,7 @@
         if(self.collides)
         {
             self.collides = NO;
-            self.countdown = 10;
+            self.countdown = 5;
         }
         if(self.countdown <= 0) {
             self.shouldDie = YES;
@@ -44,17 +44,17 @@
             self.countdown--;
         }
     }
-    self.centerY++;
+    self.centerY+=2;
     if(self.centerY > 250 - self.randomHeight + self.height / 2)
     {
-        self.centerY--;
+        self.centerY-=2;
         if (self.movesLeft) {
-            self.centerX--;
+            self.centerX-=2;
             if (self.centerX - self.width / 2 < 0) {
                 self.movesLeft = NO;
             }
         } else {
-            self.centerX++;
+            self.centerX+=2;
             if (self.centerX + self.width / 2 > 320) {
                 self.movesLeft = YES;
             }
@@ -64,13 +64,13 @@
         if(self.angle < -10) {
             self.rotatesLeft = NO;
         } else {
-            self.angle--;
+            self.angle-=2;
         }
     } else {
         if(self.angle > 10) {
             self.rotatesLeft = YES;
         } else {
-            self.angle++;
+            self.angle+=2;
         }
     }
 }

@@ -45,22 +45,22 @@
 		827431641822AB3E004E6643 /* Untitled-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315B1822AB3E004E6643 /* Untitled-5.png */; };
 		827431651822AB3E004E6643 /* Untitled-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8274315C1822AB3E004E6643 /* Untitled-6.png */; };
 		829EA93E18166847006341B8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EA93D18166847006341B8 /* CoreMotion.framework */; };
+		82B9E0E21825702C00AB37C8 /* PdarkMatter.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0DD1825702C00AB37C8 /* PdarkMatter.png */; };
+		82B9E0E31825702C00AB37C8 /* PmoveSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0DE1825702C00AB37C8 /* PmoveSpeed.png */; };
+		82B9E0E41825702C00AB37C8 /* Ppower.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0DF1825702C00AB37C8 /* Ppower.png */; };
+		82B9E0E51825702C00AB37C8 /* PrateOfFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0E01825702C00AB37C8 /* PrateOfFire.png */; };
+		82B9E0E61825702C00AB37C8 /* Punstoppable.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0E11825702C00AB37C8 /* Punstoppable.png */; };
+		82B9E0ED182570AB00AB37C8 /* health.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0E8182570AB00AB37C8 /* health.png */; };
+		82B9E0EE182570AB00AB37C8 /* moveSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0E9182570AB00AB37C8 /* moveSpeed.png */; };
+		82B9E0EF182570AB00AB37C8 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0EA182570AB00AB37C8 /* power.png */; };
+		82B9E0F0182570AB00AB37C8 /* rateOfFire.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0EB182570AB00AB37C8 /* rateOfFire.png */; };
+		82B9E0F1182570AB00AB37C8 /* rotSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9E0EC182570AB00AB37C8 /* rotSpeed.png */; };
 		CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB21824644800207570 /* iPhone Non-Retina.png */; };
 		CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */; };
 		CDD36AB71824644800207570 /* iPhone Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB41824644800207570 /* iPhone Retina.png */; };
 		DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */; };
 		DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */; };
 		DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */; };
-		DC8A9FC01823F52B0081EFA1 /* health.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBB1823F52B0081EFA1 /* health.png */; };
-		DC8A9FC11823F52B0081EFA1 /* moveSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBC1823F52B0081EFA1 /* moveSpeed.png */; };
-		DC8A9FC21823F52B0081EFA1 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBD1823F52B0081EFA1 /* power.png */; };
-		DC8A9FC31823F52B0081EFA1 /* rateOfFire.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBE1823F52B0081EFA1 /* rateOfFire.png */; };
-		DC8A9FC41823F52B0081EFA1 /* rotSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FBF1823F52B0081EFA1 /* rotSpeed.png */; };
-		DC8A9FCB1823FBA60081EFA1 /* PdarkMatter.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC61823FBA50081EFA1 /* PdarkMatter.png */; };
-		DC8A9FCC1823FBA60081EFA1 /* PmoveSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC71823FBA50081EFA1 /* PmoveSpeed.png */; };
-		DC8A9FCD1823FBA60081EFA1 /* Ppower.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC81823FBA50081EFA1 /* Ppower.png */; };
-		DC8A9FCE1823FBA60081EFA1 /* PrateOfFire.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FC91823FBA50081EFA1 /* PrateOfFire.png */; };
-		DC8A9FCF1823FBA60081EFA1 /* Punstoppable.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FCA1823FBA50081EFA1 /* Punstoppable.png */; };
 		DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */; };
 		DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8CCB46181FCD7F008C5DB3 /* GameData.plist */; };
 		DC8DD040180C0A8200857A2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD03F180C0A8200857A2D /* UIKit.framework */; };
@@ -132,22 +132,22 @@
 		8274315B1822AB3E004E6643 /* Untitled-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-5.png"; sourceTree = "<group>"; };
 		8274315C1822AB3E004E6643 /* Untitled-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-6.png"; sourceTree = "<group>"; };
 		829EA93D18166847006341B8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		82B9E0DD1825702C00AB37C8 /* PdarkMatter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PdarkMatter.png; sourceTree = "<group>"; };
+		82B9E0DE1825702C00AB37C8 /* PmoveSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PmoveSpeed.png; sourceTree = "<group>"; };
+		82B9E0DF1825702C00AB37C8 /* Ppower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ppower.png; sourceTree = "<group>"; };
+		82B9E0E01825702C00AB37C8 /* PrateOfFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PrateOfFire.png; sourceTree = "<group>"; };
+		82B9E0E11825702C00AB37C8 /* Punstoppable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Punstoppable.png; sourceTree = "<group>"; };
+		82B9E0E8182570AB00AB37C8 /* health.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health.png; sourceTree = "<group>"; };
+		82B9E0E9182570AB00AB37C8 /* moveSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveSpeed.png; sourceTree = "<group>"; };
+		82B9E0EA182570AB00AB37C8 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
+		82B9E0EB182570AB00AB37C8 /* rateOfFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rateOfFire.png; sourceTree = "<group>"; };
+		82B9E0EC182570AB00AB37C8 /* rotSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotSpeed.png; sourceTree = "<group>"; };
 		CDD36AB21824644800207570 /* iPhone Non-Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Non-Retina.png"; sourceTree = "<group>"; };
 		CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina (iOS 6 and Prior).png"; sourceTree = "<group>"; };
 		CDD36AB41824644800207570 /* iPhone Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina.png"; sourceTree = "<group>"; };
 		DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1.png; sourceTree = "<group>"; };
 		DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1.png; sourceTree = "<group>"; };
 		DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1_leeg.png; sourceTree = "<group>"; };
-		DC8A9FBB1823F52B0081EFA1 /* health.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health.png; sourceTree = "<group>"; };
-		DC8A9FBC1823F52B0081EFA1 /* moveSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveSpeed.png; sourceTree = "<group>"; };
-		DC8A9FBD1823F52B0081EFA1 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
-		DC8A9FBE1823F52B0081EFA1 /* rateOfFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rateOfFire.png; sourceTree = "<group>"; };
-		DC8A9FBF1823F52B0081EFA1 /* rotSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotSpeed.png; sourceTree = "<group>"; };
-		DC8A9FC61823FBA50081EFA1 /* PdarkMatter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PdarkMatter.png; sourceTree = "<group>"; };
-		DC8A9FC71823FBA50081EFA1 /* PmoveSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PmoveSpeed.png; sourceTree = "<group>"; };
-		DC8A9FC81823FBA50081EFA1 /* Ppower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ppower.png; sourceTree = "<group>"; };
-		DC8A9FC91823FBA50081EFA1 /* PrateOfFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PrateOfFire.png; sourceTree = "<group>"; };
-		DC8A9FCA1823FBA50081EFA1 /* Punstoppable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Punstoppable.png; sourceTree = "<group>"; };
 		DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1_leeg.png; sourceTree = "<group>"; };
 		DC8CCB46181FCD7F008C5DB3 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		DC8DD03C180C0A8200857A2D /* Super Defender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Defender.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,8 +219,8 @@
 		824D068C1822905C00D63F79 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				DC8A9FC51823FB060081EFA1 /* projectileButtons */,
-				DC8A9FBA1823F5150081EFA1 /* upgradeButtons */,
+				82B9E0E7182570AB00AB37C8 /* upgradeButtons */,
+				82B9E0DC1825702C00AB37C8 /* projectileButtons */,
 				827431531822AB3E004E6643 /* projectiles */,
 				827431201822AB27004E6643 /* healthbars */,
 				8274312C1822AB27004E6643 /* ingame */,
@@ -295,6 +295,30 @@
 			path = projectiles;
 			sourceTree = "<group>";
 		};
+		82B9E0DC1825702C00AB37C8 /* projectileButtons */ = {
+			isa = PBXGroup;
+			children = (
+				82B9E0DD1825702C00AB37C8 /* PdarkMatter.png */,
+				82B9E0DE1825702C00AB37C8 /* PmoveSpeed.png */,
+				82B9E0DF1825702C00AB37C8 /* Ppower.png */,
+				82B9E0E01825702C00AB37C8 /* PrateOfFire.png */,
+				82B9E0E11825702C00AB37C8 /* Punstoppable.png */,
+			);
+			path = projectileButtons;
+			sourceTree = "<group>";
+		};
+		82B9E0E7182570AB00AB37C8 /* upgradeButtons */ = {
+			isa = PBXGroup;
+			children = (
+				82B9E0E8182570AB00AB37C8 /* health.png */,
+				82B9E0E9182570AB00AB37C8 /* moveSpeed.png */,
+				82B9E0EA182570AB00AB37C8 /* power.png */,
+				82B9E0EB182570AB00AB37C8 /* rateOfFire.png */,
+				82B9E0EC182570AB00AB37C8 /* rotSpeed.png */,
+			);
+			path = upgradeButtons;
+			sourceTree = "<group>";
+		};
 		CDD36AB01824643300207570 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,30 +335,6 @@
 				CDD36AB41824644800207570 /* iPhone Retina.png */,
 			);
 			name = App;
-			sourceTree = "<group>";
-		};
-		DC8A9FBA1823F5150081EFA1 /* upgradeButtons */ = {
-			isa = PBXGroup;
-			children = (
-				DC8A9FBB1823F52B0081EFA1 /* health.png */,
-				DC8A9FBC1823F52B0081EFA1 /* moveSpeed.png */,
-				DC8A9FBD1823F52B0081EFA1 /* power.png */,
-				DC8A9FBE1823F52B0081EFA1 /* rateOfFire.png */,
-				DC8A9FBF1823F52B0081EFA1 /* rotSpeed.png */,
-			);
-			name = upgradeButtons;
-			sourceTree = "<group>";
-		};
-		DC8A9FC51823FB060081EFA1 /* projectileButtons */ = {
-			isa = PBXGroup;
-			children = (
-				DC8A9FC61823FBA50081EFA1 /* PdarkMatter.png */,
-				DC8A9FC71823FBA50081EFA1 /* PmoveSpeed.png */,
-				DC8A9FC81823FBA50081EFA1 /* Ppower.png */,
-				DC8A9FC91823FBA50081EFA1 /* PrateOfFire.png */,
-				DC8A9FCA1823FBA50081EFA1 /* Punstoppable.png */,
-			);
-			name = projectileButtons;
 			sourceTree = "<group>";
 		};
 		DC8DD033180C0A8200857A2D = {
@@ -497,6 +497,7 @@
 				DC8DD04A180C0A8200857A2D /* InfoPlist.strings in Resources */,
 				DC8DD052180C0A8200857A2D /* Default.png in Resources */,
 				DC8DD054180C0A8200857A2D /* Default@2x.png in Resources */,
+				82B9E0E31825702C00AB37C8 /* PmoveSpeed.png in Resources */,
 				8274313D1822AB27004E6643 /* 100.png in Resources */,
 				822793D01823D30A00729F29 /* background@2x.png in Resources */,
 				8274314C1822AB27004E6643 /* DefenderHeart@2x.png in Resources */,
@@ -507,12 +508,16 @@
 				8274313F1822AB27004E6643 /* 30.png in Resources */,
 				822793D51823D32C00729F29 /* EasyEnemy.png in Resources */,
 				822793D81823D32C00729F29 /* HardEnemy@2x.png in Resources */,
+				82B9E0E41825702C00AB37C8 /* Ppower.png in Resources */,
 				827431451822AB27004E6643 /* 90.png in Resources */,
 				DC8DD056180C0A8200857A2D /* Default-568h@2x.png in Resources */,
 				827431601822AB3E004E6643 /* NormalProjectile@2x.png in Resources */,
 				DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */,
+				82B9E0E51825702C00AB37C8 /* PrateOfFire.png in Resources */,
+				82B9E0F1182570AB00AB37C8 /* rotSpeed.png in Resources */,
 				8274315D1822AB3E004E6643 /* EnemyProjectile.png in Resources */,
 				822793CC1823D22100729F29 /* barrel@2x.png in Resources */,
+				82B9E0EF182570AB00AB37C8 /* power.png in Resources */,
 				CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */,
 				827431621822AB3E004E6643 /* Untitled-3.png in Resources */,
 				DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */,
@@ -520,34 +525,29 @@
 				CDD36AB71824644800207570 /* iPhone Retina.png in Resources */,
 				8274313B1822AB27004E6643 /* 0.png in Resources */,
 				8274315F1822AB3E004E6643 /* NormalProjectile.png in Resources */,
+				82B9E0F0182570AB00AB37C8 /* rateOfFire.png in Resources */,
 				827431441822AB27004E6643 /* 80.png in Resources */,
+				82B9E0EE182570AB00AB37C8 /* moveSpeed.png in Resources */,
 				DCAAFB071822811500A925FF /* UpgradeViewController.xib in Resources */,
 				CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */,
 				827431641822AB3E004E6643 /* Untitled-5.png in Resources */,
 				DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */,
 				827431611822AB3E004E6643 /* Untitled-2.png in Resources */,
 				827431651822AB3E004E6643 /* Untitled-6.png in Resources */,
+				82B9E0E21825702C00AB37C8 /* PdarkMatter.png in Resources */,
 				827431491822AB27004E6643 /* base@2x.png in Resources */,
 				8274314F1822AB27004E6643 /* Explosion.png in Resources */,
 				827431501822AB27004E6643 /* menu.png in Resources */,
+				82B9E0ED182570AB00AB37C8 /* health.png in Resources */,
 				8274314A1822AB27004E6643 /* BigExplosion.png in Resources */,
 				827431411822AB27004E6643 /* 50.png in Resources */,
 				8274314B1822AB27004E6643 /* DefenderHeart.png in Resources */,
+				82B9E0E61825702C00AB37C8 /* Punstoppable.png in Resources */,
 				827431481822AB27004E6643 /* base.png in Resources */,
 				822793D61823D32C00729F29 /* EasyEnemy@2x.png in Resources */,
 				DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */,
 				8274315E1822AB3E004E6643 /* EnemyProjectile@2x.png in Resources */,
 				DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */,
-				DC8A9FC01823F52B0081EFA1 /* health.png in Resources */,
-				DC8A9FC11823F52B0081EFA1 /* moveSpeed.png in Resources */,
-				DC8A9FC21823F52B0081EFA1 /* power.png in Resources */,
-				DC8A9FC31823F52B0081EFA1 /* rateOfFire.png in Resources */,
-				DC8A9FC41823F52B0081EFA1 /* rotSpeed.png in Resources */,
-				DC8A9FCB1823FBA60081EFA1 /* PdarkMatter.png in Resources */,
-				DC8A9FCC1823FBA60081EFA1 /* PmoveSpeed.png in Resources */,
-				DC8A9FCD1823FBA60081EFA1 /* Ppower.png in Resources */,
-				DC8A9FCE1823FBA60081EFA1 /* PrateOfFire.png in Resources */,
-				DC8A9FCF1823FBA60081EFA1 /* Punstoppable.png in Resources */,
 				DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

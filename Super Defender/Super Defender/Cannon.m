@@ -24,7 +24,7 @@
     maxHealth = 100;
     health = maxHealth;
     shotProjectiles = [[NSMutableArray alloc] init];
-    aimspeed = 1;
+    aimspeed = 2;
     rateOfFire = 4;
     angle = 90;
     return [super init];
@@ -68,7 +68,7 @@
         int spawnY = -sin(degrees(angle)) * 108;
         Projectile1 *new = [[Projectile1 alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
         [shotProjectiles addObject:new];
-        countdown = 60 / rateOfFire;
+        countdown = 30 / rateOfFire;
     } else {
         countdown--;
     }

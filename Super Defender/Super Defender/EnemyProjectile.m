@@ -17,8 +17,8 @@
     self.width = 20;
     self.height = 20;
     self.angle = angle;
-    self.velX = +cos(degrees(angle))*4;
-    self.velY = +sin(degrees(angle))*4;
+    self.velX = +cos(degrees(angle))*8;
+    self.velY = +sin(degrees(angle))*8;
     return self;
 }
 

@@ -22,9 +22,9 @@
 
 -(void)update
 {
-    self.centerY++;
+    self.centerY+=2;
     if (self.centerY + 20 > 430) {
-        self.centerY--;
+        self.centerY-=2;
     }
 }
 
