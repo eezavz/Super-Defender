@@ -22,6 +22,14 @@
 @property (nonatomic, assign) BOOL collides;
 @property (nonatomic, assign) int score;
 @property (nonatomic, assign) EnemyProjectile *myProjectile;
+@property (nonatomic, assign) float yLimit;
+@property (nonatomic, assign) float lowerXLimit;
+@property (nonatomic, assign) float higherXLimit;
+@property (nonatomic, assign) BOOL sideways;
+@property (nonatomic, assign) BOOL rotatesLeft;
+@property (nonatomic, assign) int countdown;
+@property (nonatomic, assign) BOOL movesLeft;
+
 
 - (Enemy *) initWithX:(float)x Y:(float) y;
 - (void) AI;

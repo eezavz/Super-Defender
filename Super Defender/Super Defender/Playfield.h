@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSMutableArray *enemies;
 @property (nonatomic, retain) NSMutableArray *enemyProjectiles;
 @property (nonatomic, retain) NSMutableArray *objects;
+@property (nonatomic, retain) NSDictionary *leveldata;
 //@property (nonatomic, retain) NSMutableDictionary *gameData;
 
 - (Playfield *)init : (NSMutableDictionary *)par_gameData;

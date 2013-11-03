@@ -16,6 +16,7 @@
 
 @interface Playfield ()
 @property (nonatomic, assign) int runTime;
+@property (nonatomic, assign) int spawnTick;
 @end
 @implementation Playfield
 
@@ -42,25 +43,66 @@
     self.enemyProjectiles = [[NSMutableArray alloc] init];
     objects = [[NSMutableArray alloc]init];
     self.runTime = 0;
+    self.leveldata = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Levels" ofType:@"plist"]];
     return [super init];
 }
 
 -(void)update:(float)angle;
 {
     [self.cannon update:angle];
-    self.runTime++;
     int screenlimit = 1 + self.runTime / 240;
     if (screenlimit > 30) {
         screenlimit = 30;
     }
-    int rare = arc4random() % 2000;
-    if (rare==5) {
+    
+    if (self.enemies.count < screenlimit && self.spawnTick == -1) {
+        NSLog(@"Yay");
+        self.spawnTick = 0;
+    }
+    
+    if (self.spawnTick > -1) {
+        NSLog(@"Cool");
+        self.spawnTick++;
+        NSLog(@"Hmm? %d", self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue]);
+        if (self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] == 0) {
+            int tick = self.spawnTick / [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] - 1;
+            NSLog(@"Spawning tick %d of %d", tick, [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] count]);
+            NSArray *enemiesDataForTick = [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] objectAtIndex:tick];
+            for (int i = 0; i < enemiesDataForTick.count; i++) {
+                NSDictionary *enemyData = [enemiesDataForTick objectAtIndex:i];
+                Enemy1 *customNoob = [[Enemy1 alloc] initWithX:[[enemyData objectForKey:@"spawnx"] intValue] Y:-16];
+                customNoob.sideways = [[enemyData objectForKey:@"sideways"] floatValue];
+                customNoob.yLimit = [[enemyData objectForKey:@"ylimit"] floatValue];
+                customNoob.lowerXLimit = [[enemyData objectForKey:@"lowerxlimit"] floatValue];
+                customNoob.higherXLimit = [[enemyData objectForKey:@"higherxlimit"] floatValue];
+                customNoob.movesLeft = [[enemyData objectForKey:@"movesleft"] boolValue];
+                [self.enemies addObject:customNoob];
+                //[enemyData release];
+            }
+            //[enemiesDataForTick release];
+            if (tick == [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] count] - 1) {
+                self.spawnTick = -1;
+            }
+        }
+    }
+    
+    /*if (self.enemies.count < screenlimit) {
+        Enemy1 *customNoob = [[Enemy1 alloc] initWithX:100 Y:-16];
+        customNoob.sideways = YES;
+        customNoob.yLimit = 110;
+        customNoob.lowerXLimit = 0;
+        customNoob.higherXLimit = 210;
+        customNoob.movesLeft = YES;
+        [self.enemies addObject:customNoob];
+    }*/
+    /*int rare = arc4random() % 1500;
+    if (rare == 5) {
         Enemy2 *boss = [[Enemy2 alloc] initWithX: arc4random() % (320-128)+64 Y:-34];
         [self.enemies addObject:boss];
     } else if (self.enemies.count < screenlimit) {
         Enemy1 *noob = [[Enemy1 alloc] initWithX: arc4random() % (320-64)+32 Y:-17];
         [self.enemies addObject:noob];
-    }
+    }*/
     for (int i = 0; i < enemies.count; i++) {
         [[enemies objectAtIndex:i] AI];
         if ([[enemies objectAtIndex:i] myProjectile]) {
@@ -142,6 +184,7 @@
             }
         }
     }
+    self.runTime++;
 }
 
 - (BOOL) checkHitEnemy:(Enemy *)enemy Projectile:(Projectile *)projectile
