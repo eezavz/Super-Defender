@@ -7,74 +7,74 @@
 		<key>amount</key>
 		<integer>0</integer>
 		<key>cost</key>
-		<integer>0</integer>
+		<integer>100</integer>
 	</dict>
 	<key>upgradeFireRate</key>
 	<dict>
 		<key>amount</key>
 		<integer>0</integer>
 		<key>cost</key>
-		<integer>0</integer>
+		<integer>100</integer>
 	</dict>
 	<key>upgradeMoveSpeed</key>
 	<dict>
 		<key>amount</key>
 		<integer>0</integer>
 		<key>cost</key>
-		<integer>0</integer>
+		<integer>100</integer>
 	</dict>
 	<key>upgradePower</key>
 	<dict>
 		<key>amount</key>
 		<integer>0</integer>
 		<key>cost</key>
-		<integer>0</integer>
+		<integer>100</integer>
 	</dict>
 	<key>upgradeRotSpeed</key>
 	<dict>
 		<key>amount</key>
 		<integer>0</integer>
 		<key>cost</key>
-		<integer>0</integer>
+		<integer>100</integer>
 	</dict>
 	<key>projectilePower</key>
 	<dict>
 		<key>amount</key>
-		<integer>6</integer>
+		<integer>0</integer>
 		<key>cost</key>
-		<integer>20</integer>
+		<integer>500</integer>
 	</dict>
 	<key>projectileFireRate</key>
 	<dict>
 		<key>amount</key>
-		<integer>3</integer>
+		<integer>0</integer>
 		<key>cost</key>
-		<integer>33</integer>
+		<integer>500</integer>
 	</dict>
 	<key>projectileMoveSpeed</key>
 	<dict>
 		<key>amount</key>
-		<integer>50</integer>
+		<integer>0</integer>
 		<key>cost</key>
-		<integer>33</integer>
+		<integer>500</integer>
 	</dict>
 	<key>projectileUnstoppable</key>
 	<dict>
 		<key>amount</key>
-		<integer>12</integer>
+		<integer>0</integer>
 		<key>cost</key>
-		<integer>11</integer>
+		<integer>500</integer>
 	</dict>
 	<key>projectileDarkMatter</key>
 	<dict>
 		<key>amount</key>
-		<integer>9</integer>
+		<integer>0</integer>
 		<key>cost</key>
-		<integer>2</integer>
+		<integer>500</integer>
 	</dict>
 	<key>Score</key>
-	<integer>3000</integer>
+	<real>3</real>
 	<key>Scrap</key>
-	<integer>0</integer>
+	<integer>1001</integer>
 </dict>
 </plist>

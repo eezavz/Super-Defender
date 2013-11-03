@@ -39,6 +39,8 @@
     NSLog(@"Asdjke");
     if (sender == self.pauseButton) {
         [self stopTimer];
+        self.mvc.score = playfield.score;
+        self.mvc.projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", playfield.score];
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
         [self.view addSubview:self.mvc.view];
@@ -275,11 +277,11 @@
     {
         gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
         //NSLog(@"%@", [gameData objectForKey:@"Score"]);
-        NSLog(@"%@", gameData);
+        //NSLog(@"%@", gameData);
     }else{
         NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
         gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
-        NSLog(@"%@", gameData);
+        //NSLog(@"%@", gameData);
         [self saveGame];
     }
 }
