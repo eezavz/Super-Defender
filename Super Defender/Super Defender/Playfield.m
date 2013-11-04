@@ -88,15 +88,16 @@
         screenlimit = 30;
     }
     
-    if (self.enemies.count < screenlimit && self.spawnTick == -1) {
+    if (self.enemies.count == 0 && self.spawnTick == -1) {
         self.spawnTick = 0;
     }
     
     if (self.spawnTick > -1) {
         self.spawnTick++;
-        if (self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] == 0) {
-            int tick = self.spawnTick / [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] - 1;
-            NSArray *enemiesDataForTick = [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] objectAtIndex:tick];
+        [[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease];
+        if (self.spawnTick % [[[self.leveldata objectForKey:[[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease]] objectForKey:@"tickdelay"] intValue] == 0) {
+            int tick = self.spawnTick / [[[self.leveldata objectForKey:[[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease]] objectForKey:@"tickdelay"] intValue] - 1;
+            NSArray *enemiesDataForTick = [[[self.leveldata objectForKey:[[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease]] objectForKey:@"ticks"] objectAtIndex:tick];
             for (int i = 0; i < enemiesDataForTick.count; i++) {
                 NSDictionary *enemyData = [enemiesDataForTick objectAtIndex:i];
                 Enemy *customEnemy;
