@@ -94,6 +94,7 @@
     }
     
     if (self.spawnTick > -1) {
+        //NSLog(@"Cool");
         self.spawnTick++;
         [[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease];
         if (self.spawnTick % [[[self.leveldata objectForKey:[[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease]] objectForKey:@"tickdelay"] intValue] == 0) {
