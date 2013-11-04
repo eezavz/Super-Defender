@@ -30,8 +30,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *newgame;
 @property (assign) id <MenuViewControllerDelegate> delegate;
 
-@property (atomic, retain) IBOutlet UIView *curView;
-@property (atomic, retain) IBOutlet UIView *emptyView;
 @property (atomic, retain) IBOutlet UIView *menuView;
 @property (atomic, retain) IBOutlet UIView *projectileView;
 @property (atomic, retain) IBOutlet UIView *upgradeView;
@@ -92,12 +90,11 @@
 
 @property (atomic, retain) GameData *gameData;
 
-- (MenuViewController *)init : (NSMutableDictionary *)gameData;
+- (MenuViewController *)init : (GameData *)gameData;
 - (IBAction)tap:(id)sender;
 - (void)saveGame;
 - (void) loadProjectileViewData;
 - (void) loadUpgradeViewData;
-//- (NSString *)givePath;
 - (IBAction) projectileButtonTapped:(id)sender;
 - (IBAction) projectileViewButtonTapped:(id) sender;
 - (IBAction) upgradeButtonTapped:(id)sender;

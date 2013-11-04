@@ -36,7 +36,6 @@
 @synthesize darkmatterProjectileActivator;
 
 - (void) buttonTap:(id) sender {
-    NSLog(@"Asdjke");
     NSNumber *tempNumber = [[NSNumber alloc]init];
     if (sender == self.pauseButton) {
         [self stopTimer];
@@ -51,7 +50,6 @@
     } else if (sender == self.powerProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectilePower"] objectForKey:@"amount"];
-            NSLog(@"amount: %i", [tempNumber intValue]);
             if([tempNumber intValue] >= 10)
             {
                 self.playfield.cannon.specialProjectile = 1;
@@ -109,8 +107,6 @@
 
 - (void) menuClosed
 {
-    NSLog(@"YESSSSSS");
-    //[self.mvc release];
     pauseButton.hidden = NO;
     scoreLabel.hidden = NO;
     powerProjectileActivator.hidden = NO;
@@ -127,8 +123,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSLog(@"Loadyload!");
-        //[self loadGameData];
         gameData = [[GameData alloc] init];
         heartImage = [UIImage imageNamed:@"DefenderHeart"];
         damageImages = [[NSMutableArray alloc] init];
@@ -202,8 +196,6 @@
         scoreLabel.frame = CGRectMake(0, 0, 320, 20);
         scoreLabel.textAlignment = NSTextAlignmentRight;
         pauseButton = [[UIButton alloc] init];
-        //[pauseButton setTitle:@"II" forState:UIControlStateNormal];
-        //pauseButton.backgroundColor = [UIColor redColor];
         [pauseButton setImage:[UIImage imageNamed:@"pauzebutton"] forState:UIControlStateNormal];
         pauseButton.frame = CGRectMake(0, 0, 40, 40);
         [pauseButton addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -248,7 +240,6 @@
         [self.view addSubview:darkmatterProjectileActivator];
         
         self.mvc = [[MenuViewController alloc] init : (GameData *)gameData];
-        //self.mvc.gameData = gameData;
         self.mvc.delegate = self;
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
@@ -282,7 +273,6 @@
     if (self.playfield) {
         [playfield release];
     }
-    //[self loadGameData];
     if (self.objectButtons) {
         for (int i = 0; i < self.objectButtons.count; i++) {
             UIButton *delete = [self.objectButtons objectAtIndex:i];
@@ -314,38 +304,10 @@
     cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
 }
 
-//- (void) loadGameData
-//{
-//    NSFileManager *filemanager = [NSFileManager defaultManager];
-//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-//    path = [path stringByAppendingPathComponent:@"GameData.plist"];
-//    if([filemanager fileExistsAtPath:path])
-//    {
-//        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-//        //NSLog(@"%@", [gameData objectForKey:@"Score"]);
-//        //NSLog(@"%@", gameData);
-//    }else{
-//        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
-//        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
-//        //NSLog(@"%@", gameData);
-//        [self saveGame];
-//    }
-//}
-
 - (void)saveGame
 {
     [gameData saveGame];
-//    [gameData writeToFile:[self givePath] atomically:YES];
-//    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-//- (NSString *)givePath
-//{
-//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-//    path = [path stringByAppendingPathComponent:@"GameData.plist"];
-//    return path;
-//}
-
 
 - (void)viewDidLoad
 {
@@ -382,7 +344,6 @@
         [gameData.gameData setValue:[NSNumber numberWithInt:playfield.score] forKey:@"Score"];
         [self saveGame];
         self.mvc.upgradeViewButton.hidden = NO;
-        //self.mvc.projectileViewButton.hidden = YES;
         [self.view addSubview:self.mvc.view];
         [self.mvc visible];
     }
@@ -535,7 +496,6 @@
 
 - (void) dealloc
 {
-    NSLog(@"MainViewController dealloc");
     [self.playfield dealloc];
     [self.slider dealloc];
     if (self.timer) {

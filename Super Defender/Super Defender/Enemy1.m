@@ -12,7 +12,6 @@
 
 - (void) dealloc
 {
-    //NSLog(@"Enemy1 dealloc");
     [super dealloc];
 }
 

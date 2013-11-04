@@ -14,8 +14,6 @@
 
 @implementation MenuViewController
 @synthesize delegate;
-@synthesize curView;
-@synthesize emptyView;
 @synthesize menuView;
 @synthesize projectileView;
 @synthesize upgradeView;
@@ -79,8 +77,6 @@
     gameData = par_gameData;
     scrap = [[NSNumber alloc] init];
     scrap = [gameData.gameData objectForKey:@"Scrap"];
-    //[self.upgradeViewButton removeFromSuperview];
-    
     return [super init];
 }
 
@@ -91,13 +87,10 @@
     upgradeViewButton.hidden = YES;
     if([self.delegate runningGame])
     {
-        //projectileViewButton.hidden = NO;
         [projectileViewButton setEnabled:YES];
     }else{
-        //projectileViewButton.hidden = YES;
         [projectileViewButton setEnabled:NO];
     }
-    NSLog(@"Appeared");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -105,7 +98,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //curView = menuView;
         [self.view addSubview:menuView];
         self.view.backgroundColor = [UIColor clearColor];
         menuView.backgroundColor = [UIColor clearColor];
@@ -114,13 +106,11 @@
         NSString *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/beloved.png"];
         UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
         if (image) {
-            NSLog(@"Yay!");
             [self.selectedImage setImage:image];
             self.selectedImage.hidden = NO;
             self.selectedImageLabel.hidden = NO;
             self.doneSelecting.hidden = NO;
         } else {
-            NSLog(@"Boo!");
             self.firstTime = YES;
             [self.view addSubview:self.pickImageView];
         }
@@ -183,8 +173,6 @@
 {
     [self.view removeFromSuperview];
     self.view = menuView;
-    //[self.view removeFromSuperview];
-    //[self.view addSubview:menuView];
     [delegate menuClosed];
     [delegate createPlayfield];
 }
@@ -203,14 +191,11 @@
     } else if (sender == self.newgame) {
         NSLog(@"EEP");
         [delegate newGame:self.selectedImage.image];
-        //[self.view removeFromSuperview];
-        //[delegate menuClosed];
         upgradeViewButton.hidden = NO;
         self.view = upgradeView;
         NSLog(@"MEEP");
     } else if (sender == self.useCamera) {
         self.picker = [[UIImagePickerController alloc] init];
-        //self.picker.delegate = self;
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
             self.picker.allowsEditing = YES;
@@ -224,7 +209,6 @@
         }
     } else if (sender == self.useLibrary) {
         self.picker = [[UIImagePickerController alloc] init];
-        //self.picker.delegate = self;
         self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         self.picker.allowsEditing = YES;
         self.picker.delegate = self;
@@ -245,7 +229,6 @@
 //Tells the delegate that the user picked a still image or movie.
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"Hey!");
     [self.selectedImage setImage: [info objectForKey:UIImagePickerControllerEditedImage]];
     [self dismissViewControllerAnimated:YES completion:nil];
     self.selectedImage.hidden = NO;
@@ -256,7 +239,6 @@
 //Tells the delegate that the user cancelled the pick operation.
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"Hi!");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -274,7 +256,6 @@
 
 - (void) loadProjectileViewData
 {
-    //projectileScrapLabel = [gameData objectForKey:@"Scrap"];
     projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", score];
     for(int i = 0; i<projectileButtons.count; i++)
     {
@@ -336,12 +317,8 @@
                 {
                     tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+10];
                 }
-            
-                //[[gameData objectForKey:tempId] setObject:cost forKey:@"cost"];
+
                 [[gameData.gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];
-            
-                //UILabel *tempLabelCost = [projectileCostLabels objectAtIndex:i];
-                //tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", cost];
             
                 UILabel *tempLabelAmount = [projectileAmountLabels objectAtIndex:i];
                 tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", tempAmount];
@@ -357,7 +334,6 @@
 - (IBAction) upgradeButtonTapped:(id)sender
 {
     NSString *tempId = [sender restorationIdentifier];
-    //NSNumber *tempScrap = [gameData objectForKey:@"Scrap"];
     for(int i = 0; i<upgradeButtons.count; i++)
     {
         if([upgradeButtons objectAtIndex:i] == sender)
@@ -400,10 +376,8 @@
 - (void) visible
 {
     if ([delegate runningGame]) {
-        //self.resumeKnop.hidden = NO;
         [self.resumeKnop setEnabled:YES];
     } else {
-        //self.resumeKnop.hidden = YES;
         [self.resumeKnop setEnabled:NO];
     }
 }

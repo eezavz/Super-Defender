@@ -16,7 +16,7 @@
 {
     self.centerX = x;
     self.centerY = y;
-    health = 3;
+    health = 10;
     return self;
 }
 

@@ -54,7 +54,6 @@
 -(void)setHealth:(int)par_health
 {
     int tempHealth =  par_health;
-    NSLog(@"health %i", tempHealth);
     if(tempHealth >= 0)
     {
         health = par_health;
@@ -135,7 +134,6 @@
                 Projectile *new = [[DefaultProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle Speed:firePower Power:strength];
                 [shotProjectiles addObject:new];
                 countdown = 30 / rateOfFire;
-                NSLog(@"rateOfFire 2: %i", rateOfFire);
             }
                 break;
         }
@@ -161,7 +159,6 @@
 
 - (void) dealloc
 {
-    NSLog(@"Cannon dealloc");
     [self.shotProjectiles dealloc];
     [super dealloc];
 }

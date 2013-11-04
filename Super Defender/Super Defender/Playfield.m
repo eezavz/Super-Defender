@@ -26,13 +26,12 @@
 @synthesize enemyCountdown;
 @synthesize cannon;
 @synthesize enemies;
+@synthesize enemyProjectiles;
 @synthesize objects;
-//@synthesize gameData;
+@synthesize leveldata;
 
 - (Playfield *)init : (int)maxHealth : (int)FireRate : (int)MoveSpeed : (int)Power : (int)RotSpeed;
 {
-    //self.gameData = par_gameData;
-    //NSLog(@"%@", gameData);
     self.cannon = [[Cannon alloc]init : maxHealth : FireRate : MoveSpeed : Power : RotSpeed];
     cannon.posX = 160;
     cannon.posY = 405;
@@ -56,17 +55,13 @@
     }
     
     if (self.enemies.count < screenlimit && self.spawnTick == -1) {
-        NSLog(@"Yay");
         self.spawnTick = 0;
     }
     
     if (self.spawnTick > -1) {
-        //NSLog(@"Cool");
         self.spawnTick++;
-        //NSLog(@"Hmm? %d", self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue]);
         if (self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] == 0) {
             int tick = self.spawnTick / [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] - 1;
-            NSLog(@"Spawning tick %d of %d", tick, [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] count]);
             NSArray *enemiesDataForTick = [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] objectAtIndex:tick];
             for (int i = 0; i < enemiesDataForTick.count; i++) {
                 NSDictionary *enemyData = [enemiesDataForTick objectAtIndex:i];
@@ -86,23 +81,6 @@
         }
     }
     
-    /*if (self.enemies.count < screenlimit) {
-        Enemy1 *customNoob = [[Enemy1 alloc] initWithX:100 Y:-16];
-        customNoob.sideways = YES;
-        customNoob.yLimit = 110;
-        customNoob.lowerXLimit = 0;
-        customNoob.higherXLimit = 210;
-        customNoob.movesLeft = YES;
-        [self.enemies addObject:customNoob];
-    }*/
-    /*int rare = arc4random() % 1500;
-    if (rare == 5) {
-        Enemy2 *boss = [[Enemy2 alloc] initWithX: arc4random() % (320-128)+64 Y:-34];
-        [self.enemies addObject:boss];
-    } else if (self.enemies.count < screenlimit) {
-        Enemy1 *noob = [[Enemy1 alloc] initWithX: arc4random() % (320-64)+32 Y:-17];
-        [self.enemies addObject:noob];
-    }*/
     for (int i = 0; i < enemies.count; i++) {
         [[enemies objectAtIndex:i] AI];
         if ([[enemies objectAtIndex:i] myProjectile]) {
@@ -113,7 +91,7 @@
         {
             Enemy *temp = [enemies objectAtIndex:i];
             [enemies removeObject:temp];
-            if(arc4random() % 20 == 1)
+            if(arc4random() % 30 == 1)
             {
                 Heart *heart = [[Heart alloc]init:[temp centerX] Y: [temp centerY]];
                 [self.objects addObject:heart];
@@ -225,7 +203,6 @@
 
 - (void) dealloc
 {
-    NSLog(@"Playfield dealloc");
     [self.cannon dealloc];
     [self.enemies dealloc];
     [self.enemyProjectiles dealloc];

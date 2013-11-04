@@ -13,6 +13,5 @@
 @property (nonatomic, retain) NSMutableDictionary* gameData;
 
 - (void)saveGame;
-- (NSString *)givePath;
 
 @end
