@@ -29,11 +29,11 @@
 @synthesize objects;
 //@synthesize gameData;
 
-- (Playfield *)init
+- (Playfield *)init : (int)maxHealth : (int)FireRate : (int)MoveSpeed : (int)Power : (int)RotSpeed;
 {
     //self.gameData = par_gameData;
     //NSLog(@"%@", gameData);
-    self.cannon = [[Cannon alloc]init];
+    self.cannon = [[Cannon alloc]init : maxHealth : FireRate : MoveSpeed : Power : RotSpeed];
     cannon.posX = 160;
     cannon.posY = 405;
     cannon.width = 100;
@@ -61,9 +61,9 @@
     }
     
     if (self.spawnTick > -1) {
-        NSLog(@"Cool");
+        //NSLog(@"Cool");
         self.spawnTick++;
-        NSLog(@"Hmm? %d", self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue]);
+        //NSLog(@"Hmm? %d", self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue]);
         if (self.spawnTick % [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] == 0) {
             int tick = self.spawnTick / [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"tickdelay"] intValue] - 1;
             NSLog(@"Spawning tick %d of %d", tick, [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] count]);

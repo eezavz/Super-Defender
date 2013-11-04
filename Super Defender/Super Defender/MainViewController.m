@@ -44,13 +44,15 @@
         self.mvc.projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", playfield.score+499];
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
+        self.mvc.upgradeViewButton.hidden = YES;
+        self.mvc.projectileViewButton.hidden = NO;
         [self.view addSubview:self.mvc.view];
         [self.mvc visible];
     } else if (sender == self.powerProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectilePower"] objectForKey:@"amount"];
             NSLog(@"amount: %i", [tempNumber intValue]);
-            if([tempNumber intValue] >0)
+            if([tempNumber intValue] >= 10)
             {
                 self.playfield.cannon.specialProjectile = 1;
                 [[gameData.gameData objectForKey:@"projectilePower"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
@@ -61,10 +63,10 @@
     } else if (sender == self.frequentProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectileFireRate"] objectForKey:@"amount"];
-            if([tempNumber intValue] >0)
+            if([tempNumber intValue] >= 30)
             {
                 self.playfield.cannon.specialProjectile = 2;
-                [[gameData.gameData objectForKey:@"projectileFireRate"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [[gameData.gameData objectForKey:@"projectileFireRate"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-30] forKey:@"amount"];
                 [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
                 [self saveGame];
             }
@@ -72,10 +74,10 @@
     } else if (sender == self.lightningProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectileMoveSpeed"] objectForKey:@"amount"];
-            if([tempNumber intValue] >0)
+            if([tempNumber intValue] >= 20)
             {
                 self.playfield.cannon.specialProjectile = 3;
-                [[gameData.gameData objectForKey:@"projectileMoveSpeed"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [[gameData.gameData objectForKey:@"projectileMoveSpeed"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-20] forKey:@"amount"];
                 [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
                 [self saveGame];
             }
@@ -83,10 +85,10 @@
     } else if (sender == self.unstoppableProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectileUnstoppable"] objectForKey:@"amount"];
-            if([tempNumber intValue] >0)
+            if([tempNumber intValue] >= 1)
             {
                 self.playfield.cannon.specialProjectile = 4;
-                [[gameData.gameData objectForKey:@"projectileUnstoppable"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [[gameData.gameData objectForKey:@"projectileUnstoppable"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-1] forKey:@"amount"];
                 [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
                 [self saveGame];
             }
@@ -94,10 +96,10 @@
     } else if (sender == self.darkmatterProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectileDarkMatter"] objectForKey:@"amount"];
-            if([tempNumber intValue] >0)
+            if([tempNumber intValue] >=1 )
             {
                 self.playfield.cannon.specialProjectile = 5;
-                [[gameData.gameData objectForKey:@"projectileDarkMatter"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [[gameData.gameData objectForKey:@"projectileDarkMatter"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-1] forKey:@"amount"];
                 [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
                 [self saveGame];
             }
@@ -292,13 +294,24 @@
         self.objectButtons = [[NSMutableArray alloc] init];
     }
     
-    self.playfield = [[Playfield alloc] init];
-    cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
+    
     self.beloved.image = beloved;
     cannonBarrel.hidden = NO;
     cannonBody.hidden = NO;
     self.cannonHealth.hidden = NO;
     self.beloved.hidden = NO;
+}
+
+-(void)createPlayfield
+{
+    NSNumber *tempHealth = [[gameData.gameData objectForKey:@"upgradeHealth"] objectForKey:@"amount"];
+    NSNumber *tempFireRate = [[gameData.gameData objectForKey:@"upgradeFireRate"] objectForKey:@"amount"];
+    NSNumber *tempMoveSpeed = [[gameData.gameData objectForKey:@"upgradeMoveSpeed"] objectForKey:@"amount"];
+    NSNumber *tempPower = [[gameData.gameData objectForKey:@"upgradePower"] objectForKey:@"amount"];
+    NSNumber *tempRotSpeed = [[gameData.gameData objectForKey:@"upgradeRotSpeed"] objectForKey:@"amount"];
+    NSLog(@"UpgradeWaarde: %i", [tempFireRate intValue]);
+    self.playfield = [[Playfield alloc] init : [tempHealth intValue] : [tempFireRate intValue] : [tempMoveSpeed intValue] : [tempPower intValue] : [tempRotSpeed intValue]];
+    cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
 }
 
 //- (void) loadGameData
@@ -368,6 +381,10 @@
         [self stopTimer];
         [gameData.gameData setValue:[NSNumber numberWithInt:playfield.score] forKey:@"Score"];
         [self saveGame];
+        self.mvc.upgradeViewButton.hidden = NO;
+        //self.mvc.projectileViewButton.hidden = YES;
+        [self.view addSubview:self.mvc.view];
+        [self.mvc visible];
     }
     [self render];
 }

@@ -18,7 +18,9 @@
 @end
 
 @interface MenuViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *projectileViewButton;
 @property (strong, nonatomic) IBOutlet UIButton *projectileBackButton;
+@property (strong, nonatomic) IBOutlet UIButton *upgradeViewButton;
 @property (strong, nonatomic) IBOutlet UIButton *upgradeBackButton;
 @property (strong, nonatomic) IBOutlet UIButton *resumeKnop;
 @property (strong, nonatomic) IBOutlet UIButton *imageKnop;
@@ -95,10 +97,12 @@
 - (void)saveGame;
 - (void) loadProjectileViewData;
 - (void) loadUpgradeViewData;
-- (NSString *)givePath;
+//- (NSString *)givePath;
 - (IBAction) projectileButtonTapped:(id)sender;
 - (IBAction) projectileViewButtonTapped:(id) sender;
 - (IBAction) upgradeViewButtonTapped:(id) sender;
 - (IBAction) upgradeButtonTapped:(id)sender;
 - (void) visible;
+-(IBAction)projectileMenuClosed:(id)sender;
+-(IBAction)upgradeMenuClosed:(id)sender;
 @end

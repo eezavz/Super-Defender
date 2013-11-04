@@ -11,4 +11,6 @@
 
 @interface DefaultProjectile : Projectile
 
+- (Projectile *) initWithX:(float) x Y:(float) y Angle:(float) angle Speed:(int) speed Power:(int)par_power;
+
 @end

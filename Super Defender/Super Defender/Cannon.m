@@ -26,23 +26,38 @@
 @synthesize specialProjectile;
 @synthesize specialAmount;
 @synthesize endBurstSpecialAmount;
+@synthesize firePower;
+@synthesize strength;
 
-- (Cannon *)init
+- (Cannon *)init : (int)par_maxHealth : (int)par_FireRate : (int)par_MoveSpeed : (int)par_Power : (int)par_RotSpeed
 {
-    maxHealth = 100;
+    par_maxHealth++;
+    maxHealth = 100 * par_maxHealth;
     health = maxHealth;
+    rateOfFire = par_FireRate+1;
+    firePower = par_MoveSpeed+8;
+    strength = par_Power+1;
+    aimspeed = par_RotSpeed+1;
     shotProjectiles = [[NSMutableArray alloc] init];
-    aimspeed = 2;
-    rateOfFire = 2;
     angle = 90;
     return [super init];
 }
 
 -(void)gainHealth:(int) par_health
 {
-    if(health < 100)
+    if(health < maxHealth)
     {
         health += par_health;
+    }
+}
+
+-(void)setHealth:(int)par_health
+{
+    int tempHealth =  par_health;
+    NSLog(@"health %i", tempHealth);
+    if(tempHealth >= 0)
+    {
+        health = par_health;
     }
 }
 
@@ -117,9 +132,10 @@
                 
             default:
             {
-                Projectile *new = [[DefaultProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
+                Projectile *new = [[DefaultProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle Speed:firePower Power:strength];
                 [shotProjectiles addObject:new];
                 countdown = 30 / rateOfFire;
+                NSLog(@"rateOfFire 2: %i", rateOfFire);
             }
                 break;
         }
