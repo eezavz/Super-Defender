@@ -185,7 +185,7 @@
         [delegate menuClosed];
     }else if(sender == self.projectileBackButton || sender == self.upgradeBackButton)
     {
-        [self projectileMenuClosed];
+        [self projectileMenuClosed:nil];
     }else if (sender == self.imageKnop) {
         [self.view addSubview:self.pickImageView];
     } else if (sender == self.newgame) {
