@@ -17,7 +17,6 @@
 @implementation MainViewController
 
 @synthesize playfield;
-@synthesize slider;
 @synthesize timer;
 @synthesize cannonBody;
 @synthesize cannonBarrel;
@@ -44,7 +43,6 @@
         self.mvc.projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", playfield.score];
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
-        self.mvc.upgradeViewButton.hidden = YES;
         self.mvc.projectileViewButton.hidden = NO;
         [self.view addSubview:self.mvc.view];
         [self.mvc visible];
@@ -154,7 +152,7 @@
             self.accelerometer = YES;
         } else {
             NSLog(@"Ik heb geen accelerometer!");
-            self.accelerometer = NO;
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"dontBeLazyAndPutItOnYourDeviceException"] userInfo:nil];
         }
         
         self.renderedObjects = [[NSMutableArray alloc] init];
@@ -176,13 +174,7 @@
         cannonBarrel.frame = CGRectMake(52, 322, 216, 216);
         cannonBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"base"]];
         
-        if(!self.accelerometer) {
-            CGRect frame = CGRectMake(0.0f, 435.0f, 320.0f, 20.0f);
-            slider = [[UISlider alloc]initWithFrame:frame];
-            slider.minimumValue = 0;
-            slider.maximumValue = 180;
-            slider.value = 90;
-        }
+        
         
         UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
         background.frame = CGRectMake(0, 0, 320, 480);
@@ -190,9 +182,6 @@
         
         [self.view addSubview:cannonBarrel];
         [self.view addSubview:cannonBody];
-        if(!self.accelerometer) {
-            [self.view insertSubview:slider aboveSubview:cannonBody];
-        }
         
         scoreLabel = [[UILabel alloc] init];
         scoreLabel.textColor = [UIColor yellowColor];
@@ -286,7 +275,10 @@
 - (BOOL)runningGame
 {
     if (playfield) {
-        return YES;
+        if (playfield.cannon.health > 0) {
+            return YES;
+        }
+        return NO;
     } else {
         return NO;
     }
@@ -359,26 +351,23 @@
 
 - (void)update:(NSTimer *)timer
 {
-    if(!self.accelerometer) {
-        [playfield update:slider.value];
-    } else {
+    
         float x = self.motionManager.accelerometerData.acceleration.x;
         x = roundf(x*100)/100;
         float bla = 0.5 + x/3;
         [playfield update:bla*180];
-    }
-    if (playfield.cannon.health == 0) {
+    
+    if (playfield.cannon.health <= 0) {
         [self stopTimer];
         [gameData.gameData setValue:[NSNumber numberWithInt:playfield.score] forKey:@"Score"];
-        
         int newscrap = [[gameData.gameData objectForKey:@"Scrap"] intValue] + playfield.score;
         [gameData.gameData setValue:[NSNumber numberWithInt:newscrap] forKey:@"Scrap"];
         [self saveGame];
-        self.mvc.upgradeViewButton.hidden = NO;
         [self.view addSubview:self.mvc.view];
         [self.mvc visible];
+    } else {
+        [self render];
     }
-    [self render];
 }
 
 - (void) render
@@ -528,7 +517,6 @@
 - (void) dealloc
 {
     [self.playfield dealloc];
-    [self.slider dealloc];
     if (self.timer) {
         [self.timer dealloc];
     }
@@ -536,15 +524,29 @@
     [self.cannonBarrel dealloc];
     [self.enemyImage dealloc];
     [self.defaultProjectileImage dealloc];
+    [self.powerProjectileImage dealloc];
+    [self.frequentProjectileImage dealloc];
+    [self.lightningProjectileImage dealloc];
+    [self.unstoppableProjectileImage dealloc];
+    [self.darkMatterProjectileImage dealloc];
     [self.enemyProjectileImage dealloc];
     [self.renderedObjects dealloc];
     [self.scoreLabel dealloc];
     [self.damageImages dealloc];
     [self.explosion dealloc];
+    [self.bigExplosion dealloc];
     [self.bossImage dealloc];
     [self.cannonHealth dealloc];
     [self.pauseButton dealloc];
     [self.heartImage dealloc];
+    [self.objectButtons dealloc];
+    [self.mvc dealloc];
+    [self.beloved dealloc];
+    [self.powerProjectileActivator dealloc];
+    [self.frequentProjectileActivator dealloc];
+    [self.lightningProjectileActivator dealloc];
+    [self.unstoppableProjectileActivator dealloc];
+    [self.darkMatterProjectileImage dealloc];
     [super dealloc];
 }
 

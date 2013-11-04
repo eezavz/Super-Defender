@@ -35,4 +35,11 @@
     [gameData writeToFile:path atomically:YES];
 }
 
+- (void) dealloc
+{
+    NSLog(@"GameData dealloc");
+    [gameData dealloc];
+    [super dealloc];
+}
+
 @end

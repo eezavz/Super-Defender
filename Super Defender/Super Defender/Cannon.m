@@ -52,10 +52,11 @@
 
 -(void)setHealth:(int)par_health
 {
-    int tempHealth =  par_health;
-    if(tempHealth >= 0)
+    if(par_health >= 0)
     {
         health = par_health;
+    } else {
+        health = 0;
     }
 }
 
@@ -157,6 +158,7 @@
 
 - (void) dealloc
 {
+    NSLog(@"Cannon dealloc");
     [self.shotProjectiles dealloc];
     [super dealloc];
 }

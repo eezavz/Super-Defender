@@ -22,7 +22,6 @@
 @property (nonatomic, strong) NSMutableArray *enemyProjectiles;
 @property (nonatomic, strong) NSMutableArray *objects;
 @property (nonatomic, strong) NSMutableDictionary *leveldata;
-//@property (nonatomic, retain) NSMutableDictionary *gameData;
 
 - (Playfield *)init : (int)maxHealth : (int)FireRate : (int)MoveSpeed : (int)Power : (int)RotSpeed;
 -(void)update:(float)angle;

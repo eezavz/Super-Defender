@@ -68,7 +68,6 @@
 @synthesize score;
 
 @synthesize projectileViewButton;
-@synthesize upgradeViewButton;
 
 @synthesize gameData;
 
@@ -80,13 +79,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    upgradeViewButton.hidden = YES;
-    if([self.delegate runningGame])
-    {
-        [projectileViewButton setEnabled:YES];
-    }else{
-        [projectileViewButton setEnabled:NO];
-    }
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -181,7 +174,6 @@
         [self.view addSubview:self.pickImageView];
     } else if (sender == self.newgame) {
         [delegate newGame:self.selectedImage.image];
-        upgradeViewButton.hidden = NO;
         self.view = upgradeView;
     } else if (sender == self.useCamera) {
         self.picker = [[UIImagePickerController alloc] init];
@@ -369,12 +361,14 @@
 
 - (void) visible
 {
-        [self loadProjectileViewData];
+    [self loadProjectileViewData];
     [self loadUpgradeViewData];
     if ([delegate runningGame]) {
         [self.resumeKnop setEnabled:YES];
+        [projectileViewButton setEnabled:YES];
     } else {
         [self.resumeKnop setEnabled:NO];
+        [projectileViewButton setEnabled:NO];
     }
 }
 
@@ -383,6 +377,38 @@
     self.view = projectileView;
     //[menuView removeFromSuperview];
     //curView = projectileView;
+}
+
+- (void) dealloc
+{
+    NSLog(@"MenuViewController dealloc");
+    [projectileViewButton dealloc];
+    [self.projectileBackButton dealloc];
+    [self.upgradeBackButton dealloc];
+    [self.resumeKnop dealloc];
+    [self.imageKnop dealloc];
+    [self.useCamera dealloc];
+    [self.useLibrary dealloc];
+    [self.doneSelecting dealloc];
+    [self.newgame dealloc];
+    [self.delegate release];
+    [menuView dealloc];
+    [projectileView dealloc];
+    [upgradeView dealloc];
+    [self.pickImageView dealloc];
+    [self.picker dealloc];
+    [self.selectedImage dealloc];
+    [self.selectedImageLabel dealloc];
+    [upgradeButtons dealloc];
+    [projectileButtons dealloc];
+    [projectileScoreLabel dealloc];
+    [upgradeScrapLabel dealloc];
+    [projectileCostLabels dealloc];
+    [upgradeCostLabels dealloc];
+    [projectileAmountLabels dealloc];
+    [upgradeAmountLabels dealloc];
+    [gameData dealloc];
+    [super dealloc];
 }
 
 

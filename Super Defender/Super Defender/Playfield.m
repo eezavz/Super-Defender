@@ -261,10 +261,12 @@
 
 - (void) dealloc
 {
+    NSLog(@"Playfield dealloc");
     [self.cannon dealloc];
     [self.enemies dealloc];
     [self.enemyProjectiles dealloc];
     [self.objects dealloc];
+    [self.leveldata dealloc];
     [super dealloc];
 }
 

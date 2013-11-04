@@ -22,7 +22,6 @@
 @interface MenuViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) IBOutlet UIButton *projectileViewButton;
 @property (nonatomic, strong) IBOutlet UIButton *projectileBackButton;
-@property (nonatomic, strong) IBOutlet UIButton *upgradeViewButton;
 @property (nonatomic, strong) IBOutlet UIButton *upgradeBackButton;
 @property (nonatomic, strong) IBOutlet UIButton *resumeKnop;
 @property (nonatomic, strong) IBOutlet UIButton *imageKnop;

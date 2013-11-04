@@ -27,7 +27,6 @@
 @property (nonatomic, strong) GameData *gameData;
 
 @property (nonatomic, strong) Playfield *playfield;
-@property (nonatomic, strong) UISlider *slider;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIImageView *cannonBody;
 @property (nonatomic, strong) UIImageView *cannonBarrel;

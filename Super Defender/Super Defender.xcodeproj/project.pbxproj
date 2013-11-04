@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8222CB3E182855A600DA1230 /* ProjectileScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8222CB3C182855A600DA1230 /* ProjectileScherm_v1_leeg.png */; };
+		8222CB3F182855A600DA1230 /* UpgradeScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8222CB3D182855A600DA1230 /* UpgradeScherm_v1_leeg.png */; };
 		822793CB1823D22100729F29 /* barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 822793C91823D22100729F29 /* barrel.png */; };
 		822793CC1823D22100729F29 /* barrel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 822793CA1823D22100729F29 /* barrel@2x.png */; };
 		822793CF1823D30A00729F29 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 822793CD1823D30A00729F29 /* background.png */; };
@@ -75,8 +77,6 @@
 		CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB21824644800207570 /* iPhone Non-Retina.png */; };
 		CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */; };
 		CDD36AB71824644800207570 /* iPhone Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB41824644800207570 /* iPhone Retina.png */; };
-		DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */; };
-		DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */; };
 		DC8AC99F1826A50E007CBC26 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC99E1826A50E007CBC26 /* GameData.m */; };
 		DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8CCB46181FCD7F008C5DB3 /* GameData.plist */; };
 		DC8DD040180C0A8200857A2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD03F180C0A8200857A2D /* UIKit.framework */; };
@@ -101,6 +101,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8222CB3C182855A600DA1230 /* ProjectileScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1_leeg.png; sourceTree = "<group>"; };
+		8222CB3D182855A600DA1230 /* UpgradeScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1_leeg.png; sourceTree = "<group>"; };
 		822793C91823D22100729F29 /* barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrel.png; sourceTree = "<group>"; };
 		822793CA1823D22100729F29 /* barrel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barrel@2x.png"; sourceTree = "<group>"; };
 		822793CD1823D30A00729F29 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -174,8 +176,6 @@
 		CDD36AB21824644800207570 /* iPhone Non-Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Non-Retina.png"; sourceTree = "<group>"; };
 		CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina (iOS 6 and Prior).png"; sourceTree = "<group>"; };
 		CDD36AB41824644800207570 /* iPhone Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina.png"; sourceTree = "<group>"; };
-		DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1_leeg.png; sourceTree = "<group>"; };
-		DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1_leeg.png; sourceTree = "<group>"; };
 		DC8AC99D1826A50D007CBC26 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
 		DC8AC99E1826A50E007CBC26 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
 		DC8CCB46181FCD7F008C5DB3 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
@@ -287,6 +287,8 @@
 		827431371822AB27004E6643 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				8222CB3C182855A600DA1230 /* ProjectileScherm_v1_leeg.png */,
+				8222CB3D182855A600DA1230 /* UpgradeScherm_v1_leeg.png */,
 				827431381822AB27004E6643 /* menu.png */,
 				827431391822AB27004E6643 /* pauzebutton.png */,
 				8274313A1822AB27004E6643 /* pauzebutton@2x.png */,
@@ -415,8 +417,6 @@
 				DC8DD04E180C0A8200857A2D /* AppDelegate.h */,
 				DC8DD04F180C0A8200857A2D /* AppDelegate.m */,
 				DC8DD046180C0A8200857A2D /* Supporting Files */,
-				DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */,
-				DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
 				DC8DD061180C0BC200857A2D /* MenuViewController.h */,
@@ -527,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8222CB3E182855A600DA1230 /* ProjectileScherm_v1_leeg.png in Resources */,
 				CD27295E1827AC8D005CD420 /* Default.png in Resources */,
 				827431421822AB27004E6643 /* 60.png in Resources */,
 				822793CF1823D30A00729F29 /* background.png in Resources */,
@@ -559,6 +560,7 @@
 				82D880061825A3CA00338BBB /* DarkMatterProjectile@2x.png in Resources */,
 				DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */,
 				82B9E0E51825702C00AB37C8 /* PrateOfFire.png in Resources */,
+				8222CB3F182855A600DA1230 /* UpgradeScherm_v1_leeg.png in Resources */,
 				82B9E0F1182570AB00AB37C8 /* rotSpeed.png in Resources */,
 				8274315D1822AB3E004E6643 /* EnemyProjectile.png in Resources */,
 				822793CC1823D22100729F29 /* barrel@2x.png in Resources */,
@@ -591,9 +593,7 @@
 				827431481822AB27004E6643 /* base.png in Resources */,
 				822793D61823D32C00729F29 /* EasyEnemy@2x.png in Resources */,
 				8274315E1822AB3E004E6643 /* EnemyProjectile@2x.png in Resources */,
-				DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */,
 				CD27294C1827A34C005CD420 /* SP_iPhone Retina (iOS 6 and Prior).png in Resources */,
-				DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
