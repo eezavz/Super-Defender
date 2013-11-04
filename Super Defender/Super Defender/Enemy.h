@@ -21,7 +21,7 @@
 @property (nonatomic, assign) int height;
 @property (nonatomic, assign) BOOL collides;
 @property (nonatomic, assign) int score;
-@property (nonatomic, assign) EnemyProjectile *myProjectile;
+@property (nonatomic, strong) EnemyProjectile *myProjectile;
 @property (nonatomic, assign) float yLimit;
 @property (nonatomic, assign) float lowerXLimit;
 @property (nonatomic, assign) float higherXLimit;

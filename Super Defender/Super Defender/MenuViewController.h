@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "UpgradeViewController.h"
 #include "GameData.h"
 
 
@@ -16,80 +15,82 @@
 - (void)newGame:(UIImage *)beloved;
 - (void)menuClosed;
 - (void)createPlayfield;
+- (void)updateActivatorTitle :(int)par_number :(int)par_amount;
+- (void) updateScore:(int) score;
 @end
 
 @interface MenuViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (strong, nonatomic) IBOutlet UIButton *projectileViewButton;
-@property (strong, nonatomic) IBOutlet UIButton *projectileBackButton;
-@property (strong, nonatomic) IBOutlet UIButton *upgradeViewButton;
-@property (strong, nonatomic) IBOutlet UIButton *upgradeBackButton;
-@property (strong, nonatomic) IBOutlet UIButton *resumeKnop;
-@property (strong, nonatomic) IBOutlet UIButton *imageKnop;
-@property (strong, nonatomic) IBOutlet UIButton *useCamera;
-@property (strong, nonatomic) IBOutlet UIButton *useLibrary;
-@property (strong, nonatomic) IBOutlet UIButton *doneSelecting;
-@property (strong, nonatomic) IBOutlet UIButton *newgame;
-@property (assign) id <MenuViewControllerDelegate> delegate;
+@property (nonatomic, strong) IBOutlet UIButton *projectileViewButton;
+@property (nonatomic, strong) IBOutlet UIButton *projectileBackButton;
+@property (nonatomic, strong) IBOutlet UIButton *upgradeViewButton;
+@property (nonatomic, strong) IBOutlet UIButton *upgradeBackButton;
+@property (nonatomic, strong) IBOutlet UIButton *resumeKnop;
+@property (nonatomic, strong) IBOutlet UIButton *imageKnop;
+@property (nonatomic, strong) IBOutlet UIButton *useCamera;
+@property (nonatomic, strong) IBOutlet UIButton *useLibrary;
+@property (nonatomic, strong) IBOutlet UIButton *doneSelecting;
+@property (nonatomic, strong) IBOutlet UIButton *newgame;
+@property (nonatomic, assign) id <MenuViewControllerDelegate> delegate;
 
-@property (atomic, retain) IBOutlet UIView *menuView;
-@property (atomic, retain) IBOutlet UIView *projectileView;
-@property (atomic, retain) IBOutlet UIView *upgradeView;
+@property (nonatomic, strong) IBOutlet UIView *menuView;
+@property (nonatomic, strong) IBOutlet UIView *projectileView;
+@property (nonatomic, strong) IBOutlet UIView *upgradeView;
 @property (nonatomic, strong) IBOutlet UIView *pickImageView;
 @property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, strong) IBOutlet UIImageView *selectedImage;
 @property (nonatomic, strong) IBOutlet UILabel *selectedImageLabel;
 @property (nonatomic, assign) BOOL firstTime;
 
-@property (atomic, retain) IBOutlet UIButton *buttonUpgradeHealth;
-@property (atomic, retain) IBOutlet UIButton *buttonUpgradeFireRate;
-@property (atomic, retain) IBOutlet UIButton *buttonUpgradeMoveSpeed;
-@property (atomic, retain) IBOutlet UIButton *buttonUpgradePower;
-@property (atomic, retain) IBOutlet UIButton *buttonUpgradeRotSpeed;
+@property (nonatomic, strong) IBOutlet UIButton *buttonUpgradeHealth;
+@property (nonatomic, strong) IBOutlet UIButton *buttonUpgradeFireRate;
+@property (nonatomic, strong) IBOutlet UIButton *buttonUpgradeMoveSpeed;
+@property (nonatomic, strong) IBOutlet UIButton *buttonUpgradePower;
+@property (nonatomic, strong) IBOutlet UIButton *buttonUpgradeRotSpeed;
 
-@property (atomic, retain) IBOutlet UIButton *buttonProjectilePower;
-@property (atomic, retain) IBOutlet UIButton *buttonProjectileFireRate;
-@property (atomic, retain) IBOutlet UIButton *buttonProjectileMoveSpeed;
-@property (atomic, retain) IBOutlet UIButton *buttonProjectileUnstopable;
-@property (atomic, retain) IBOutlet UIButton *buttonProjectileDarkMatter;
+@property (nonatomic, strong) IBOutlet UIButton *buttonProjectilePower;
+@property (nonatomic, strong) IBOutlet UIButton *buttonProjectileFireRate;
+@property (nonatomic, strong) IBOutlet UIButton *buttonProjectileMoveSpeed;
+@property (nonatomic, strong) IBOutlet UIButton *buttonProjectileUnstopable;
+@property (nonatomic, strong) IBOutlet UIButton *buttonProjectileDarkMatter;
 
-@property (atomic, assign) int score;
-@property (atomic, assign) NSNumber *scrap;
-@property (atomic, retain) IBOutlet UILabel *projectileScoreLabel;
-@property (atomic, retain) IBOutlet UILabel *upgradeScrapLabel;
+@property (nonatomic, assign) int score;
+@property (nonatomic, assign) int scrap;
+@property (nonatomic, strong) IBOutlet UILabel *projectileScoreLabel;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeScrapLabel;
 
-@property (atomic, retain) IBOutlet UILabel *projectilePowerCost;
-@property (atomic, retain) IBOutlet UILabel *projectileFirerateCost;
-@property (atomic, retain) IBOutlet UILabel *projectileMoveSpeedCost;
-@property (atomic, retain) IBOutlet UILabel *projectileUnstoppableCost;
-@property (atomic, retain) IBOutlet UILabel *projectileDarkmMatterCost;
+@property (nonatomic, strong) IBOutlet UILabel *projectilePowerCost;
+@property (nonatomic, strong) IBOutlet UILabel *projectileFirerateCost;
+@property (nonatomic, strong) IBOutlet UILabel *projectileMoveSpeedCost;
+@property (nonatomic, strong) IBOutlet UILabel *projectileUnstoppableCost;
+@property (nonatomic, strong) IBOutlet UILabel *projectileDarkmMatterCost;
 
-@property (atomic, retain) IBOutlet UILabel *upgradeHealthCost;
-@property (atomic, retain) IBOutlet UILabel *upgradeFirerateCost;
-@property (atomic, retain) IBOutlet UILabel *upgradeMoveSpeedCost;
-@property (atomic, retain) IBOutlet UILabel *upgradePowerCost;
-@property (atomic, retain) IBOutlet UILabel *upgradeRotSpeedCost;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeHealthCost;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeFirerateCost;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeMoveSpeedCost;
+@property (nonatomic, strong) IBOutlet UILabel *upgradePowerCost;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeRotSpeedCost;
 
-@property (atomic, retain) IBOutlet UILabel *projectilePowerAmount;
-@property (atomic, retain) IBOutlet UILabel *projectileFirerateAmount;
-@property (atomic, retain) IBOutlet UILabel *projectileMoveSpeedAmount;
-@property (atomic, retain) IBOutlet UILabel *projectileUnstoppableAmount;
-@property (atomic, retain) IBOutlet UILabel *projectileDarkmMatterAmount;
+@property (nonatomic, strong) IBOutlet UILabel *projectilePowerAmount;
+@property (nonatomic, strong) IBOutlet UILabel *projectileFirerateAmount;
+@property (nonatomic, strong) IBOutlet UILabel *projectileMoveSpeedAmount;
+@property (nonatomic, strong) IBOutlet UILabel *projectileUnstoppableAmount;
+@property (nonatomic, strong) IBOutlet UILabel *projectileDarkmMatterAmount;
 
-@property (atomic, retain) IBOutlet UILabel *upgradeHealthAmount;
-@property (atomic, retain) IBOutlet UILabel *upgradeFirerateAmount;
-@property (atomic, retain) IBOutlet UILabel *upgradeMoveSpeedAmount;
-@property (atomic, retain) IBOutlet UILabel *upgradePowerAmount;
-@property (atomic, retain) IBOutlet UILabel *upgradeRotSpeedAmount;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeHealthAmount;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeFirerateAmount;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeMoveSpeedAmount;
+@property (nonatomic, strong) IBOutlet UILabel *upgradePowerAmount;
+@property (nonatomic, strong) IBOutlet UILabel *upgradeRotSpeedAmount;
 
-@property (atomic, retain) NSMutableArray *projectileButtons;
-@property (atomic, retain) NSMutableArray *projectileCostLabels;
-@property (atomic, retain) NSMutableArray *projectileAmountLabels;
+@property (nonatomic, strong) NSMutableArray *projectileButtons;
+@property (nonatomic, strong) NSMutableArray *projectileCostLabels;
+@property (nonatomic, strong) NSMutableArray *projectileAmountLabels;
 
-@property (atomic, retain) NSMutableArray *upgradeButtons;
-@property (atomic, retain) NSMutableArray *upgradeCostLabels;
-@property (atomic, retain) NSMutableArray *upgradeAmountLabels;
+@property (nonatomic, strong) NSMutableArray *upgradeButtons;
+@property (nonatomic, strong) NSMutableArray *upgradeCostLabels;
+@property (nonatomic, strong) NSMutableArray *upgradeAmountLabels;
 
-@property (atomic, retain) GameData *gameData;
+@property (nonatomic, strong) GameData *gameData;
 
 - (MenuViewController *)init : (GameData *)gameData;
 - (IBAction)tap:(id)sender;

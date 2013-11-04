@@ -75,8 +75,6 @@
 		CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB21824644800207570 /* iPhone Non-Retina.png */; };
 		CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */; };
 		CDD36AB71824644800207570 /* iPhone Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB41824644800207570 /* iPhone Retina.png */; };
-		DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */; };
-		DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */; };
 		DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */; };
 		DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */; };
 		DC8AC99F1826A50E007CBC26 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC99E1826A50E007CBC26 /* GameData.m */; };
@@ -90,9 +88,6 @@
 		DC8DD05F180C0B2800857A2D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD05D180C0B2800857A2D /* MainViewController.m */; };
 		DC8DD063180C0BC200857A2D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD062180C0BC200857A2D /* MenuViewController.m */; };
 		DC8DD066180C0D1500857A2D /* Playfield.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD065180C0D1500857A2D /* Playfield.m */; };
-		DC8DD069180C0D3700857A2D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD068180C0D3700857A2D /* Item.m */; };
-		DC8DD06C180C0D6C00857A2D /* Upgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD06B180C0D6C00857A2D /* Upgrade.m */; };
-		DC8DD06F180C0D7A00857A2D /* Ammo.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD06E180C0D7A00857A2D /* Ammo.m */; };
 		DC8DD072180C0D9C00857A2D /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD071180C0D9C00857A2D /* Enemy.m */; };
 		DC8DD075180C0DB800857A2D /* Enemy1.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD074180C0DB800857A2D /* Enemy1.m */; };
 		DC8DD078180C0DCA00857A2D /* Enemy2.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD077180C0DC900857A2D /* Enemy2.m */; };
@@ -101,9 +96,6 @@
 		DC8DD081180C0E1A00857A2D /* DefaultProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD080180C0E1A00857A2D /* DefaultProjectile.m */; };
 		DC8DD084180C0E2A00857A2D /* EnemyProjectile.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD083180C0E2900857A2D /* EnemyProjectile.m */; };
 		DC8DD087180C0E3800857A2D /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD086180C0E3700857A2D /* Object.m */; };
-		DC8DD08A180C0E4600857A2D /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8DD089180C0E4600857A2D /* Star.m */; };
-		DCAAFB061822811500A925FF /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAAFB041822811500A925FF /* UpgradeViewController.m */; };
-		DCAAFB071822811500A925FF /* UpgradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCAAFB051822811500A925FF /* UpgradeViewController.xib */; };
 		DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCDF4B9E181E8213008ED39F /* MenuView.xib */; };
 		DCDF4BA2181E88FC008ED39F /* Heart.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDF4BA1181E88FB008ED39F /* Heart.m */; };
 /* End PBXBuildFile section */
@@ -182,8 +174,6 @@
 		CDD36AB21824644800207570 /* iPhone Non-Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Non-Retina.png"; sourceTree = "<group>"; };
 		CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina (iOS 6 and Prior).png"; sourceTree = "<group>"; };
 		CDD36AB41824644800207570 /* iPhone Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina.png"; sourceTree = "<group>"; };
-		DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1.png; sourceTree = "<group>"; };
-		DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1.png; sourceTree = "<group>"; };
 		DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1_leeg.png; sourceTree = "<group>"; };
 		DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1_leeg.png; sourceTree = "<group>"; };
 		DC8AC99D1826A50D007CBC26 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
@@ -205,12 +195,6 @@
 		DC8DD062180C0BC200857A2D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		DC8DD064180C0D1500857A2D /* Playfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playfield.h; sourceTree = "<group>"; };
 		DC8DD065180C0D1500857A2D /* Playfield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playfield.m; sourceTree = "<group>"; };
-		DC8DD067180C0D3700857A2D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		DC8DD068180C0D3700857A2D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		DC8DD06A180C0D6C00857A2D /* Upgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Upgrade.h; sourceTree = "<group>"; };
-		DC8DD06B180C0D6C00857A2D /* Upgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Upgrade.m; sourceTree = "<group>"; };
-		DC8DD06D180C0D7A00857A2D /* Ammo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ammo.h; sourceTree = "<group>"; };
-		DC8DD06E180C0D7A00857A2D /* Ammo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ammo.m; sourceTree = "<group>"; };
 		DC8DD070180C0D9C00857A2D /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		DC8DD071180C0D9C00857A2D /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		DC8DD073180C0DB800857A2D /* Enemy1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy1.h; sourceTree = "<group>"; };
@@ -227,11 +211,6 @@
 		DC8DD083180C0E2900857A2D /* EnemyProjectile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyProjectile.m; sourceTree = "<group>"; };
 		DC8DD085180C0E3700857A2D /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		DC8DD086180C0E3700857A2D /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
-		DC8DD088180C0E4600857A2D /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
-		DC8DD089180C0E4600857A2D /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
-		DCAAFB031822811500A925FF /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = "<group>"; };
-		DCAAFB041822811500A925FF /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
-		DCAAFB051822811500A925FF /* UpgradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpgradeViewController.xib; sourceTree = "<group>"; };
 		DCDF4B9E181E8213008ED39F /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		DCDF4BA0181E88FB008ED39F /* Heart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heart.h; sourceTree = "<group>"; };
 		DCDF4BA1181E88FB008ED39F /* Heart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heart.m; sourceTree = "<group>"; };
@@ -436,24 +415,13 @@
 				DC8DD04E180C0A8200857A2D /* AppDelegate.h */,
 				DC8DD04F180C0A8200857A2D /* AppDelegate.m */,
 				DC8DD046180C0A8200857A2D /* Supporting Files */,
-				DC65C3211822A83200AF1967 /* UpgradeScherm_v1.png */,
-				DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */,
 				DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */,
 				DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */,
 				DC8DD05C180C0B2800857A2D /* MainViewController.h */,
 				DC8DD05D180C0B2800857A2D /* MainViewController.m */,
-				DCAAFB031822811500A925FF /* UpgradeViewController.h */,
-				DCAAFB041822811500A925FF /* UpgradeViewController.m */,
-				DCAAFB051822811500A925FF /* UpgradeViewController.xib */,
 				DC8DD061180C0BC200857A2D /* MenuViewController.h */,
 				DC8DD062180C0BC200857A2D /* MenuViewController.m */,
 				DCDF4B9E181E8213008ED39F /* MenuView.xib */,
-				DC8DD067180C0D3700857A2D /* Item.h */,
-				DC8DD068180C0D3700857A2D /* Item.m */,
-				DC8DD06A180C0D6C00857A2D /* Upgrade.h */,
-				DC8DD06B180C0D6C00857A2D /* Upgrade.m */,
-				DC8DD06D180C0D7A00857A2D /* Ammo.h */,
-				DC8DD06E180C0D7A00857A2D /* Ammo.m */,
 				DC8DD064180C0D1500857A2D /* Playfield.h */,
 				DC8DD065180C0D1500857A2D /* Playfield.m */,
 				DC8DD070180C0D9C00857A2D /* Enemy.h */,
@@ -482,8 +450,6 @@
 				DC8DD083180C0E2900857A2D /* EnemyProjectile.m */,
 				DC8DD085180C0E3700857A2D /* Object.h */,
 				DC8DD086180C0E3700857A2D /* Object.m */,
-				DC8DD088180C0E4600857A2D /* Star.h */,
-				DC8DD089180C0E4600857A2D /* Star.m */,
 				DCDF4BA0181E88FB008ED39F /* Heart.h */,
 				DCDF4BA1181E88FB008ED39F /* Heart.m */,
 				DC8AC99D1826A50D007CBC26 /* GameData.h */,
@@ -608,10 +574,8 @@
 				82B9E0F0182570AB00AB37C8 /* rateOfFire.png in Resources */,
 				827431441822AB27004E6643 /* 80.png in Resources */,
 				82B9E0EE182570AB00AB37C8 /* moveSpeed.png in Resources */,
-				DCAAFB071822811500A925FF /* UpgradeViewController.xib in Resources */,
 				CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */,
 				827431641822AB3E004E6643 /* FrequentProjectile.png in Resources */,
-				DC65C3231822A83200AF1967 /* UpgradeScherm_v1.png in Resources */,
 				827431611822AB3E004E6643 /* DarkMatterProjectile.png in Resources */,
 				827431651822AB3E004E6643 /* PowerProjectile.png in Resources */,
 				82B9E0E21825702C00AB37C8 /* PdarkMatter.png in Resources */,
@@ -626,7 +590,6 @@
 				CD27295F1827AC8D005CD420 /* Default-568h@2x.png in Resources */,
 				827431481822AB27004E6643 /* base.png in Resources */,
 				822793D61823D32C00729F29 /* EasyEnemy@2x.png in Resources */,
-				DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */,
 				8274315E1822AB3E004E6643 /* EnemyProjectile@2x.png in Resources */,
 				DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */,
 				CD27294C1827A34C005CD420 /* SP_iPhone Retina (iOS 6 and Prior).png in Resources */,
@@ -646,9 +609,6 @@
 				DC8DD05F180C0B2800857A2D /* MainViewController.m in Sources */,
 				DC8DD063180C0BC200857A2D /* MenuViewController.m in Sources */,
 				DC8DD066180C0D1500857A2D /* Playfield.m in Sources */,
-				DC8DD069180C0D3700857A2D /* Item.m in Sources */,
-				DC8DD06C180C0D6C00857A2D /* Upgrade.m in Sources */,
-				DC8DD06F180C0D7A00857A2D /* Ammo.m in Sources */,
 				DC8DD072180C0D9C00857A2D /* Enemy.m in Sources */,
 				82B9E100182582D800AB37C8 /* DarkMatterProjectile.m in Sources */,
 				DC8DD075180C0DB800857A2D /* Enemy1.m in Sources */,
@@ -662,9 +622,7 @@
 				82B9E0FD182582BD00AB37C8 /* UnstoppableProjectile.m in Sources */,
 				82B9E0F71825824100AB37C8 /* FrequentProjectile.m in Sources */,
 				DC8DD087180C0E3800857A2D /* Object.m in Sources */,
-				DC8DD08A180C0E4600857A2D /* Star.m in Sources */,
 				DCDF4BA2181E88FC008ED39F /* Heart.m in Sources */,
-				DCAAFB061822811500A925FF /* UpgradeViewController.m in Sources */,
 				DC8AC99F1826A50E007CBC26 /* GameData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

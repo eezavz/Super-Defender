@@ -28,7 +28,6 @@
 
 -(void)update:(float) angle2;
 -(void)gainHealth:(int) par_health;
--(void)setSpecialAmounts : (int)par_specialAmount;
 -(void)setHealth:(int)par_health;
 - (Cannon *)init : (int)par_maxHealth : (int)par_FireRate : (int)par_MoveSpeed : (int)par_Power : (int)par_RotSpeed;
 

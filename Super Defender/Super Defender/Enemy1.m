@@ -85,7 +85,7 @@
             self.angle+=2;
         }
     }
-    int random = arc4random() % 1200;
+    int random = arc4random() % 120;
     if (random == 0) {
         if (self.myProjectile) {
             [self.myProjectile dealloc];

@@ -10,7 +10,7 @@
 #define degrees(x) (M_PI * (x) / 180)
 
 @interface MainViewController ()
-@property (strong, nonatomic) CMMotionManager *motionManager;
+@property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, assign) BOOL accelerometer;
 @end
 
@@ -36,7 +36,7 @@
 @synthesize darkMatterProjectileActivator;
 
 - (void) buttonTap:(id) sender {
-    NSNumber *tempNumber = [[NSNumber alloc]init];
+    int tempNumber = 0;
     NSString *tempString;
     if (sender == self.pauseButton) {
         [self stopTimer];
@@ -50,67 +50,62 @@
         [self.mvc visible];
     } else if (sender == self.powerProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            tempNumber = [[gameData.gameData objectForKey:@"projectilePower"] objectForKey:@"amount"];
+            tempNumber = [[[gameData.gameData objectForKey:@"projectilePower"] objectForKey:@"amount"] intValue];
     
-            if([tempNumber intValue] >= 10)
+            if(tempNumber >= 10)
             {
                 self.playfield.cannon.specialProjectile = 1;
-                int tempInt = [tempNumber intValue];
-                [[gameData.gameData objectForKey:@"projectilePower"] setObject:[NSNumber numberWithInt:tempInt-10] forKey:@"amount"];
-                tempString = [NSString stringWithFormat:@"%i", tempInt-10];
-                [powerProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-10] forState:UIControlStateNormal];
+                [[gameData.gameData objectForKey:@"projectilePower"] setObject:[NSNumber numberWithInt:tempNumber - 10] forKey:@"amount"];
+                tempString = [NSString stringWithFormat:@"%i", tempNumber - 10];
+                [powerProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempNumber - 10] forState:UIControlStateNormal];
                 self.playfield.cannon.specialAmount = 10;
                 [self saveGame];
             }
         }
     } else if (sender == self.frequentProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            tempNumber = [[gameData.gameData objectForKey:@"projectileFireRate"] objectForKey:@"amount"];
-            if([tempNumber intValue] >= 30)
+            tempNumber = [[[gameData.gameData objectForKey:@"projectileFireRate"] objectForKey:@"amount"] intValue];
+            if(tempNumber >= 30)
             {
                 self.playfield.cannon.specialProjectile = 2;
-                int tempInt = [tempNumber intValue];
-                [[gameData.gameData objectForKey:@"projectileFireRate"] setObject:[NSNumber numberWithInt:tempInt-30] forKey:@"amount"];
-                [frequentProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-30] forState:UIControlStateNormal];
+                [[gameData.gameData objectForKey:@"projectileFireRate"] setObject:[NSNumber numberWithInt:tempNumber - 30] forKey:@"amount"];
+                [frequentProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempNumber - 30] forState:UIControlStateNormal];
                 self.playfield.cannon.specialAmount = 30;
                 [self saveGame];
             }
         }
     } else if (sender == self.lightningProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            tempNumber = [[gameData.gameData objectForKey:@"projectileMoveSpeed"] objectForKey:@"amount"];
-            if([tempNumber intValue] >= 20)
+            tempNumber = [[[gameData.gameData objectForKey:@"projectileMoveSpeed"] objectForKey:@"amount"] intValue];
+            if(tempNumber >= 20)
             {
                 self.playfield.cannon.specialProjectile = 3;
-                int tempInt = [tempNumber intValue];
-                [[gameData.gameData objectForKey:@"projectileMoveSpeed"] setObject:[NSNumber numberWithInt:tempInt-20] forKey:@"amount"];
-                [lightningProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-20] forState:UIControlStateNormal];
+                [[gameData.gameData objectForKey:@"projectileMoveSpeed"] setObject:[NSNumber numberWithInt:tempNumber - 20] forKey:@"amount"];
+                [lightningProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempNumber - 20] forState:UIControlStateNormal];
                 self.playfield.cannon.specialAmount = 20;
                 [self saveGame];
             }
         }
     } else if (sender == self.unstoppableProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            tempNumber = [[gameData.gameData objectForKey:@"projectileUnstoppable"] objectForKey:@"amount"];
-            if([tempNumber intValue] >= 1)
+            tempNumber = [[[gameData.gameData objectForKey:@"projectileUnstoppable"] objectForKey:@"amount"] intValue];
+            if(tempNumber >= 1)
             {
                 self.playfield.cannon.specialProjectile = 4;
-                int tempInt = [tempNumber intValue];
-                [[gameData.gameData objectForKey:@"projectileUnstoppable"] setObject:[NSNumber numberWithInt:tempInt-1] forKey:@"amount"];
-                [unstoppableProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-1] forState:UIControlStateNormal];
+                [[gameData.gameData objectForKey:@"projectileUnstoppable"] setObject:[NSNumber numberWithInt:tempNumber - 1] forKey:@"amount"];
+                [unstoppableProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempNumber - 1] forState:UIControlStateNormal];
                 self.playfield.cannon.specialAmount = 1;
                 [self saveGame];
             }
         }
     } else if (sender == self.darkMatterProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            tempNumber = [[gameData.gameData objectForKey:@"projectileDarkMatter"] objectForKey:@"amount"];
-            if([tempNumber intValue] >=1 )
+            tempNumber = [[[gameData.gameData objectForKey:@"projectileDarkMatter"] objectForKey:@"amount"] intValue];
+            if(tempNumber >= 1)
             {
                 self.playfield.cannon.specialProjectile = 5;
-                int tempInt = [tempNumber intValue];
-                [[gameData.gameData objectForKey:@"projectileDarkMatter"] setObject:[NSNumber numberWithInt:tempInt-1] forKey:@"amount"];
-                [darkMatterProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-1] forState:UIControlStateNormal];
+                [[gameData.gameData objectForKey:@"projectileDarkMatter"] setObject:[NSNumber numberWithInt:tempNumber - 1] forKey:@"amount"];
+                [darkMatterProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempNumber - 1] forState:UIControlStateNormal];
                 self.playfield.cannon.specialAmount = 1;
                 [self saveGame];
             }
@@ -127,8 +122,12 @@
     lightningProjectileActivator.hidden = NO;
     unstoppableProjectileActivator.hidden = NO;
     darkMatterProjectileActivator.hidden = NO;
-    
     [self startTimer];
+}
+
+- (void) updateScore:(int) score
+{
+    playfield.score = score;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -157,13 +156,6 @@
             NSLog(@"Ik heb geen accelerometer!");
             self.accelerometer = NO;
         }
-        /*if (self.motionManager.gyroAvailable) {
-         [self.motionManager stopGyroUpdates];
-         self.motionManager.gyroUpdateInterval = 1.0 / 60.0;
-         [self.motionManager startGyroUpdates];
-         } else {
-         NSLog(@"Ik heb geen gyroscoop!");
-         }*/
         
         self.renderedObjects = [[NSMutableArray alloc] init];
         self.objectButtons = [[NSMutableArray alloc] init];
@@ -316,6 +308,11 @@
         self.objectButtons = [[NSMutableArray alloc] init];
     }
     
+    [powerProjectileActivator setTitle:[NSString stringWithFormat:@"%@", [[gameData.gameData objectForKey:@"projectilePower"] objectForKey:@"amount"]] forState:UIControlStateNormal];
+    [frequentProjectileActivator setTitle:[NSString stringWithFormat:@"%@", [[gameData.gameData objectForKey:@"projectileFireRate"] objectForKey:@"amount"]] forState:UIControlStateNormal];
+    [lightningProjectileActivator setTitle:[NSString stringWithFormat:@"%@", [[gameData.gameData objectForKey:@"projectileMoveSpeed"] objectForKey:@"amount"]] forState:UIControlStateNormal];
+    [unstoppableProjectileActivator setTitle:[NSString stringWithFormat:@"%@", [[gameData.gameData objectForKey:@"projectileUnstoppable"] objectForKey:@"amount"]] forState:UIControlStateNormal];
+    [darkMatterProjectileActivator setTitle:[NSString stringWithFormat:@"%@", [[gameData.gameData objectForKey:@"projectileDarkMatter"] objectForKey:@"amount"]] forState:UIControlStateNormal];
     
     self.beloved.image = beloved;
     cannonBarrel.hidden = NO;
@@ -331,7 +328,6 @@
     NSNumber *tempMoveSpeed = [[gameData.gameData objectForKey:@"upgradeMoveSpeed"] objectForKey:@"amount"];
     NSNumber *tempPower = [[gameData.gameData objectForKey:@"upgradePower"] objectForKey:@"amount"];
     NSNumber *tempRotSpeed = [[gameData.gameData objectForKey:@"upgradeRotSpeed"] objectForKey:@"amount"];
-    NSLog(@"UpgradeWaarde: %i", [tempFireRate intValue]);
     self.playfield = [[Playfield alloc] init : [tempHealth intValue] : [tempFireRate intValue] : [tempMoveSpeed intValue] : [tempPower intValue] : [tempRotSpeed intValue]];
     cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
 }
@@ -374,6 +370,9 @@
     if (playfield.cannon.health == 0) {
         [self stopTimer];
         [gameData.gameData setValue:[NSNumber numberWithInt:playfield.score] forKey:@"Score"];
+        
+        int newscrap = [[gameData.gameData objectForKey:@"Scrap"] intValue] + playfield.score;
+        [gameData.gameData setValue:[NSNumber numberWithInt:newscrap] forKey:@"Scrap"];
         [self saveGame];
         self.mvc.upgradeViewButton.hidden = NO;
         [self.view addSubview:self.mvc.view];

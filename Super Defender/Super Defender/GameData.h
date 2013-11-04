@@ -10,7 +10,7 @@
 
 @interface GameData : NSObject
 
-@property (nonatomic, retain) NSMutableDictionary* gameData;
+@property (nonatomic, strong) NSMutableDictionary* gameData;
 
 - (void)saveGame;
 

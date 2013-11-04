@@ -24,22 +24,22 @@
 #import "GameData.h"
 
 @interface MainViewController : UIViewController <MenuViewControllerDelegate>
-@property (nonatomic, retain) GameData *gameData;
+@property (nonatomic, strong) GameData *gameData;
 
-@property (atomic, retain) Playfield *playfield;
-@property (atomic, retain) UISlider *slider;
-@property (atomic, retain) NSTimer *timer;
-@property (atomic, retain) UIImageView *cannonBody;
-@property (atomic, retain) UIImageView *cannonBarrel;
-@property (atomic, retain) UIImage *enemyImage;
+@property (nonatomic, strong) Playfield *playfield;
+@property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) UIImageView *cannonBody;
+@property (nonatomic, strong) UIImageView *cannonBarrel;
+@property (nonatomic, strong) UIImage *enemyImage;
 
-@property (atomic, retain) UIImage *defaultProjectileImage;
-@property (atomic, retain) UIImage *powerProjectileImage;
-@property (atomic, retain) UIImage *frequentProjectileImage;
-@property (atomic, retain) UIImage *lightningProjectileImage;
-@property (atomic, retain) UIImage *unstoppableProjectileImage;
-@property (atomic, retain) UIImage *darkMatterProjectileImage;
-@property (atomic, retain) UIImage *enemyProjectileImage;
+@property (nonatomic, strong) UIImage *defaultProjectileImage;
+@property (nonatomic, strong) UIImage *powerProjectileImage;
+@property (nonatomic, strong) UIImage *frequentProjectileImage;
+@property (nonatomic, strong) UIImage *lightningProjectileImage;
+@property (nonatomic, strong) UIImage *unstoppableProjectileImage;
+@property (nonatomic, strong) UIImage *darkMatterProjectileImage;
+@property (nonatomic, strong) UIImage *enemyProjectileImage;
 
 @property (nonatomic, strong) NSMutableArray *renderedObjects;
 @property (nonatomic, strong) UILabel *scoreLabel;
@@ -71,4 +71,5 @@
 - (void)saveGame;
 - (void)createPlayfield;
 - (void)updateActivatorTitle :(int)par_number :(int)par_amount;
+- (void) updateScore:(int) score;
 @end

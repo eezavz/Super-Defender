@@ -75,15 +75,11 @@
 - (MenuViewController *)init : (GameData *)par_gameData
 {
     gameData = par_gameData;
-    scrap = [[NSNumber alloc] init];
-    scrap = [gameData.gameData objectForKey:@"Scrap"];
     return [super init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self loadProjectileViewData];
-    [self loadUpgradeViewData];
     upgradeViewButton.hidden = YES;
     if([self.delegate runningGame])
     {
@@ -98,9 +94,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self.view addSubview:menuView];
+        //[self.view addSubview:menuView];
         self.view.backgroundColor = [UIColor clearColor];
-        menuView.backgroundColor = [UIColor clearColor];
         projectileView.backgroundColor = [UIColor clearColor];
         upgradeView.backgroundColor = [UIColor clearColor];
         NSString *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/beloved.png"];
@@ -156,9 +151,6 @@
         [upgradeAmountLabels addObject:upgradeMoveSpeedAmount];
         [upgradeAmountLabels addObject:upgradePowerAmount];
         [upgradeAmountLabels addObject:upgradeRotSpeedAmount];
-        
-        [self loadProjectileViewData];
-        [self loadUpgradeViewData];
     }
     return self;
 }
@@ -179,7 +171,6 @@
 
 - (void)tap:(id)sender
 {
-    NSLog(@"Tappy");
     if (sender == self.resumeKnop) {
         [self.view removeFromSuperview];
         [delegate menuClosed];
@@ -189,11 +180,9 @@
     }else if (sender == self.imageKnop) {
         [self.view addSubview:self.pickImageView];
     } else if (sender == self.newgame) {
-        NSLog(@"EEP");
         [delegate newGame:self.selectedImage.image];
         upgradeViewButton.hidden = NO;
         self.view = upgradeView;
-        NSLog(@"MEEP");
     } else if (sender == self.useCamera) {
         self.picker = [[UIImagePickerController alloc] init];
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -260,6 +249,7 @@
     for(int i = 0; i<projectileButtons.count; i++)
     {
         UIButton *tempButton = [projectileButtons objectAtIndex:i];
+        
         NSString *tempId = [tempButton restorationIdentifier];
         
         UILabel *tempLabelCost = [projectileCostLabels objectAtIndex:i];
@@ -273,7 +263,8 @@
 
 - (void) loadUpgradeViewData
 {
-    upgradeScrapLabel.text = [NSString stringWithFormat:@"SCRAP: %@", scrap];
+    scrap = [[gameData.gameData objectForKey:@"Scrap"] intValue];
+    upgradeScrapLabel.text = [NSString stringWithFormat:@"SCRAP: %i", scrap];
     for(int i = 0; i<upgradeButtons.count; i++)
     {
         UIButton *tempButton = [upgradeButtons objectAtIndex:i];
@@ -295,44 +286,44 @@
     {
         if([projectileButtons objectAtIndex:i] == sender)
         {
-            NSNumber *tempCost = [[gameData.gameData objectForKey:tempId] objectForKey:@"cost"];
-            NSNumber *tempAmount = [[gameData.gameData objectForKey:tempId] objectForKey:@"amount"];
-            if(score >= [tempCost intValue])
+            int tempCost = [[[gameData.gameData objectForKey:tempId] objectForKey:@"cost"] intValue];
+            int tempAmount = [[[gameData.gameData objectForKey:tempId] objectForKey:@"amount"] intValue];
+            if(score >= tempCost)
             {
-                score -= [tempCost intValue];
+                score -= tempCost;
                 projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", score];
                 if(i == 0)
                 {
-                    tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+10];
-                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
+                    tempAmount = tempAmount + 10;
+                    [delegate updateActivatorTitle : i : tempAmount];
                 }else if(i == 1)
                 {
-                    tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+30];
-                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
+                    tempAmount = tempAmount + 30;
+                    [delegate updateActivatorTitle : i : tempAmount];
                 }else if(i == 2)
                 {
-                    tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+20];
-                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
+                    tempAmount = tempAmount + 20;
+                    [delegate updateActivatorTitle : i : tempAmount];
                 }else if(i == 3)
                 {
-                    tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+1];
-                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
+                    tempAmount = tempAmount + 1;
+                    [delegate updateActivatorTitle : i : tempAmount];
                 }else if(i == 4)
                 {
-                    tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+1];
-                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
+                    tempAmount = tempAmount + 1;
+                    [delegate updateActivatorTitle : i : tempAmount];
                 }
 
-                [[gameData.gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];
+                [[gameData.gameData objectForKey:tempId] setObject:[NSNumber numberWithInt:tempAmount] forKey:@"amount"];
             
                 UILabel *tempLabelAmount = [projectileAmountLabels objectAtIndex:i];
-                tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", tempAmount];
-            }else{
+                tempLabelAmount.text = [NSString stringWithFormat:@"UP: %i", tempAmount];
+                [delegate updateScore:score];
+            } else {
                 NSLog(@"Silly guy, you don't have enough money...");
             }
         }
     }
-    //[tempId release];
     [self saveGame];
 }
 
@@ -343,32 +334,30 @@
     {
         if([upgradeButtons objectAtIndex:i] == sender)
         {
-            NSNumber *tempCost = [[gameData.gameData objectForKey:tempId] objectForKey:@"cost"];
-            NSNumber *tempAmount = [[gameData.gameData objectForKey:tempId] objectForKey:@"amount"];
-            NSLog(@"Berekening: %i", [scrap intValue]);
-            if([scrap intValue] >= [tempCost intValue] && [tempAmount intValue] < 4)
+            int tempCost = [[[gameData.gameData objectForKey:tempId] objectForKey:@"cost"] intValue];
+            int tempAmount = [[[gameData.gameData objectForKey:tempId] objectForKey:@"amount"] intValue];
+            if(scrap >= tempCost && tempAmount < 4)
             {
-                scrap = [NSNumber numberWithInt:[scrap intValue] - [tempCost intValue]];
-                upgradeScrapLabel.text = [NSString stringWithFormat:@"SCRAP: %@", scrap];
+                scrap = scrap - tempCost;
+                upgradeScrapLabel.text = [NSString stringWithFormat:@"SCRAP: %i", scrap];
                 
-                tempCost = [NSNumber numberWithInt:[tempCost intValue]*2];
-                tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+1];
+                tempCost = tempCost * 2;
+                tempAmount = tempAmount + 1;
             
-                [gameData.gameData setObject:scrap forKey:@"Scrap"];
-                [[gameData.gameData objectForKey:tempId] setObject:tempCost forKey:@"cost"];
-                [[gameData.gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];
+                [gameData.gameData setObject:[NSNumber numberWithInt:scrap] forKey:@"Scrap"];
+                [[gameData.gameData objectForKey:tempId] setObject:[NSNumber numberWithInt:tempCost] forKey:@"cost"];
+                [[gameData.gameData objectForKey:tempId] setObject:[NSNumber numberWithInt:tempAmount] forKey:@"amount"];
             
                 UILabel *tempLabelCost = [upgradeCostLabels objectAtIndex:i];
-                tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", tempCost];
+                tempLabelCost.text = [NSString stringWithFormat:@"COST: %i", tempCost];
             
                 UILabel *tempLabelAmount = [upgradeAmountLabels objectAtIndex:i];
-                tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", tempAmount];
+                tempLabelAmount.text = [NSString stringWithFormat:@"UP: %i", tempAmount];
             }else{
                 NSLog(@"Silly guy, you don't have enough money...");
             }
         }
     }
-    //[tempId release];
     [self saveGame];
 }
 
@@ -380,6 +369,8 @@
 
 - (void) visible
 {
+        [self loadProjectileViewData];
+    [self loadUpgradeViewData];
     if ([delegate runningGame]) {
         [self.resumeKnop setEnabled:YES];
     } else {
