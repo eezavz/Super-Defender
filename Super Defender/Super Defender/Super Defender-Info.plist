@@ -14,6 +14,11 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>SET_iPhone Retina</string>
+				<string>SET_iPhone Non-Retina</string>
+				<string>SP_iPhone Retina</string>
+				<string>SP_iPhone Retina (iOS 6 and Prior)</string>
+				<string>SP_iPhone Non-Retina</string>
 				<string>iPhone Retina</string>
 				<string>iPhone Retina (iOS 6 and Prior)</string>
 				<string>iPhone Non-Retina</string>
