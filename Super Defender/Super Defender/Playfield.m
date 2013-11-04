@@ -94,7 +94,6 @@
     }
     
     if (self.spawnTick > -1) {
-        //NSLog(@"Cool");
         self.spawnTick++;
         [[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease];
         if (self.spawnTick % [[[self.leveldata objectForKey:[[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease]] objectForKey:@"tickdelay"] intValue] == 0) {
@@ -109,7 +108,7 @@
                     customEnemy.health = customEnemy.maxHealth;
                 } else {
                     customEnemy = [[Enemy2 alloc] initWithX:[[enemyData objectForKey:@"spawnx"] intValue] Y:-34];
-                    customEnemy.maxHealth = customEnemy.maxHealth * (self.levelModifier / 2);
+                    customEnemy.maxHealth = customEnemy.maxHealth * (self.levelModifier / 2.0);
                     customEnemy.health = customEnemy.maxHealth;
                 }
                 customEnemy.sideways = [[enemyData objectForKey:@"sideways"] floatValue];
@@ -118,38 +117,18 @@
                 customEnemy.higherXLimit = [[enemyData objectForKey:@"higherxlimit"] floatValue];
                 customEnemy.movesLeft = [[enemyData objectForKey:@"movesleft"] boolValue];
                 [self.enemies addObject:customEnemy];
-                //[enemyData release];
             }
-            //[enemiesDataForTick release];
             if (tick == [[[self.leveldata objectForKey:[[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease]] objectForKey:@"ticks"] count] - 1) {
                 self.spawnTick = -1;
                 self.currentLevel++;
                 if (self.currentLevel > [self.leveldata count]) {
                     self.currentLevel = 1;
                     self.levelModifier++;
-                    NSLog(@"Yay modifier!");
                 }
             }
         }
     }
     
-    /*if (self.enemies.count < screenlimit) {
-        Enemy1 *customNoob = [[Enemy1 alloc] initWithX:100 Y:-16];
-        customNoob.sideways = YES;
-        customNoob.yLimit = 110;
-        customNoob.lowerXLimit = 0;
-        customNoob.higherXLimit = 210;
-        customNoob.movesLeft = YES;
-        [self.enemies addObject:customNoob];
-    }*/
-    /*int rare = arc4random() % 1500;
-    if (rare == 5) {
-        Enemy2 *boss = [[Enemy2 alloc] initWithX: arc4random() % (320-128)+64 Y:-34];
-        [self.enemies addObject:boss];
-    } else if (self.enemies.count < screenlimit) {
-        Enemy1 *noob = [[Enemy1 alloc] initWithX: arc4random() % (320-64)+32 Y:-17];
-        [self.enemies addObject:noob];
-    }*/
     for (int i = 0; i < enemies.count; i++) {
         [[enemies objectAtIndex:i] AI];
         if ([[enemies objectAtIndex:i] myProjectile]) {
@@ -183,7 +162,7 @@
                         [self.cannon.shotProjectiles removeObject:pHit];
                         [pHit dealloc];
                         i--;
-                        break;//een projectile kan maar 1 enemy raken voorlopig.
+                        break;
                     }
                 }
             }
@@ -236,7 +215,6 @@
 
 - (BOOL) checkHitEnemy:(Enemy *)enemy Projectile:(Projectile *)projectile
 {
-    //Ik maak deze punten aan zodat we ook draaing toe kunnen passen...
     CGPoint projTopLeft = CGPointMake(projectile.centerX - projectile.width / 2, projectile.centerY - projectile.height / 2);
     CGPoint projTopRight = CGPointMake(projectile.centerX + projectile.width / 2, projectile.centerY - projectile.height / 2);
     CGPoint projBotLeft = CGPointMake(projectile.centerX - projectile.width / 2, projectile.centerY + projectile.height / 2);
