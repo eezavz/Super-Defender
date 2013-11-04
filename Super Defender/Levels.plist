@@ -19,13 +19,14 @@
 					<key>lowerxlimit</key>
 					<integer>60</integer>
 					<key>higherxlimit</key>
-					<integer>260</integer>
+					<integer>270</integer>
 					<key>ylimit</key>
 					<integer>150</integer>
 					<key>movesleft</key>
 					<true/>
 				</dict>
 			</array>
+			<integer>2</integer>
 			<array>
 				<dict>
 					<key>type</key>
@@ -37,7 +38,7 @@
 					<key>lowerxlimit</key>
 					<integer>30</integer>
 					<key>higherxlimit</key>
-					<integer>230</integer>
+					<integer>240</integer>
 					<key>ylimit</key>
 					<integer>130</integer>
 					<key>movesleft</key>
@@ -53,9 +54,95 @@
 					<key>lowerxlimit</key>
 					<integer>90</integer>
 					<key>higherxlimit</key>
-					<integer>290</integer>
+					<integer>300</integer>
 					<key>ylimit</key>
 					<integer>130</integer>
+					<key>movesleft</key>
+					<true/>
+				</dict>
+			</array>
+			<integer>5</integer>
+			<array>
+				<dict>
+					<key>type</key>
+					<integer>1</integer>
+					<key>spawnx</key>
+					<integer>160</integer>
+					<key>sideways</key>
+					<false/>
+					<key>ylimit</key>
+					<integer>200</integer>
+				</dict>
+			</array>
+			<integer>3</integer>
+			<array>
+				<dict>
+					<key>type</key>
+					<integer>0</integer>
+					<key>spawnx</key>
+					<integer>160</integer>
+					<key>sideways</key>
+					<false/>
+					<key>ylimit</key>
+					<integer>140</integer>
+				</dict>
+			</array>
+		</array>
+	</dict>
+	<key>Level 2</key>
+	<dict>
+		<key>tickdelay</key>
+		<integer>30</integer>
+		<key>ticks</key>
+		<array>
+			<array>
+				<dict>
+					<key>type</key>
+					<integer>0</integer>
+					<key>spawnx</key>
+					<integer>160</integer>
+					<key>sideways</key>
+					<true/>
+					<key>lowerxlimit</key>
+					<integer>92</integer>
+					<key>higherxlimit</key>
+					<integer>238</integer>
+					<key>ylimit</key>
+					<integer>170</integer>
+					<key>movesleft</key>
+					<true/>
+				</dict>
+			</array>
+			<array>
+				<dict>
+					<key>type</key>
+					<integer>0</integer>
+					<key>spawnx</key>
+					<integer>130</integer>
+					<key>sideways</key>
+					<true/>
+					<key>lowerxlimit</key>
+					<integer>62</integer>
+					<key>higherxlimit</key>
+					<integer>208</integer>
+					<key>ylimit</key>
+					<integer>140</integer>
+					<key>movesleft</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>type</key>
+					<integer>0</integer>
+					<key>spawnx</key>
+					<integer>190</integer>
+					<key>sideways</key>
+					<true/>
+					<key>lowerxlimit</key>
+					<integer>122</integer>
+					<key>higherxlimit</key>
+					<integer>268</integer>
+					<key>ylimit</key>
+					<integer>140</integer>
 					<key>movesleft</key>
 					<true/>
 				</dict>
@@ -69,9 +156,9 @@
 					<key>sideways</key>
 					<true/>
 					<key>lowerxlimit</key>
-					<integer>0</integer>
+					<integer>32</integer>
 					<key>higherxlimit</key>
-					<integer>210</integer>
+					<integer>178</integer>
 					<key>ylimit</key>
 					<integer>110</integer>
 					<key>movesleft</key>
@@ -85,9 +172,9 @@
 					<key>sideways</key>
 					<true/>
 					<key>lowerxlimit</key>
-					<integer>110</integer>
+					<integer>142</integer>
 					<key>higherxlimit</key>
-					<integer>320</integer>
+					<integer>288</integer>
 					<key>ylimit</key>
 					<integer>110</integer>
 					<key>movesleft</key>
