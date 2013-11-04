@@ -71,13 +71,19 @@
 
 @synthesize gameData;
 
-- (MenuViewController *)init : (NSMutableDictionary *)par_gameData
+- (MenuViewController *)init : (GameData *)par_gameData
 {
-    //score = 1001;
     gameData = par_gameData;
     scrap = [[NSNumber alloc] init];
-    scrap = [gameData objectForKey:@"Scrap"];
+    scrap = [gameData.gameData objectForKey:@"Scrap"];
     return [super init];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self loadProjectileViewData];
+    [self loadUpgradeViewData];
+    NSLog(@"Appeared");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -156,7 +162,7 @@
 - (void)tap:(id)sender
 {
     NSLog(@"Tappy");
-    if (sender == self.resumeKnop) {
+    if (sender == self.resumeKnop || sender == self.projectileBackButton || sender == self.upgradeBackButton) {
         [self.view removeFromSuperview];
         [delegate menuClosed];
     } else if (sender == self.imageKnop) {
@@ -241,10 +247,10 @@
         NSString *tempId = [tempButton restorationIdentifier];
         
         UILabel *tempLabelCost = [projectileCostLabels objectAtIndex:i];
-        tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", [[gameData objectForKey:tempId] objectForKey:@"cost"]];
+        tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", [[gameData.gameData objectForKey:tempId] objectForKey:@"cost"]];
             
         UILabel *tempLabelAmount = [projectileAmountLabels objectAtIndex:i];
-        tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", [[gameData objectForKey:tempId] objectForKey:@"amount"]];
+        tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", [[gameData.gameData objectForKey:tempId] objectForKey:@"amount"]];
         //[tempId release];
     }
 }
@@ -258,10 +264,10 @@
         NSString *tempId = [tempButton restorationIdentifier];
         
         UILabel *tempLabelCost = [upgradeCostLabels objectAtIndex:i];
-        tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", [[gameData objectForKey:tempId] objectForKey:@"cost"]];
+        tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", [[gameData.gameData objectForKey:tempId] objectForKey:@"cost"]];
         
         UILabel *tempLabelAmount = [upgradeAmountLabels objectAtIndex:i];
-        tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", [[gameData objectForKey:tempId] objectForKey:@"amount"]];
+        tempLabelAmount.text = [NSString stringWithFormat:@"UP: %@", [[gameData.gameData objectForKey:tempId] objectForKey:@"amount"]];
         //[tempId release];
     }
 }
@@ -273,16 +279,16 @@
     {
         if([projectileButtons objectAtIndex:i] == sender)
         {
-            NSNumber *tempCost = [[gameData objectForKey:tempId] objectForKey:@"cost"];
-            NSNumber *tempAmount = [[gameData objectForKey:tempId] objectForKey:@"amount"];
-            if(score > [tempCost intValue])
+            NSNumber *tempCost = [[gameData.gameData objectForKey:tempId] objectForKey:@"cost"];
+            NSNumber *tempAmount = [[gameData.gameData objectForKey:tempId] objectForKey:@"amount"];
+            if(score >= [tempCost intValue])
             {
                 score -= [tempCost intValue];
                 projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", score];
                 tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+10];
             
                 //[[gameData objectForKey:tempId] setObject:cost forKey:@"cost"];
-                [[gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];
+                [[gameData.gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];
             
                 //UILabel *tempLabelCost = [projectileCostLabels objectAtIndex:i];
                 //tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", cost];
@@ -306,9 +312,9 @@
     {
         if([upgradeButtons objectAtIndex:i] == sender)
         {
-            NSNumber *tempCost = [[gameData objectForKey:tempId] objectForKey:@"cost"];
-            NSNumber *tempAmount = [[gameData objectForKey:tempId] objectForKey:@"amount"];
-            if([scrap intValue] > [tempCost intValue])
+            NSNumber *tempCost = [[gameData.gameData objectForKey:tempId] objectForKey:@"cost"];
+            NSNumber *tempAmount = [[gameData.gameData objectForKey:tempId] objectForKey:@"amount"];
+            if([scrap intValue] >= [tempCost intValue])
             {
                 scrap = [NSNumber numberWithInt:[scrap intValue] - [tempCost intValue]];
                 upgradeScrapLabel.text = [NSString stringWithFormat:@"SCRAP: %@", scrap];
@@ -316,9 +322,9 @@
                 tempCost = [NSNumber numberWithInt:[tempCost intValue]*2];
                 tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+1];
             
-                [gameData setObject:scrap forKey:@"Scrap"];
-                [[gameData objectForKey:tempId] setObject:tempCost forKey:@"cost"];
-                [[gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];
+                [gameData.gameData setObject:scrap forKey:@"Scrap"];
+                [[gameData.gameData objectForKey:tempId] setObject:tempCost forKey:@"cost"];
+                [[gameData.gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];
             
                 UILabel *tempLabelCost = [upgradeCostLabels objectAtIndex:i];
                 tempLabelCost.text = [NSString stringWithFormat:@"COST: %@", tempCost];
@@ -336,16 +342,17 @@
 
 - (void)saveGame
 {
-    [gameData writeToFile:[self givePath] atomically:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [gameData saveGame];
+    //[gameData writeToFile:[self givePath] atomically:YES];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (NSString *)givePath
-{
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-    path = [path stringByAppendingPathComponent:@"GameData.plist"];
-    return path;
-}
+//- (NSString *)givePath
+//{
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+//    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+//    return path;
+//}
 
 - (IBAction) upgradeViewButtonTapped:(id) sender {
     NSLog(@"Asdjke");

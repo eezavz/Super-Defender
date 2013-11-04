@@ -25,6 +25,7 @@
 @synthesize maxHealth;
 @synthesize specialProjectile;
 @synthesize specialAmount;
+@synthesize endBurstSpecialAmount;
 
 - (Cannon *)init
 {
@@ -43,6 +44,12 @@
     {
         health += par_health;
     }
+}
+
+-(void)setSpecialAmounts : (int)par_specialAmount
+{
+    specialAmount = par_specialAmount;
+    endBurstSpecialAmount = specialAmount -10;
 }
 
 -(void)update:(float) angle2
@@ -118,7 +125,7 @@
         }
         if (specialAmount > 0) {
             specialAmount--;
-            if (specialAmount == 0) {
+            if (specialAmount == endBurstSpecialAmount) {
                 specialProjectile = 0;
             }
         }

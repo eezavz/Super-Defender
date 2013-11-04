@@ -23,9 +23,11 @@
 @property (nonatomic, assign) int height;
 @property (nonatomic, assign) int specialProjectile;
 @property (nonatomic, assign) int specialAmount;
+@property (nonatomic, assign) int endBurstSpecialAmount;
 
 
 -(void)update:(float) angle2;
 -(void)gainHealth:(int) par_health;
+-(void)setSpecialAmounts : (int)par_specialAmount;
 
 @end

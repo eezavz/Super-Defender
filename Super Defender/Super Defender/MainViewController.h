@@ -21,7 +21,10 @@
 #import "LightningProjectile.h"
 #import "UnstoppableProjectile.h"
 #import "DarkMatterProjectile.h"
+#import "GameData.h"
+
 @interface MainViewController : UIViewController <MenuViewControllerDelegate>
+@property (nonatomic, retain) GameData *gameData;
 
 @property (atomic, retain) Playfield *playfield;
 @property (atomic, retain) UISlider *slider;
@@ -49,7 +52,7 @@
 @property (nonatomic, strong) UIButton *pauseButton;
 @property (nonatomic, strong) UIImage *heartImage;
 @property (nonatomic, strong) NSMutableArray *objectButtons;
-@property (nonatomic, strong) NSMutableDictionary *gameData;
+//@property (nonatomic, strong) NSMutableDictionary *gameData;
 @property (nonatomic, strong) MenuViewController *mvc;
 @property (nonatomic, strong) UIImageView *beloved;
 
