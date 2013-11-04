@@ -17,6 +17,8 @@
 @interface Playfield ()
 @property (nonatomic, assign) int runTime;
 @property (nonatomic, assign) int spawnTick;
+@property (nonatomic, assign) int currentLevel;
+@property (nonatomic, assign) int levelModifier;
 @end
 @implementation Playfield
 
@@ -42,8 +44,40 @@
     self.enemyProjectiles = [[NSMutableArray alloc] init];
     objects = [[NSMutableArray alloc]init];
     self.runTime = 0;
-    self.leveldata = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Levels" ofType:@"plist"]];
+    self.currentLevel = 1;
+    self.levelModifier = 1;
+    [self fixLevels];
     return [super init];
+}
+
+- (void) fixLevels
+{
+    self.leveldata = [[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Levels" ofType:@"plist"]] mutableCopy] autorelease];
+    NSArray *allkeys = [self.leveldata allKeys];
+    int count = allkeys.count;
+    for (int i = 0; i < count; i++) {
+        NSMutableDictionary *levelCopy = [[self.leveldata objectForKey:[allkeys objectAtIndex:i]] mutableCopy];
+        
+        NSMutableArray *ticksCopy = [[[levelCopy objectForKey:@"ticks"] mutableCopy] autorelease];
+        for (int j = 0; j < ticksCopy.count; j++) {
+            //NSLog(@"%@", [ticksCopy objectAtIndex:j]);
+            NSLog(@"%@", [[ticksCopy objectAtIndex:j] class]);
+            if (![[ticksCopy objectAtIndex:j] isKindOfClass:[NSArray class]]) {
+                NSLog(@"WOOT HET IS EEN NUMMER!");
+                int number = [[ticksCopy objectAtIndex:j] intValue];
+                [ticksCopy removeObject:[ticksCopy objectAtIndex:j]];
+                NSLog(@"Het nummer is %d", number);
+                for (int k = 0; k <= number; k++) {
+                    NSArray *leeg = [[NSArray alloc] init];
+                    [ticksCopy insertObject:leeg atIndex:j+k];
+                }
+            }
+        }
+        [levelCopy setObject:ticksCopy forKey:@"ticks"];
+        
+        [self.leveldata setObject:levelCopy forKey:[allkeys objectAtIndex:i]];
+    }
+    NSLog(@"Finale! %@", self.leveldata);
 }
 
 -(void)update:(float)angle;
@@ -65,18 +99,30 @@
             NSArray *enemiesDataForTick = [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] objectAtIndex:tick];
             for (int i = 0; i < enemiesDataForTick.count; i++) {
                 NSDictionary *enemyData = [enemiesDataForTick objectAtIndex:i];
-                Enemy1 *customNoob = [[Enemy1 alloc] initWithX:[[enemyData objectForKey:@"spawnx"] intValue] Y:-16];
-                customNoob.sideways = [[enemyData objectForKey:@"sideways"] floatValue];
-                customNoob.yLimit = [[enemyData objectForKey:@"ylimit"] floatValue];
-                customNoob.lowerXLimit = [[enemyData objectForKey:@"lowerxlimit"] floatValue];
-                customNoob.higherXLimit = [[enemyData objectForKey:@"higherxlimit"] floatValue];
-                customNoob.movesLeft = [[enemyData objectForKey:@"movesleft"] boolValue];
-                [self.enemies addObject:customNoob];
-                //[enemyData release];
+                Enemy *customEnemy;
+                if ([[enemyData objectForKey:@"type"] intValue] == 0) {
+                    customEnemy = [[Enemy1 alloc] initWithX:[[enemyData objectForKey:@"spawnx"] intValue] Y:-17];
+                    customEnemy.maxHealth = customEnemy.maxHealth * self.levelModifier;
+                    customEnemy.health = customEnemy.maxHealth;
+                } else {
+                    customEnemy = [[Enemy2 alloc] initWithX:[[enemyData objectForKey:@"spawnx"] intValue] Y:-34];
+                    customEnemy.maxHealth = customEnemy.maxHealth * (self.levelModifier / 2.0);
+                    customEnemy.health = customEnemy.maxHealth;
+                }
+                customEnemy.sideways = [[enemyData objectForKey:@"sideways"] floatValue];
+                customEnemy.yLimit = [[enemyData objectForKey:@"ylimit"] floatValue];
+                customEnemy.lowerXLimit = [[enemyData objectForKey:@"lowerxlimit"] floatValue];
+                customEnemy.higherXLimit = [[enemyData objectForKey:@"higherxlimit"] floatValue];
+                customEnemy.movesLeft = [[enemyData objectForKey:@"movesleft"] boolValue];
+                [self.enemies addObject:customEnemy];
             }
-            //[enemiesDataForTick release];
-            if (tick == [[[self.leveldata objectForKey:@"Level 1"] objectForKey:@"ticks"] count] - 1) {
+            if (tick == [[[self.leveldata objectForKey:[[[NSString alloc] initWithFormat:@"Level %d", self.currentLevel] autorelease]] objectForKey:@"ticks"] count] - 1) {
                 self.spawnTick = -1;
+                self.currentLevel++;
+                if (self.currentLevel > [self.leveldata count]) {
+                    self.currentLevel = 1;
+                    self.levelModifier++;
+                }
             }
         }
     }
@@ -114,7 +160,7 @@
                         [self.cannon.shotProjectiles removeObject:pHit];
                         [pHit dealloc];
                         i--;
-                        break;//een projectile kan maar 1 enemy raken voorlopig.
+                        break;
                     }
                 }
             }
@@ -167,7 +213,6 @@
 
 - (BOOL) checkHitEnemy:(Enemy *)enemy Projectile:(Projectile *)projectile
 {
-    //Ik maak deze punten aan zodat we ook draaing toe kunnen passen...
     CGPoint projTopLeft = CGPointMake(projectile.centerX - projectile.width / 2, projectile.centerY - projectile.height / 2);
     CGPoint projTopRight = CGPointMake(projectile.centerX + projectile.width / 2, projectile.centerY - projectile.height / 2);
     CGPoint projBotLeft = CGPointMake(projectile.centerX - projectile.width / 2, projectile.centerY + projectile.height / 2);
