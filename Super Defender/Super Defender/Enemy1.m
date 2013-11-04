@@ -19,7 +19,7 @@
 - (Enemy *) initWithX:(float)x Y:(float)y
 {
     self.score = 1;
-    self.randomHeight = arc4random() % 100;
+    self.yLimit = 150 - arc4random() % 100;
     self.maxHealth = 2;
     self.health = self.maxHealth;
     self.collides = YES;
@@ -27,6 +27,9 @@
     self.centerY = y;
     self.width = 64;
     self.height = 34;
+    self.lowerXLimit = 0 + self.width / 2;
+    self.higherXLimit = 320 - self.width / 2;
+    self.sideways = YES;
     if(arc4random() % 2 == 0) {
         self.rotatesLeft = YES;
         self.angle = 10;
@@ -51,22 +54,25 @@
             self.countdown--;
         }
     }
-    self.centerY+=2;
-    if(self.centerY > 150 - self.randomHeight + self.height / 2)
-    {
-        self.centerY-=2;
-        if (self.movesLeft) {
-            self.centerX-=2;
-            if (self.centerX - self.width / 2 < 0) {
-                self.movesLeft = NO;
-            }
-        } else {
-            self.centerX+=2;
-            if (self.centerX + self.width / 2 > 320) {
-                self.movesLeft = YES;
+    
+    if (self.centerY < self.yLimit) {
+        self.centerY++;
+    } else {
+        if (self.sideways) {
+            if (self.movesLeft) {
+                self.centerX-=2;
+                if (self.centerX < self.lowerXLimit) {
+                    self.movesLeft = NO;
+                }
+            } else {
+                self.centerX+=2;
+                if (self.centerX > self.higherXLimit) {
+                    self.movesLeft = YES;
+                }
             }
         }
     }
+    
     if(self.rotatesLeft) {
         if(self.angle < -10) {
             self.rotatesLeft = NO;

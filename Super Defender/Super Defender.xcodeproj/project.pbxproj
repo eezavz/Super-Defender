@@ -15,6 +15,7 @@
 		822793D61823D32C00729F29 /* EasyEnemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 822793D21823D32C00729F29 /* EasyEnemy@2x.png */; };
 		822793D71823D32C00729F29 /* HardEnemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 822793D31823D32C00729F29 /* HardEnemy.png */; };
 		822793D81823D32C00729F29 /* HardEnemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 822793D41823D32C00729F29 /* HardEnemy@2x.png */; };
+		825D662918270569001EB9C9 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 825D662818270569001EB9C9 /* Levels.plist */; };
 		8274313B1822AB27004E6643 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431211822AB27004E6643 /* 0.png */; };
 		8274313C1822AB27004E6643 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431221822AB27004E6643 /* 10.png */; };
 		8274313D1822AB27004E6643 /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 827431231822AB27004E6643 /* 100.png */; };
@@ -113,6 +114,7 @@
 		822793D21823D32C00729F29 /* EasyEnemy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EasyEnemy@2x.png"; sourceTree = "<group>"; };
 		822793D31823D32C00729F29 /* HardEnemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HardEnemy.png; sourceTree = "<group>"; };
 		822793D41823D32C00729F29 /* HardEnemy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HardEnemy@2x.png"; sourceTree = "<group>"; };
+		825D662818270569001EB9C9 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		827431211822AB27004E6643 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		827431221822AB27004E6643 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		827431231822AB27004E6643 /* 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100.png; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		DC8DD033180C0A8200857A2D = {
 			isa = PBXGroup;
 			children = (
+				825D662818270569001EB9C9 /* Levels.plist */,
 				DC8CCB46181FCD7F008C5DB3 /* GameData.plist */,
 				DC8DD045180C0A8200857A2D /* Super Defender */,
 				DC8DD03E180C0A8200857A2D /* Frameworks */,
@@ -544,6 +547,7 @@
 				DC8DD054180C0A8200857A2D /* Default@2x.png in Resources */,
 				82B9E0E31825702C00AB37C8 /* PmoveSpeed.png in Resources */,
 				8274313D1822AB27004E6643 /* 100.png in Resources */,
+				825D662918270569001EB9C9 /* Levels.plist in Resources */,
 				82D880051825A3CA00338BBB /* FrequentProjectile@2x.png in Resources */,
 				822793D01823D30A00729F29 /* background@2x.png in Resources */,
 				8274314C1822AB27004E6643 /* DefenderHeart@2x.png in Resources */,
