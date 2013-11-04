@@ -23,7 +23,6 @@
 @property (nonatomic, assign) int height;
 @property (nonatomic, assign) int specialProjectile;
 @property (nonatomic, assign) int specialAmount;
-@property (nonatomic, assign) int endBurstSpecialAmount;
 @property (nonatomic, assign) int firePower;
 @property (nonatomic, assign) int strength;
 

@@ -304,18 +304,23 @@
                 if(i == 0)
                 {
                     tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+10];
+                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
                 }else if(i == 1)
                 {
                     tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+30];
+                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
                 }else if(i == 2)
                 {
                     tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+20];
+                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
                 }else if(i == 3)
                 {
                     tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+1];
+                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
                 }else if(i == 4)
                 {
-                    tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+10];
+                    tempAmount = [NSNumber numberWithInt:[tempAmount intValue]+1];
+                    [delegate updateActivatorTitle : i : [tempAmount intValue]];
                 }
 
                 [[gameData.gameData objectForKey:tempId] setObject:tempAmount forKey:@"amount"];

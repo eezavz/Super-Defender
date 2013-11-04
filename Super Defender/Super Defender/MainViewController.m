@@ -33,10 +33,11 @@
 @synthesize frequentProjectileActivator;
 @synthesize lightningProjectileActivator;
 @synthesize unstoppableProjectileActivator;
-@synthesize darkmatterProjectileActivator;
+@synthesize darkMatterProjectileActivator;
 
 - (void) buttonTap:(id) sender {
     NSNumber *tempNumber = [[NSNumber alloc]init];
+    NSString *tempString;
     if (sender == self.pauseButton) {
         [self stopTimer];
         self.mvc.score = playfield.score+499;
@@ -50,11 +51,15 @@
     } else if (sender == self.powerProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectilePower"] objectForKey:@"amount"];
+    
             if([tempNumber intValue] >= 10)
             {
                 self.playfield.cannon.specialProjectile = 1;
-                [[gameData.gameData objectForKey:@"projectilePower"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
-                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                int tempInt = [tempNumber intValue];
+                [[gameData.gameData objectForKey:@"projectilePower"] setObject:[NSNumber numberWithInt:tempInt-10] forKey:@"amount"];
+                tempString = [NSString stringWithFormat:@"%i", tempInt-10];
+                [powerProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-10] forState:UIControlStateNormal];
+                self.playfield.cannon.specialAmount = 10;
                 [self saveGame];
             }
         }
@@ -64,8 +69,10 @@
             if([tempNumber intValue] >= 30)
             {
                 self.playfield.cannon.specialProjectile = 2;
-                [[gameData.gameData objectForKey:@"projectileFireRate"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-30] forKey:@"amount"];
-                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                int tempInt = [tempNumber intValue];
+                [[gameData.gameData objectForKey:@"projectileFireRate"] setObject:[NSNumber numberWithInt:tempInt-30] forKey:@"amount"];
+                [frequentProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-30] forState:UIControlStateNormal];
+                self.playfield.cannon.specialAmount = 30;
                 [self saveGame];
             }
         }
@@ -75,8 +82,10 @@
             if([tempNumber intValue] >= 20)
             {
                 self.playfield.cannon.specialProjectile = 3;
-                [[gameData.gameData objectForKey:@"projectileMoveSpeed"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-20] forKey:@"amount"];
-                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                int tempInt = [tempNumber intValue];
+                [[gameData.gameData objectForKey:@"projectileMoveSpeed"] setObject:[NSNumber numberWithInt:tempInt-20] forKey:@"amount"];
+                [lightningProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-20] forState:UIControlStateNormal];
+                self.playfield.cannon.specialAmount = 20;
                 [self saveGame];
             }
         }
@@ -86,19 +95,23 @@
             if([tempNumber intValue] >= 1)
             {
                 self.playfield.cannon.specialProjectile = 4;
-                [[gameData.gameData objectForKey:@"projectileUnstoppable"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-1] forKey:@"amount"];
-                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                int tempInt = [tempNumber intValue];
+                [[gameData.gameData objectForKey:@"projectileUnstoppable"] setObject:[NSNumber numberWithInt:tempInt-1] forKey:@"amount"];
+                [unstoppableProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-1] forState:UIControlStateNormal];
+                self.playfield.cannon.specialAmount = 1;
                 [self saveGame];
             }
         }
-    } else if (sender == self.darkmatterProjectileActivator) {
+    } else if (sender == self.darkMatterProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
             tempNumber = [[gameData.gameData objectForKey:@"projectileDarkMatter"] objectForKey:@"amount"];
             if([tempNumber intValue] >=1 )
             {
                 self.playfield.cannon.specialProjectile = 5;
-                [[gameData.gameData objectForKey:@"projectileDarkMatter"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-1] forKey:@"amount"];
-                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                int tempInt = [tempNumber intValue];
+                [[gameData.gameData objectForKey:@"projectileDarkMatter"] setObject:[NSNumber numberWithInt:tempInt-1] forKey:@"amount"];
+                [darkMatterProjectileActivator setTitle:[NSString stringWithFormat:@"%i", tempInt-1] forState:UIControlStateNormal];
+                self.playfield.cannon.specialAmount = 1;
                 [self saveGame];
             }
         }
@@ -113,7 +126,7 @@
     frequentProjectileActivator.hidden = NO;
     lightningProjectileActivator.hidden = NO;
     unstoppableProjectileActivator.hidden = NO;
-    darkmatterProjectileActivator.hidden = NO;
+    darkMatterProjectileActivator.hidden = NO;
     
     [self startTimer];
 }
@@ -212,32 +225,31 @@
         frequentProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(110, 445, 30, 30)];
         lightningProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(145, 445, 30, 30)];
         unstoppableProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(180, 445, 30, 30)];
-        darkmatterProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(215, 445, 30, 30)];
+        darkMatterProjectileActivator = [[UIButton alloc] initWithFrame:CGRectMake(215, 445, 30, 30)];
         
         [powerProjectileActivator setBackgroundImage:[UIImage imageNamed:@"Ppower"] forState:UIControlStateNormal];
         [frequentProjectileActivator setBackgroundImage:[UIImage imageNamed:@"PrateOfFire"] forState:UIControlStateNormal];
         [lightningProjectileActivator setBackgroundImage:[UIImage imageNamed:@"PmoveSpeed"] forState:UIControlStateNormal];
         [unstoppableProjectileActivator setBackgroundImage:[UIImage imageNamed:@"Punstoppable"] forState:UIControlStateNormal];
-        [darkmatterProjectileActivator setBackgroundImage:[UIImage imageNamed:@"PdarkMatter"] forState:UIControlStateNormal];
-        
-        [powerProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
-        [frequentProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
-        [lightningProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
-        [unstoppableProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
-        [darkmatterProjectileActivator setTitle:@"0" forState:UIControlStateNormal];
+        [darkMatterProjectileActivator setBackgroundImage:[UIImage imageNamed:@"PdarkMatter"] forState:UIControlStateNormal];
         
         [powerProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         [frequentProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         [lightningProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         [unstoppableProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
-        [darkmatterProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [darkMatterProjectileActivator addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
         
+        [powerProjectileActivator setTitle:[NSString stringWithFormat:@"0"] forState:UIControlStateNormal];
+        [frequentProjectileActivator setTitle:[NSString stringWithFormat:@"0"] forState:UIControlStateNormal];
+        [lightningProjectileActivator setTitle:[NSString stringWithFormat:@"0"] forState:UIControlStateNormal];
+        [unstoppableProjectileActivator setTitle:[NSString stringWithFormat:@"0"] forState:UIControlStateNormal];
+        [darkMatterProjectileActivator setTitle:[NSString stringWithFormat:@"0"] forState:UIControlStateNormal];
         
         [self.view addSubview:powerProjectileActivator];
         [self.view addSubview:frequentProjectileActivator];
         [self.view addSubview:lightningProjectileActivator];
         [self.view addSubview:unstoppableProjectileActivator];
-        [self.view addSubview:darkmatterProjectileActivator];
+        [self.view addSubview:darkMatterProjectileActivator];
         
         self.mvc = [[MenuViewController alloc] init : (GameData *)gameData];
         self.mvc.delegate = self;
@@ -250,13 +262,33 @@
         frequentProjectileActivator.hidden = YES;
         lightningProjectileActivator.hidden = YES;
         unstoppableProjectileActivator.hidden = YES;
-        darkmatterProjectileActivator.hidden = YES;
+        darkMatterProjectileActivator.hidden = YES;
         
         self.cannonHealth.hidden = YES;
         [self.view addSubview:self.mvc.view];
         [self.mvc visible];
     }
     return self;
+}
+
+- (void)updateActivatorTitle :(int)par_number :(int)par_amount
+{
+    if(par_number == 0)
+    {
+        [powerProjectileActivator setTitle:[NSString stringWithFormat:@"%i", par_amount] forState:UIControlStateNormal];
+    }else if (par_number == 1)
+    {
+        [frequentProjectileActivator setTitle:[NSString stringWithFormat:@"%i", par_amount] forState:UIControlStateNormal];
+    }else if(par_number == 2)
+    {
+        [lightningProjectileActivator setTitle:[NSString stringWithFormat:@"%i", par_amount] forState:UIControlStateNormal];
+    }else if(par_number == 3)
+    {
+        [unstoppableProjectileActivator setTitle:[NSString stringWithFormat:@"%i", par_amount] forState:UIControlStateNormal];
+    }else if(par_number)
+    {
+        [darkMatterProjectileActivator setTitle:[NSString stringWithFormat:@"%i", par_amount] forState:UIControlStateNormal];
+    }
 }
 
 - (BOOL)runningGame

@@ -25,7 +25,6 @@
 @synthesize maxHealth;
 @synthesize specialProjectile;
 @synthesize specialAmount;
-@synthesize endBurstSpecialAmount;
 @synthesize firePower;
 @synthesize strength;
 
@@ -60,12 +59,6 @@
     }
 }
 
--(void)setSpecialAmounts : (int)par_specialAmount
-{
-    specialAmount = par_specialAmount;
-    endBurstSpecialAmount = specialAmount -10;
-}
-
 -(void)update:(float) angle2
 {
     static int countdown = 0;
@@ -97,7 +90,12 @@
             {
                 Projectile *new = [[PowerProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
                 [shotProjectiles addObject:new];
-                countdown = 30 / (rateOfFire / 2);
+                if(rateOfFire / 2 == 0)
+                {
+                    countdown = 30;
+                }else{
+                    countdown = 30 / (rateOfFire / 2);
+                }
             }
                 break;
             case 2:
@@ -111,7 +109,7 @@
             {
                 Projectile *new = [[LightningProjectile alloc] initWithX:160+spawnX Y:430+spawnY Angle:angle];
                 [shotProjectiles addObject:new];
-                countdown = 6;
+                countdown = 15;
             }
                 break;
             case 4:
@@ -139,7 +137,7 @@
         }
         if (specialAmount > 0) {
             specialAmount--;
-            if (specialAmount == endBurstSpecialAmount) {
+            if (specialAmount == 0) {
                 specialProjectile = 0;
             }
         }

@@ -60,7 +60,7 @@
 @property (nonatomic, strong) UIButton *frequentProjectileActivator;
 @property (nonatomic, strong) UIButton *lightningProjectileActivator;
 @property (nonatomic, strong) UIButton *unstoppableProjectileActivator;
-@property (nonatomic, strong) UIButton *darkmatterProjectileActivator;
+@property (nonatomic, strong) UIButton *darkMatterProjectileActivator;
 
 - (void) newGame:(UIImage *)beloved;
 - (BOOL) runningGame;
@@ -72,4 +72,5 @@
 - (void) loadGameData;
 - (void)saveGame;
 - (void)createPlayfield;
+- (void)updateActivatorTitle :(int)par_number :(int)par_amount;
 @end
