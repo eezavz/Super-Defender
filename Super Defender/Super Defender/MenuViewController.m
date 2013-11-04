@@ -394,32 +394,8 @@
 - (void)saveGame
 {
     [gameData saveGame];
-    //[gameData writeToFile:[self givePath] atomically:YES];
-    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-//- (NSString *)givePath
-//{
-//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-//    path = [path stringByAppendingPathComponent:@"GameData.plist"];
-//    return path;
-//}
-
-- (IBAction) upgradeViewButtonTapped:(id) sender {
-    NSLog(@"Asdjke");
-    //UpgradeViewController *mvc = [[UpgradeViewController alloc] init];
-    //mvc.delegate = self;
-    //pauseButton.hidden = YES;
-    //scoreLabel.hidden = YES;
-    //[self.view addSubview:mvc.view];
-    //self.view = mvc.view;
-    //self.view.hidden = YES;
-    //[self.view addSubview:emptyView];
-    self.view = upgradeView;
-    //[menuView removeFromSuperview];
-    //curView = upgradeView;
-    //self.view.frame = upgradeView.frame;
-}
 
 - (void) visible
 {

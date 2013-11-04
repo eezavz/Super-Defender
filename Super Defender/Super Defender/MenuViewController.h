@@ -100,7 +100,6 @@
 //- (NSString *)givePath;
 - (IBAction) projectileButtonTapped:(id)sender;
 - (IBAction) projectileViewButtonTapped:(id) sender;
-- (IBAction) upgradeViewButtonTapped:(id) sender;
 - (IBAction) upgradeButtonTapped:(id)sender;
 - (void) visible;
 -(IBAction)projectileMenuClosed:(id)sender;

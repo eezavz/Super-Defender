@@ -75,6 +75,6 @@
 	<key>Score</key>
 	<integer>0</integer>
 	<key>Scrap</key>
-	<integer>100000</integer>
+	<integer>250</integer>
 </dict>
 </plist>
