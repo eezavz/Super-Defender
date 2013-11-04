@@ -52,7 +52,6 @@
 @property (nonatomic, strong) UIButton *pauseButton;
 @property (nonatomic, strong) UIImage *heartImage;
 @property (nonatomic, strong) NSMutableArray *objectButtons;
-//@property (nonatomic, strong) NSMutableDictionary *gameData;
 @property (nonatomic, strong) MenuViewController *mvc;
 @property (nonatomic, strong) UIImageView *beloved;
 
@@ -69,7 +68,6 @@
 - (void) startTimer;
 - (void) stopTimer;
 - (IBAction) objectPressed:(id)sender;
-- (void) loadGameData;
 - (void)saveGame;
 - (void)createPlayfield;
 - (void)updateActivatorTitle :(int)par_number :(int)par_amount;

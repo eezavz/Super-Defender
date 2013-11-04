@@ -9,5 +9,5 @@
 #import "Projectile.h"
 
 @interface DarkMatterProjectile : Projectile
-
+@property (nonatomic, assign) BOOL explode;
 @end

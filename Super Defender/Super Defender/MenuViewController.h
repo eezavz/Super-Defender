@@ -15,6 +15,7 @@
 - (BOOL)runningGame;
 - (void)newGame:(UIImage *)beloved;
 - (void)menuClosed;
+- (void)createPlayfield;
 @end
 
 @interface MenuViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>

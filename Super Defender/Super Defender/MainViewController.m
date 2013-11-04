@@ -470,7 +470,7 @@
         current.center = CGPointMake(centerX, centerY);
     }
     currentAmount += playfield.enemyProjectiles.count;
-    [scoreLabel setText:[[NSString alloc] initWithFormat:@"Score: %d", playfield.score]];
+    [scoreLabel setText:[[[NSString alloc] initWithFormat:@"Score: %d", playfield.score] autorelease]];
     float percentage = (float)playfield.cannon.health / (float)playfield.cannon.maxHealth * 100;
     self.cannonHealth.image = [damageImages objectAtIndex:percentage/10];
     
