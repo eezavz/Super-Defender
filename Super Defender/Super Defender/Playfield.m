@@ -12,6 +12,7 @@
 #import "Object.h"
 #import "Heart.h"
 #import "UnstoppableProjectile.h"
+#import "DarkMatterProjectile.h"
 #define degrees(x) (M_PI * (x) / 180)
 
 @interface Playfield ()
@@ -57,16 +58,11 @@
     int count = allkeys.count;
     for (int i = 0; i < count; i++) {
         NSMutableDictionary *levelCopy = [[self.leveldata objectForKey:[allkeys objectAtIndex:i]] mutableCopy];
-        
         NSMutableArray *ticksCopy = [[[levelCopy objectForKey:@"ticks"] mutableCopy] autorelease];
         for (int j = 0; j < ticksCopy.count; j++) {
-            //NSLog(@"%@", [ticksCopy objectAtIndex:j]);
-            NSLog(@"%@", [[ticksCopy objectAtIndex:j] class]);
             if (![[ticksCopy objectAtIndex:j] isKindOfClass:[NSArray class]]) {
-                NSLog(@"WOOT HET IS EEN NUMMER!");
                 int number = [[ticksCopy objectAtIndex:j] intValue];
                 [ticksCopy removeObject:[ticksCopy objectAtIndex:j]];
-                NSLog(@"Het nummer is %d", number);
                 for (int k = 0; k <= number; k++) {
                     NSArray *leeg = [[NSArray alloc] init];
                     [ticksCopy insertObject:leeg atIndex:j+k];
@@ -77,7 +73,6 @@
         
         [self.leveldata setObject:levelCopy forKey:[allkeys objectAtIndex:i]];
     }
-    NSLog(@"Finale! %@", self.leveldata);
 }
 
 -(void)update:(float)angle;
@@ -150,17 +145,34 @@
     for (int i = 0; i < cannon.shotProjectiles.count; i++) {
         for (int j = 0; j < enemies.count; j++) {
             if([[enemies objectAtIndex:j] collides]){
-                if([self checkHitEnemy:[enemies objectAtIndex:j] Projectile:[self.cannon.shotProjectiles objectAtIndex:i]]) {
-                    Projectile *pHit = [self.cannon.shotProjectiles objectAtIndex:i];
-                    Enemy *eHit = [enemies objectAtIndex:j];
-                    [eHit damageAmount:pHit.power];
-                    if(eHit.health == 0) {
-                        self.score+=eHit.score;
+                if (![[self.cannon.shotProjectiles objectAtIndex:i] isMemberOfClass:[DarkMatterProjectile class]]) {
+                    if([self checkHitEnemy:[enemies objectAtIndex:j] Projectile:[self.cannon.shotProjectiles objectAtIndex:i]]) {
+                        Projectile *pHit = [self.cannon.shotProjectiles objectAtIndex:i];
+                        Enemy *eHit = [enemies objectAtIndex:j];
+                        [eHit damageAmount:pHit.power];
+                        if(eHit.health == 0) {
+                            self.score+=eHit.score;
+                        }
+                        if (![pHit isMemberOfClass:[UnstoppableProjectile class]]) {
+                            [self.cannon.shotProjectiles removeObject:pHit];
+                            [pHit dealloc];
+                            i--;
+                            break;
+                        }
                     }
-                    if (![pHit isMemberOfClass:[UnstoppableProjectile class]]) {
-                        [self.cannon.shotProjectiles removeObject:pHit];
-                        [pHit dealloc];
-                        i--;
+                } else {
+                    DarkMatterProjectile *current = [self.cannon.shotProjectiles objectAtIndex:i];
+                    if (current.explode) {
+                        for (int k = 0; k < enemies.count; k++) {
+                            Enemy *eHit = [enemies objectAtIndex:k];
+                            [eHit damageAmount:9001];
+                            if(eHit.health == 0) {
+                                self.score+=eHit.score;
+                            }
+                            [self.cannon.shotProjectiles removeObject:current];
+                            [current dealloc];
+                            i--;
+                        }
                         break;
                     }
                 }
