@@ -71,4 +71,5 @@
 - (IBAction) objectPressed:(id)sender;
 - (void) loadGameData;
 - (void)saveGame;
+-(void)createPlayfield;
 @end

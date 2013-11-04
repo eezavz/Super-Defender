@@ -10,16 +10,16 @@
 
 @implementation DefaultProjectile
 
-- (Projectile *) initWithX:(float) x Y:(float) y Angle:(float) angle
+- (Projectile *) initWithX:(float) x Y:(float) y Angle:(float) angle Speed:(int) speed Power:(int)par_power
 {
-    self.power = 1;
+    self.power = par_power;
     self.centerX = x;
     self.centerY = y;
     self.width = 20;
     self.height = 20;
     self.angle = angle;
-    self.velX = -cos(degrees(angle))*8;
-    self.velY = -sin(degrees(angle))*8;
+    self.velX = -cos(degrees(angle))*speed;
+    self.velY = -sin(degrees(angle))*speed;
     return self;
 }
 

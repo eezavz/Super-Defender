@@ -24,8 +24,8 @@
 @property (nonatomic, retain) NSMutableDictionary *leveldata;
 //@property (nonatomic, retain) NSMutableDictionary *gameData;
 
-- (Playfield *)init : (NSMutableDictionary *)par_gameData;
+- (Playfield *)init : (int)par_gameData;
 -(void)update:(float)angle;
--(BOOL)checkHitEnemy: (Enemy *) enemy Projectile:(Projectile *) projectile;
+- (Playfield *)init : (int)maxHealth : (int)FireRate : (int)MoveSpeed : (int)Power : (int)RotSpeed;
 
 @end
