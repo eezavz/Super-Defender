@@ -40,8 +40,8 @@
     NSString *tempString;
     if (sender == self.pauseButton) {
         [self stopTimer];
-        self.mvc.score = playfield.score+499;
-        self.mvc.projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", playfield.score+499];
+        self.mvc.score = playfield.score;
+        self.mvc.projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", playfield.score];
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
         self.mvc.upgradeViewButton.hidden = YES;

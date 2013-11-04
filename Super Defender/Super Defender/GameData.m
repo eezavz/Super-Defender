@@ -20,11 +20,11 @@
     if([filemanager fileExistsAtPath:path])
     {
         gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-    }
+    }else{
         NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
         gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
         [self saveGame];
-    
+    }
     return self;
 }
 
