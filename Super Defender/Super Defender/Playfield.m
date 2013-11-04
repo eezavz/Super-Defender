@@ -29,7 +29,7 @@
 @synthesize objects;
 //@synthesize gameData;
 
-- (Playfield *)init : (NSMutableDictionary *)par_gameData
+- (Playfield *)init
 {
     //self.gameData = par_gameData;
     //NSLog(@"%@", gameData);

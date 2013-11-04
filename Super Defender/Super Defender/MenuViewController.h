@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #include "UpgradeViewController.h"
+#include "GameData.h"
 
 
 @protocol MenuViewControllerDelegate <NSObject>
@@ -17,6 +18,8 @@
 @end
 
 @interface MenuViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *projectileBackButton;
+@property (strong, nonatomic) IBOutlet UIButton *upgradeBackButton;
 @property (strong, nonatomic) IBOutlet UIButton *resumeKnop;
 @property (strong, nonatomic) IBOutlet UIButton *imageKnop;
 @property (strong, nonatomic) IBOutlet UIButton *useCamera;
@@ -85,7 +88,7 @@
 @property (atomic, retain) NSMutableArray *upgradeCostLabels;
 @property (atomic, retain) NSMutableArray *upgradeAmountLabels;
 
-@property (atomic, retain) NSMutableDictionary *gameData;
+@property (atomic, retain) GameData *gameData;
 
 - (MenuViewController *)init : (NSMutableDictionary *)gameData;
 - (IBAction)tap:(id)sender;

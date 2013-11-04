@@ -73,6 +73,7 @@
 		DC65C3241822A83200AF1967 /* ProjectileScherm_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */; };
 		DC8A9FB91823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */; };
 		DC8A9FD11823FC230081EFA1 /* ProjectileScherm_v1_leeg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */; };
+		DC8AC99F1826A50E007CBC26 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC99E1826A50E007CBC26 /* GameData.m */; };
 		DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8CCB46181FCD7F008C5DB3 /* GameData.plist */; };
 		DC8DD040180C0A8200857A2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD03F180C0A8200857A2D /* UIKit.framework */; };
 		DC8DD042180C0A8200857A2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8DD041180C0A8200857A2D /* Foundation.framework */; };
@@ -176,6 +177,8 @@
 		DC65C3221822A83200AF1967 /* ProjectileScherm_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1.png; sourceTree = "<group>"; };
 		DC8A9FB81823E4B50081EFA1 /* UpgradeScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeScherm_v1_leeg.png; sourceTree = "<group>"; };
 		DC8A9FD01823FC230081EFA1 /* ProjectileScherm_v1_leeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileScherm_v1_leeg.png; sourceTree = "<group>"; };
+		DC8AC99D1826A50D007CBC26 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
+		DC8AC99E1826A50E007CBC26 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
 		DC8CCB46181FCD7F008C5DB3 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		DC8DD03C180C0A8200857A2D /* Super Defender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Defender.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8DD03F180C0A8200857A2D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -456,6 +459,8 @@
 				DC8DD089180C0E4600857A2D /* Star.m */,
 				DCDF4BA0181E88FB008ED39F /* Heart.h */,
 				DCDF4BA1181E88FB008ED39F /* Heart.m */,
+				DC8AC99D1826A50D007CBC26 /* GameData.h */,
+				DC8AC99E1826A50E007CBC26 /* GameData.m */,
 			);
 			path = "Super Defender";
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				DC8DD08A180C0E4600857A2D /* Star.m in Sources */,
 				DCDF4BA2181E88FC008ED39F /* Heart.m in Sources */,
 				DCAAFB061822811500A925FF /* UpgradeViewController.m in Sources */,
+				DC8AC99F1826A50E007CBC26 /* GameData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,38 +37,70 @@
 
 - (void) buttonTap:(id) sender {
     NSLog(@"Asdjke");
+    NSNumber *tempNumber = [[NSNumber alloc]init];
     if (sender == self.pauseButton) {
         [self stopTimer];
-        self.mvc.score = playfield.score;
-        self.mvc.projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", playfield.score];
+        self.mvc.score = playfield.score+499;
+        self.mvc.projectileScoreLabel.text = [NSString stringWithFormat:@"SCORE: %i", playfield.score+499];
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
         [self.view addSubview:self.mvc.view];
         [self.mvc visible];
     } else if (sender == self.powerProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            self.playfield.cannon.specialProjectile = 1;
-            self.playfield.cannon.specialAmount = 10;
+            tempNumber = [[gameData.gameData objectForKey:@"projectilePower"] objectForKey:@"amount"];
+            NSLog(@"amount: %i", [tempNumber intValue]);
+            if([tempNumber intValue] >0)
+            {
+                self.playfield.cannon.specialProjectile = 1;
+                [[gameData.gameData objectForKey:@"projectilePower"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                [self saveGame];
+            }
         }
     } else if (sender == self.frequentProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            self.playfield.cannon.specialProjectile = 2;
-            self.playfield.cannon.specialAmount = 50;
+            tempNumber = [[gameData.gameData objectForKey:@"projectileFireRate"] objectForKey:@"amount"];
+            if([tempNumber intValue] >0)
+            {
+                self.playfield.cannon.specialProjectile = 2;
+                [[gameData.gameData objectForKey:@"projectileFireRate"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                [self saveGame];
+            }
         }
     } else if (sender == self.lightningProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            self.playfield.cannon.specialProjectile = 3;
-            self.playfield.cannon.specialAmount = 20;
+            tempNumber = [[gameData.gameData objectForKey:@"projectileMoveSpeed"] objectForKey:@"amount"];
+            if([tempNumber intValue] >0)
+            {
+                self.playfield.cannon.specialProjectile = 3;
+                [[gameData.gameData objectForKey:@"projectileMoveSpeed"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                [self saveGame];
+            }
         }
     } else if (sender == self.unstoppableProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            self.playfield.cannon.specialProjectile = 4;
-            self.playfield.cannon.specialAmount = 1;
+            tempNumber = [[gameData.gameData objectForKey:@"projectileUnstoppable"] objectForKey:@"amount"];
+            if([tempNumber intValue] >0)
+            {
+                self.playfield.cannon.specialProjectile = 4;
+                [[gameData.gameData objectForKey:@"projectileUnstoppable"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                [self saveGame];
+            }
         }
     } else if (sender == self.darkmatterProjectileActivator) {
         if (self.playfield.cannon.specialProjectile == 0) {
-            self.playfield.cannon.specialProjectile = 5;
-            self.playfield.cannon.specialAmount = 1;
+            tempNumber = [[gameData.gameData objectForKey:@"projectileDarkMatter"] objectForKey:@"amount"];
+            if([tempNumber intValue] >0)
+            {
+                self.playfield.cannon.specialProjectile = 5;
+                [[gameData.gameData objectForKey:@"projectileDarkMatter"] setObject:[NSNumber numberWithInt:[tempNumber intValue]-10] forKey:@"amount"];
+                [self.playfield.cannon setSpecialAmounts : [tempNumber intValue]];
+                [self saveGame];
+            }
         }
     }
 }
@@ -94,7 +126,8 @@
     if (self) {
         // Custom initialization
         NSLog(@"Loadyload!");
-        [self loadGameData];
+        //[self loadGameData];
+        gameData = [[GameData alloc] init];
         heartImage = [UIImage imageNamed:@"DefenderHeart"];
         damageImages = [[NSMutableArray alloc] init];
         for (int i = 0; i < 110; i += 10) {
@@ -212,8 +245,8 @@
         [self.view addSubview:unstoppableProjectileActivator];
         [self.view addSubview:darkmatterProjectileActivator];
         
-        self.mvc = [[MenuViewController alloc] init : (NSMutableDictionary *)gameData];
-        self.mvc.gameData = gameData;
+        self.mvc = [[MenuViewController alloc] init : (GameData *)gameData];
+        //self.mvc.gameData = gameData;
         self.mvc.delegate = self;
         pauseButton.hidden = YES;
         scoreLabel.hidden = YES;
@@ -247,7 +280,7 @@
     if (self.playfield) {
         [playfield release];
     }
-    [self loadGameData];
+    //[self loadGameData];
     if (self.objectButtons) {
         for (int i = 0; i < self.objectButtons.count; i++) {
             UIButton *delete = [self.objectButtons objectAtIndex:i];
@@ -259,7 +292,7 @@
         self.objectButtons = [[NSMutableArray alloc] init];
     }
     
-    self.playfield = [[Playfield alloc] init:gameData];
+    self.playfield = [[Playfield alloc] init];
     cannonBody.frame = CGRectMake(playfield.cannon.posX - playfield.cannon.width / 2, playfield.cannon.posY - playfield.cannon.height / 2, playfield.cannon.width, playfield.cannon.height);
     self.beloved.image = beloved;
     cannonBarrel.hidden = NO;
@@ -268,36 +301,37 @@
     self.beloved.hidden = NO;
 }
 
-- (void) loadGameData
-{
-    NSFileManager *filemanager = [NSFileManager defaultManager];
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    path = [path stringByAppendingPathComponent:@"GameData.plist"];
-    if([filemanager fileExistsAtPath:path])
-    {
-        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-        //NSLog(@"%@", [gameData objectForKey:@"Score"]);
-        //NSLog(@"%@", gameData);
-    }else{
-        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
-        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
-        //NSLog(@"%@", gameData);
-        [self saveGame];
-    }
-}
+//- (void) loadGameData
+//{
+//    NSFileManager *filemanager = [NSFileManager defaultManager];
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+//    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+//    if([filemanager fileExistsAtPath:path])
+//    {
+//        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+//        //NSLog(@"%@", [gameData objectForKey:@"Score"]);
+//        //NSLog(@"%@", gameData);
+//    }else{
+//        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
+//        gameData = [[NSMutableDictionary alloc] initWithContentsOfFile:sourcePath];
+//        //NSLog(@"%@", gameData);
+//        [self saveGame];
+//    }
+//}
 
 - (void)saveGame
 {
-    [gameData writeToFile:[self givePath] atomically:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [gameData saveGame];
+//    [gameData writeToFile:[self givePath] atomically:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (NSString *)givePath
-{
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-    path = [path stringByAppendingPathComponent:@"GameData.plist"];
-    return path;
-}
+//- (NSString *)givePath
+//{
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+//    path = [path stringByAppendingPathComponent:@"GameData.plist"];
+//    return path;
+//}
 
 
 - (void)viewDidLoad
@@ -332,7 +366,7 @@
     }
     if (playfield.cannon.health == 0) {
         [self stopTimer];
-        [gameData setValue:[NSNumber numberWithInt:playfield.score] forKey:@"Score"];
+        [gameData.gameData setValue:[NSNumber numberWithInt:playfield.score] forKey:@"Score"];
         [self saveGame];
     }
     [self render];
