@@ -74,6 +74,12 @@
 		CD27295E1827AC8D005CD420 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CD27295B1827AC8D005CD420 /* Default.png */; };
 		CD27295F1827AC8D005CD420 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD27295C1827AC8D005CD420 /* Default-568h@2x.png */; };
 		CD2729601827AC8D005CD420 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CD27295D1827AC8D005CD420 /* Default~iphone.png */; };
+		CDC697B71830FC6D00BAFC80 /* projectileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC697B51830FC6D00BAFC80 /* projectileViewController.m */; };
+		CDC697B81830FC6D00BAFC80 /* projectileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC697B61830FC6D00BAFC80 /* projectileViewController.xib */; };
+		CDC697BC1830FC8E00BAFC80 /* upgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC697BA1830FC8E00BAFC80 /* upgradeViewController.m */; };
+		CDC697BD1830FC8E00BAFC80 /* upgradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC697BB1830FC8E00BAFC80 /* upgradeViewController.xib */; };
+		CDC697C11830FC9B00BAFC80 /* photoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC697BF1830FC9B00BAFC80 /* photoViewController.m */; };
+		CDC697C21830FC9B00BAFC80 /* photoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC697C01830FC9B00BAFC80 /* photoViewController.xib */; };
 		CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB21824644800207570 /* iPhone Non-Retina.png */; };
 		CDD36AB61824644800207570 /* iPhone Retina (iOS 6 and Prior).png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */; };
 		CDD36AB71824644800207570 /* iPhone Retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD36AB41824644800207570 /* iPhone Retina.png */; };
@@ -173,6 +179,15 @@
 		CD27295B1827AC8D005CD420 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CD27295C1827AC8D005CD420 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CD27295D1827AC8D005CD420 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		CDC697B41830FC6D00BAFC80 /* projectileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = projectileViewController.h; sourceTree = "<group>"; };
+		CDC697B51830FC6D00BAFC80 /* projectileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = projectileViewController.m; sourceTree = "<group>"; };
+		CDC697B61830FC6D00BAFC80 /* projectileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = projectileViewController.xib; sourceTree = "<group>"; };
+		CDC697B91830FC8E00BAFC80 /* upgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = upgradeViewController.h; sourceTree = "<group>"; };
+		CDC697BA1830FC8E00BAFC80 /* upgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = upgradeViewController.m; sourceTree = "<group>"; };
+		CDC697BB1830FC8E00BAFC80 /* upgradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = upgradeViewController.xib; sourceTree = "<group>"; };
+		CDC697BE1830FC9B00BAFC80 /* photoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = photoViewController.h; sourceTree = "<group>"; };
+		CDC697BF1830FC9B00BAFC80 /* photoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = photoViewController.m; sourceTree = "<group>"; };
+		CDC697C01830FC9B00BAFC80 /* photoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = photoViewController.xib; sourceTree = "<group>"; };
 		CDD36AB21824644800207570 /* iPhone Non-Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Non-Retina.png"; sourceTree = "<group>"; };
 		CDD36AB31824644800207570 /* iPhone Retina (iOS 6 and Prior).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina (iOS 6 and Prior).png"; sourceTree = "<group>"; };
 		CDD36AB41824644800207570 /* iPhone Retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone Retina.png"; sourceTree = "<group>"; };
@@ -454,6 +469,15 @@
 				DCDF4BA1181E88FB008ED39F /* Heart.m */,
 				DC8AC99D1826A50D007CBC26 /* GameData.h */,
 				DC8AC99E1826A50E007CBC26 /* GameData.m */,
+				CDC697B41830FC6D00BAFC80 /* projectileViewController.h */,
+				CDC697B51830FC6D00BAFC80 /* projectileViewController.m */,
+				CDC697B61830FC6D00BAFC80 /* projectileViewController.xib */,
+				CDC697B91830FC8E00BAFC80 /* upgradeViewController.h */,
+				CDC697BA1830FC8E00BAFC80 /* upgradeViewController.m */,
+				CDC697BB1830FC8E00BAFC80 /* upgradeViewController.xib */,
+				CDC697BE1830FC9B00BAFC80 /* photoViewController.h */,
+				CDC697BF1830FC9B00BAFC80 /* photoViewController.m */,
+				CDC697C01830FC9B00BAFC80 /* photoViewController.xib */,
 			);
 			path = "Super Defender";
 			sourceTree = "<group>";
@@ -532,6 +556,7 @@
 				827431421822AB27004E6643 /* 60.png in Resources */,
 				822793CF1823D30A00729F29 /* background.png in Resources */,
 				8274313E1822AB27004E6643 /* 20.png in Resources */,
+				CDC697B81830FC6D00BAFC80 /* projectileViewController.xib in Resources */,
 				827431521822AB27004E6643 /* pauzebutton@2x.png in Resources */,
 				827431511822AB27004E6643 /* pauzebutton.png in Resources */,
 				827431431822AB27004E6643 /* 70.png in Resources */,
@@ -559,12 +584,14 @@
 				CD27294E1827A34C005CD420 /* SP_iPhone Non-Retina.png in Resources */,
 				82D880061825A3CA00338BBB /* DarkMatterProjectile@2x.png in Resources */,
 				DCDF4B9F181E8213008ED39F /* MenuView.xib in Resources */,
+				CDC697C21830FC9B00BAFC80 /* photoViewController.xib in Resources */,
 				82B9E0E51825702C00AB37C8 /* PrateOfFire.png in Resources */,
 				8222CB3F182855A600DA1230 /* UpgradeScherm_v1_leeg.png in Resources */,
 				82B9E0F1182570AB00AB37C8 /* rotSpeed.png in Resources */,
 				8274315D1822AB3E004E6643 /* EnemyProjectile.png in Resources */,
 				822793CC1823D22100729F29 /* barrel@2x.png in Resources */,
 				82B9E0EF182570AB00AB37C8 /* power.png in Resources */,
+				CDC697BD1830FC8E00BAFC80 /* upgradeViewController.xib in Resources */,
 				CDD36AB51824644800207570 /* iPhone Non-Retina.png in Resources */,
 				827431621822AB3E004E6643 /* UnstoppableProjectile.png in Resources */,
 				DC8CCB47181FCD80008C5DB3 /* GameData.plist in Resources */,
@@ -605,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8DD04C180C0A8200857A2D /* main.m in Sources */,
+				CDC697BC1830FC8E00BAFC80 /* upgradeViewController.m in Sources */,
 				DC8DD050180C0A8200857A2D /* AppDelegate.m in Sources */,
 				DC8DD05F180C0B2800857A2D /* MainViewController.m in Sources */,
 				DC8DD063180C0BC200857A2D /* MenuViewController.m in Sources */,
@@ -617,9 +645,11 @@
 				DC8DD078180C0DCA00857A2D /* Enemy2.m in Sources */,
 				DC8DD07B180C0DE700857A2D /* Cannon.m in Sources */,
 				DC8DD07E180C0E0500857A2D /* Projectile.m in Sources */,
+				CDC697C11830FC9B00BAFC80 /* photoViewController.m in Sources */,
 				DC8DD081180C0E1A00857A2D /* DefaultProjectile.m in Sources */,
 				DC8DD084180C0E2A00857A2D /* EnemyProjectile.m in Sources */,
 				82B9E0FD182582BD00AB37C8 /* UnstoppableProjectile.m in Sources */,
+				CDC697B71830FC6D00BAFC80 /* projectileViewController.m in Sources */,
 				82B9E0F71825824100AB37C8 /* FrequentProjectile.m in Sources */,
 				DC8DD087180C0E3800857A2D /* Object.m in Sources */,
 				DCDF4BA2181E88FC008ED39F /* Heart.m in Sources */,
